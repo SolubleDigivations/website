@@ -126,9 +126,9 @@
   font-family: 'Outfit', sans-serif;
 }
 
-.font-outfit-400 {
+.font-outfit-500 {
   font-family: 'Outfit', sans-serif;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .font-outfit-700 {
@@ -146,4 +146,22 @@
   html {
     @apply font-sans;
   }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+.group:hover svg {
+  color: var(--icon-color);
 }
