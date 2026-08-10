@@ -49,7 +49,7 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
+  --background: bg-[#F4F4F2]
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -115,6 +115,25 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+}
+
+.font-outfit {
+  font-family: 'Outfit', sans-serif;
+}
+
+.font-outfit-400 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+}
+
+.font-outfit-700 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
 }
 
 @layer base {
