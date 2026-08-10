@@ -48,6 +48,11 @@ const expertiseData = [
     color: "#F7DF1E",
   },
   {
+    icon: SiVercel,
+    title: "Vercel",
+    color: "#000000",
+  },
+  {
     icon: SiTypescript,
     title: "TypeScript",
     color: "#3178C6",
@@ -92,11 +97,6 @@ const expertiseData = [
     title: "Prisma",
     color: "#2D3748",
   },
-  {
-    icon: SiVercel,
-    title: "Vercel",
-    color: "#000000",
-  },
 ];
 function Expertise() {
   return (
@@ -126,7 +126,9 @@ function Expertise() {
                   size={40}
                   className="text-[#222222] transition-colors duration-300 group-hover:text-(--icon-color)"
                 />
-                {/* {item.title} */}
+                <h3 className="font-outfit-400 text-[#222222] ml-1.5 ">
+                  {item.title}
+                </h3>
               </div>
             );
           })}
