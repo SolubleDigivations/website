@@ -3,7 +3,15 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <div className="h-screen w-full flex flex-row justify-center items-center z-10 relative">
+    <div className="min-h-screen w-full flex flex-row justify-center items-center z-10 relative">
+      {/* <video
+        className="absolute inset-0 h-full w-screen object-cover"
+        src="/assets/videos/hero-wind2.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+      /> */}
       <Image
         src="/assets/backgrounds/bg4.jpg"
         alt="hero"
