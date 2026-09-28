@@ -22,28 +22,29 @@ export default function Header() {
                 <div className="w-full h-screen bg-[#f4f4f2] relative flex items-center justify-center">
                     
                     {/* Logo */}
-                    <h1 className="absolute top-6 left-5 sm:top-8 sm:left-8 md:top-10 md:left-10 text-2xl sm:text-3xl font-bold text-[#222222] font-outfit">
-                        Soluble Di
+                    <h1 className="absolute top-6 left-5 sm:top-8 sm:left-8 md:top-10 md:left-10 text-2xl sm:text-3xl font-bold text-[#222222] font-outfit overflow-hidden">
+                        <p className="animate-navlinks1">Soluble Di</p>
                     </h1>
 
                     {/* Close Button */}
                     <Button
                         onClick={() => setMenuOpen(false)}
-                        className="absolute top-5 right-4 sm:top-7 sm:right-6 md:top-8 md:right-8 text-[#222222] bg-transparent hover:bg-transparent border-0 cursor-pointer hover:text-gray-400 p-2"
+                        className="absolute top-5 right-4 sm:top-7 sm:right-6 md:top-8 md:right-8 text-[#222222] bg-transparent hover:bg-transparent border-0 cursor-pointer hover:text-gray-400 p-2 overflow-hidden"
                     >
-                        <X className="!size-7 sm:!size-8 md:!size-9" strokeWidth={1.5} />
+                        <X className="size-7! sm:size-8! md:size-9! animate-navlinks1" strokeWidth={1.5} />
                     </Button>
 
                     {/* Navigation */}
                     <nav className="flex flex-col items-center gap-1 sm:gap-2 md:gap-3 font-outfit-700 tracking-tight text-[#222222]">
-                        {navLinks.map((link) => (
+                        {navLinks.map((link,index) => (
                             <Link
                                 key={link.name}
                                 href={link.href}
                                 onClick={() => setMenuOpen(false)}
-                                className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold hover:text-gray-400 transition-colors duration-300"
+                                className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold hover:opacity-60 transition-opacity duration-300 overflow-hidden"
                             >
-                                {link.name}
+                                <p className={`animate-navlinks${index+1}`}>{link.name}</p>
+                                
                             </Link>
                         ))}
                     </nav>

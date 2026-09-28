@@ -1,5 +1,7 @@
+"use client";
 import React from "react";
 import Image from "next/image";
+import RippleDistortion from '@/components/RippleDistortion'
 
 export default function Hero() {
   return (
@@ -12,20 +14,46 @@ export default function Hero() {
         loop
         playsInline
       /> */}
-      <Image
+      {/* <Image
         src="/assets/backgrounds/bg4.jpg"
         alt="hero"
         fill
         className="w-screen h-full"
         loading="lazy"
-      />
+      /> */}
+      <div style={{ width: "100%", height: "auto" }}>
+        <RippleDistortion
+          src="/assets/backgrounds/bg4.jpg"
+          brushSize={85}
+          strength={0.1}
+          swirl={0.65}
+          rings={2}
+          grayscale
+          spread={5}
+          fade={3}
+          spacing={15}
+          dispersion={0}
+          glint={0}
+          tint="#5590f7"
+          tintAmount={0.1}
+          highlightColor="#ffffff"
+          trigger="hover"
+          clickStrength={2}
+          quality="low"
+          enabled
+        />
+      </div>
       <div className="absolute z-0 inset-x-0 bottom-0 left-0 h-[10%] w-full bg-linear-to-b  from-transparent to-[#f4f4f2] backdrop-blur-none"></div>
-
       <div className="absolute inset-0 flex flex-col mt-18 md:mt-48 justify-start items-start text-white px-5 sm:px-8 md:px-12 lg:px-20 pt-16 sm:pt-20 md:pt-10">
         {/* Small Heading */}
-        <h1 className="text-lg sm:text-xl md:text-2xl font-semibold text-[#222222] font-outfit">
-          You don't need <span className="text-gray-500">just a Website</span>
-        </h1>
+        <div className="overflow-hidden">
+          <h1 className="text-lg sm:text-xl md:text-2xl font-semibold text-[#222222] font-outfit animate-herotext">
+            You don't need{" "}
+            <span className="text-gray-500 animate-herotext">
+              just a Website
+            </span>
+          </h1>
+        </div>
 
         {/* Main Heading */}
         <p className="text-[42px] leading-[105%] sm:text-[58px] md:text-[76px] lg:text-[92px] xl:text-[108px] sm:leading-[100%] font-extrabold mt-3 sm:mt-4 text-[#222222] font-outfit-700">

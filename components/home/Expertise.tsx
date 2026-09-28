@@ -100,7 +100,7 @@ const expertiseData = [
 ];
 function Expertise() {
   return (
-    <div className="w-full overflow-hidden pt-16 pb-24 px-16">
+    <div className="w-full overflow-hidden pt-18 pb-14 px-16">
       <h2 className="text-[#0a0a0a] font-outfit-500 text-lg flex flex-row">
         <AiFillExperiment size={25} />
         Our Expertise
@@ -109,13 +109,14 @@ function Expertise() {
         <div className="absolute z-10 inset-x-0 top-8 -left-1.5 h-full w-18 bg-linear-to-r from-[#f4f4f2] to-transparent"></div>
 
         <div className="absolute z-10 top-8 -right-1.5 h-full w-18 bg-linear-to-l  from-[#f4f4f2] to-transparent"></div>
+        
         <div className="flex w-max animate-marquee gap-6 py-8 z-0">
           {[...expertiseData, ...expertiseData].map((item, index) => {
             const Icon = item.icon;
             return (
               <div
                 key={index}
-                className="rounded-3xl w-48 h-32 md:w-60 md:h-40 bg-white flex items-center justify-center group hover:shadow-xl z-0 transition-all duration-200"
+                className="rounded-3xl w-15 h-12 md:w-60 md:h-40 bg-white flex items-center justify-center group hover:shadow-xl z-0 transition-all duration-200"
                 style={
                   {
                     "--icon-color": item.color,

@@ -4,8 +4,8 @@ import React from "react";
 
 function QuoteBrand() {
   return (
-    <section className="bg-black mx-auto mt-4 text-center py-27.5 relative overflow-hidden items-center justify-center flex">
-      <div className="absolute top-0 w-full font-outfit-700 text-[260px] text-white opacity-10">
+    <section className="bg-linear-to-br from-soluble-blue via-soluble-mint to-soluble-yellow mx-auto mt-4 text-center py-27.5 relative overflow-hidden items-center justify-center flex">
+      <div className="absolute top-0 w-full font-outfit-700 text-[260px] text-white opacity-20">
         SOLUBLE
       </div>
       <div className="max-w-310">
