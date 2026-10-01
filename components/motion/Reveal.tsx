@@ -9,6 +9,7 @@ interface RevealProps {
   duration?: number;
   y?: number;
   className?: string;
+  once?:boolean;
 }
 
 export default function Reveal({
@@ -17,6 +18,7 @@ export default function Reveal({
   duration = 0.7,
   y = 24,
   className = "",
+  once=false
 }: RevealProps) {
   return (
     <motion.div
@@ -29,7 +31,7 @@ export default function Reveal({
         y: 0,
       }}
       viewport={{
-        once: true,
+        once: once,
         margin: "-80px",
       }}
       transition={{

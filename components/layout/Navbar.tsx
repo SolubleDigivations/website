@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const navLinks = [
   {
@@ -66,11 +67,12 @@ export default function Navbar() {
           className="group flex items-center"
           aria-label="Soluble Digivations home"
         >
+          <Image src={'/assets/images/logo/logo.png'} alt="Soluble Digital Innovation" width={90} height={90} className="w-12 aspect-square h-auto"/>
           <span className="flex items-center gap-1.5 text-xl font-bold tracking-[-0.06em]">
-            <span className="relative h-3 w-3 overflow-hidden rounded-full bg-[#ff7857]">
-              <span className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-[#55c7ff]" />
-              <span className="absolute -bottom-1 -left-1 h-3 w-3 rounded-full bg-soluble-yellow" />
-            </span>
+            {/* <span className="relative h-8 w-8 overflow-hidden rounded-full bg-[#ff7857]">
+              <span className="absolute -right-1 -top-1 h-6 w-6 rounded-full bg-soluble-purple" />
+              <span className="absolute -bottom-1 -left-1 h-6 w-6 rounded-full bg-soluble-yellow" />
+            </span> */}
             Soluble
           </span>
         </Link>
