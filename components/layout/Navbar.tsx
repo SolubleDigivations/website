@@ -40,9 +40,9 @@ export default function Navbar() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  },[]);
+  }, []);
 
-  const scrolled=scrollY>0;
+  const scrolled = scrollY > 0;
   return (
     <motion.header
       initial={{
@@ -57,7 +57,7 @@ export default function Navbar() {
         duration: 0.7,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className={`w-full fixed backdrop-blur-sm top-0 z-999 border-b-[1.5px] ${scrolled? 'border-gray-400/20' : 'border-transparent'}`}
+      className={`w-full fixed backdrop-blur-sm top-0 z-999 border-b-[1.5px] ${scrolled ? "border-gray-400/20" : "border-transparent"}`}
     >
       <nav className="container-soluble flex h-20 items-center justify-between md:h-20 lg:h-18">
         {/* Logo */}

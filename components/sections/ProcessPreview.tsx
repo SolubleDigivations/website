@@ -13,7 +13,7 @@ export default function ProcessPreview() {
         <div className="mb-14 grid gap-8 md:grid-cols-[1fr_0.65fr] md:items-end">
           <div>
             <Reveal>
-              <span className="inline-flex rounded-full border border-border bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+              <span className="inline-flex rounded-full border border-border bg-red-500/25 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                 Our process
               </span>
             </Reveal>

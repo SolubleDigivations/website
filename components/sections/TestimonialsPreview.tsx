@@ -32,7 +32,7 @@ export default function TestimonialsPreview() {
         <div className="grid gap-6 md:grid-cols-[1fr_0.6fr] md:items-end">
           <div>
             <Reveal>
-              <span className="inline-flex rounded-full border border-border bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+              <span className="inline-flex rounded-full border border-border bg-soluble-blue/25 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                 Testimonials
               </span>
             </Reveal>

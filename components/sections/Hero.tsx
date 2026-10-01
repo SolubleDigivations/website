@@ -56,9 +56,9 @@ export default function Hero() {
               digital products
               <br />
               that{" "}
-              <span className="relative inline-block">
+              <span className="relative inline-block ml-2">
                 <YellowHighlight />
-                <span className="relative z-10">move</span>
+                <span className="relative z-10 mx-2">move</span>
               </span>
               <br />
               businesses

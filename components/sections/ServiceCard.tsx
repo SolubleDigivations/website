@@ -37,7 +37,7 @@ export default function ServiceCard({
         delay,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className="group relative min-h-[270px] overflow-hidden rounded-[1.25rem] border border-border bg-white p-6"
+      className="group relative min-h-[270px] overflow-hidden rounded-[1.25rem] border border-border bg-white p-6 cursor-pointer"
     >
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col">
@@ -47,7 +47,7 @@ export default function ServiceCard({
         </div>
 
         {/* Text */}
-        <div className="mt-auto max-w-[220px]">
+        <div className="my-auto max-w-[220px]">
           <h3 className="text-2xl font-bold tracking-[-0.04em]">{title}</h3>
 
           <p className="mt-2 text-sm leading-5 text-muted-foreground">

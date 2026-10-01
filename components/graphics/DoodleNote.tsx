@@ -20,7 +20,7 @@ export default function DoodleNote() {
       }}
       className="absolute -right-2 -top-6 hidden w-32 rotate-[-7deg] lg:block"
     >
-      <p className="text-[15px] font-bold uppercase leading-[1.2] tracking-[0.08em]">
+      <p className="text-[16px] font-bold font-caveat uppercase leading-[1.2] tracking-[0.08em]">
         Building
         <br />
         Digital

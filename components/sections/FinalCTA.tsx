@@ -10,63 +10,59 @@ export default function FinalCTA() {
   return (
     <section className="px-4 py-12 md:px-6 md:py-20">
       <div className="container-soluble">
-        <div className="relative isolate overflow-hidden rounded-[28px] border border-border bg-linear-to-br from-soluble-yellow via-soluble-pink to-soluble-blue px-6 py-12 md:px-12 md:py-16 lg:px-16 lg:py-20">
-          <div className="absolute top-0 backdrop-blur-xl h-full w-full"></div>
+          <div className="relative isolate overflow-hidden rounded-[28px] border border-border bg-linear-to-br from-soluble-yellow via-soluble-pink to-soluble-blue px-6 py-12 md:px-12 md:py-16 lg:px-16 lg:py-20">
+            <div className="absolute top-0 backdrop-blur-xl h-full w-full"></div>
 
-          {/* Decorative shapes */}
-          <DecorativeShapes />
+            {/* Decorative shapes */}
+            <DecorativeShapes />
 
-          {/* Content */}
-          <div className="relative z-10 grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-end">
-
-            {/* Heading */}
-            <div>
-              <Reveal>
-                <span className="inline-flex rounded-full border border-border bg-white/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground backdrop-blur-sm">
-                  Let's work together
-                </span>
-              </Reveal>
-
-              <Reveal delay={0.08}>
-                <h2 className="mt-5 max-w-2xl text-5xl font-bold leading-[0.9] tracking-[-0.065em] md:text-6xl lg:text-7xl">
-                  Have something
-                  <br />
-                  <span className="relative inline-block">
-                    worth building?
-                    <Underline />
+            {/* Content */}
+            <div className="relative z-10 grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-end">
+              {/* Heading */}
+              <div>
+                <Reveal>
+                  <span className="inline-flex rounded-full border border-border bg-white/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground backdrop-blur-sm">
+                    Let's work together
                   </span>
-                </h2>
-              </Reveal>
+                </Reveal>
+
+                <Reveal delay={0.08}>
+                  <h2 className="mt-5 max-w-2xl text-5xl font-bold leading-[0.9] tracking-[-0.065em] md:text-6xl lg:text-7xl">
+                    Have something
+                    <br />
+                    <span className="relative inline-block">
+                      worth building?
+                      <Underline />
+                    </span>
+                  </h2>
+                </Reveal>
+              </div>
+
+              {/* CTA */}
+              <div className="lg:pb-1">
+                <Reveal delay={0.16}>
+                  <p className="max-w-sm text-sm leading-6 text-muted-foreground">
+                    Let's discuss your idea and turn it into a real product.
+                  </p>
+                </Reveal>
+
+                <Reveal delay={0.24}>
+                  <Link
+                    href="/contact"
+                    className="group mt-6 inline-flex items-center gap-3 rounded-full bg-[#111111] px-5 py-3.5 text-sm font-semibold text-white transition-transform duration-300 hover:-translate-y-1"
+                  >
+                    Start a conversation
+                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                      <ArrowUpRight size={14} />
+                    </span>
+                  </Link>
+                </Reveal>
+              </div>
             </div>
 
-            {/* CTA */}
-            <div className="lg:pb-1">
-              <Reveal delay={0.16}>
-                <p className="max-w-sm text-sm leading-6 text-muted-foreground">
-                  Let's discuss your idea and turn it into a
-                  real product.
-                </p>
-              </Reveal>
-
-              <Reveal delay={0.24}>
-                <Link
-                  href="/contact"
-                  className="group mt-6 inline-flex items-center gap-3 rounded-full bg-[#111111] px-5 py-3.5 text-sm font-semibold text-white transition-transform duration-300 hover:-translate-y-1"
-                >
-                  Start a conversation
-
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                    <ArrowUpRight size={14} />
-                  </span>
-                </Link>
-              </Reveal>
-            </div>
+            {/* Doodle arrow */}
+            <DoodleArrow />
           </div>
-
-          {/* Doodle arrow */}
-          <DoodleArrow />
-
-        </div>
       </div>
     </section>
   );

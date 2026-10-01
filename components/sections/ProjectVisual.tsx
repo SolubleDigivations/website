@@ -19,7 +19,7 @@ export default function ProjectVisual({
 
 function StonezaVisual() {
   return (
-    <div className="relative h-full min-h-[360px] overflow-hidden bg-[#EDEDE8]">
+    <div className="relative h-full min-h-[440px] overflow-hidden bg-[#EDEDE8]">
       {/* Background stone image */}
       <div className="absolute inset-0">
         <Image

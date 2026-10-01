@@ -15,7 +15,7 @@ export default function TechnologiesPreview() {
           {/* Heading */}
           <div>
             <Reveal>
-              <span className="inline-flex rounded-full border border-border bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+              <span className="inline-flex rounded-full border border-border bg-soluble-mint/25 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                 Technologies
               </span>
             </Reveal>
@@ -45,6 +45,7 @@ export default function TechnologiesPreview() {
               name={technology.name}
               icon={technology.icon}
               index={index}
+              color={technology.color}
             />
           ))}
         </div>

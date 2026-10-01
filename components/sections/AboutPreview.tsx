@@ -24,7 +24,7 @@ export default function AboutPreview() {
           {/* Left content */}
           <div>
             <Reveal>
-              <span className="inline-flex rounded-full border border-border bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+              <span className="inline-flex rounded-full border border-border bg-soluble-pink/25 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                 About Soluble
               </span>
             </Reveal>

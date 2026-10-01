@@ -17,7 +17,7 @@ export default function ProjectsPreview() {
 
           <div>
             <Reveal>
-              <span className="inline-flex rounded-full border border-border bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+              <span className="inline-flex rounded-full border border-border px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground bg-soluble-blue/25">
                 Featured work
               </span>
             </Reveal>
@@ -52,7 +52,7 @@ export default function ProjectsPreview() {
         </div>
 
         {/* Projects */}
-        <div className="space-y-5">
+        <div className="space-y-10">
           {projects.map((project, index) => (
             <ProjectCard
               key={project.title}

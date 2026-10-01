@@ -10,6 +10,8 @@
   /* Typography */
   --font-sans: var(--font-manrope);
   --font-heading: var(--font-manrope);
+  --font-caveat: var(--font-caveat);
+  --font-outfit: var(--font-outfit);
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   /* Core colors */

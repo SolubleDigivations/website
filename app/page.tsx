@@ -27,7 +27,6 @@ export default function Home() {
       <AboutPreview/>
       <TestimonialsPreview/>
       <FinalCTA/>
-      <Footer/>
     </div>
   );
 }
