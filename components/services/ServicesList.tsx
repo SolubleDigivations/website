@@ -1,19 +1,20 @@
 import React from "react";
 import { servicesPage } from "@/lib/services";
-import { ArrowBigRight, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function ServicesList() {
   return (
     <div className="pt-8">
       <div className="">
-          {servicesPage.map((service) => (
-              <ServiceItem
-                index={service.index}
-                title={service.title}
-                subtitle={service.subtitle}
-                id={service.id}
-              />
-          ))}
+        {servicesPage.map((service) => (
+          <a href={`#${service.id}`} key={service.index}>
+            <ServiceItem
+              index={service.index}
+              title={service.title}
+              subtitle={service.subtitle}
+            />
+          </a>
+        ))}
       </div>
     </div>
   );
@@ -23,12 +24,13 @@ interface ServiceItemProps {
   index: number;
   title: string;
   subtitle: string;
-  id: string;
 }
 
-function ServiceItem({ index, title, subtitle, id }: ServiceItemProps) {
+function ServiceItem({ index, title, subtitle }: ServiceItemProps) {
   return (
-    <div className="flex flex-row py-10 border-t border-gray-300 group cursor-pointer" id={id}>
+    <div
+      className="flex flex-row py-10 border-t border-gray-300 group cursor-pointer"
+    >
       <div className="w-[45%] flex flex-row items-center">
         <div className="size-12 rounded-full bg-muted flex items-center justify-center font-outfit text-muted-foreground mx-8 group-hover:bg-soluble-blue group-hover:text-white transition-all ">
           0{index}

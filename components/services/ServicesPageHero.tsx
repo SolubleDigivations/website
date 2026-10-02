@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "../motion/Reveal";
+import MagneticButton from "../common/MagneticButton";
 
 function ServicesPageHero() {
   return (
@@ -18,7 +19,10 @@ function ServicesPageHero() {
           <h4 className="font-extrabold text-7xl tracking-tighter">
             Everything
             <br />
-            you need,
+            <div className="relative inline-block">
+              <YellowHighlight className="absolute -left-[7%] -top-[12%] z-0 h-[125%] w-[114%]" />
+              <span className="relative z-10">you need,</span>
+            </div>
             <br />
             to build
             <br />
@@ -47,28 +51,32 @@ function ServicesPageHero() {
           }}
           className="mt-6 flex flex-wrap items-center gap-3"
         >
+          <MagneticButton>
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-3 rounded-full bg-[#111111] px-4 py-3 text-xs font-semibold text-white transition-transform duration-300 hover:-translate-y-1"
+            className="group inline-flex items-center gap-3 rounded-full bg-[#111111] px-4 py-3 text-xs font-semibold text-white transition-transform duration-300"
           >
             Start a project
             <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/10">
               <ArrowUpRight
                 size={14}
-                className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:scale-110"
               />
             </span>
           </Link>
+          </MagneticButton>
 
+          <MagneticButton>
           <Link
             href="/work"
-            className="group inline-flex items-center gap-3 rounded-full border border-border bg-white px-4 py-3 text-xs font-semibold text-foreground transition-all duration-300 hover:-translate-y-1 hover:border-foreground"
+            className="group inline-flex items-center gap-3 rounded-full border border-border bg-white px-4 py-3 text-xs font-semibold text-foreground transition-all duration-300 hover:border-foreground"
           >
             See our work
             <span className="flex h-6 w-6 items-center justify-center rounded-full border border-border text-xs transition-transform duration-300 group-hover:rotate-[-45deg]">
               ↓
             </span>
           </Link>
+          </MagneticButton>
         </motion.div>
       </div>
     </div>
@@ -76,3 +84,84 @@ function ServicesPageHero() {
 }
 
 export default ServicesPageHero;
+
+function YellowHighlight({ className = "" }) {
+  return (
+    <motion.svg
+      viewBox="0 0 760 250"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={`pointer-events-none absolute ${className}`}
+      preserveAspectRatio="none"
+      initial="hidden"
+      animate="visible"
+    >
+      {/* Main oval / loop */}
+      <motion.path
+        d="
+          M 35 145
+          C 45 75, 165 25, 370 30
+          C 570 34, 720 75, 725 135
+          C 730 195, 570 220, 365 218
+          C 170 215, 55 195, 35 145
+        "
+        stroke="#FFD65A"
+        strokeWidth="18"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        variants={{
+          hidden: {
+            pathLength: 0,
+            opacity: 0,
+          },
+          visible: {
+            pathLength: 1,
+            opacity: 1,
+            transition: {
+              pathLength: {
+                duration: 1.1,
+                ease: "easeInOut",
+              },
+              opacity: {
+                duration: 0.2,
+              },
+            },
+          },
+        }}
+      />
+
+      {/* Bottom hand-drawn underline */}
+      <motion.path
+        d="
+          M 28 178
+          C 170 184, 310 181, 455 183
+          C 575 185, 670 181, 735 176
+        "
+        stroke="#FFD65A"
+        strokeWidth="15"
+        strokeLinecap="round"
+        variants={{
+          hidden: {
+            pathLength: 0,
+            opacity: 0,
+          },
+          visible: {
+            pathLength: 1,
+            opacity: 1,
+            transition: {
+              pathLength: {
+                duration: 0.75,
+                delay: 0.75,
+                ease: "easeOut",
+              },
+              opacity: {
+                duration: 0.2,
+                delay: 0.75,
+              },
+            },
+          },
+        }}
+      />
+    </motion.svg>
+  );
+}

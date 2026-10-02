@@ -5,8 +5,13 @@ import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import MagneticButton from "../common/MagneticButton";
 
 const navLinks = [
+  {
+    label:'Home',
+    href:"/"
+  },
   {
     label: "Work",
     href: "/work",
@@ -67,13 +72,13 @@ export default function Navbar() {
           className="group flex items-center"
           aria-label="Soluble Digivations home"
         >
-          <Image src={'/assets/images/logo/logo.png'} alt="Soluble Digital Innovation" width={90} height={90} className="w-12 aspect-square h-auto"/>
-          <span className="flex items-center gap-1.5 text-xl font-bold tracking-[-0.06em]">
+          <Image src={'/assets/images/logo/logo-6.png'} alt="Soluble Digital Innovation" width={90} height={90} className="w-12 aspect-square h-auto"/>
+          <span className="flex items-center mt-auto -ml-2 gap-1.5 text-3xl font-bold tracking-[-0.06em]">
             {/* <span className="relative h-8 w-8 overflow-hidden rounded-full bg-[#ff7857]">
               <span className="absolute -right-1 -top-1 h-6 w-6 rounded-full bg-soluble-purple" />
               <span className="absolute -bottom-1 -left-1 h-6 w-6 rounded-full bg-soluble-yellow" />
             </span> */}
-            Soluble
+            oluble
           </span>
         </Link>
 
@@ -86,13 +91,13 @@ export default function Navbar() {
               className="group relative text-[16px] font-semibold text-muted-foreground transition-colors duration-300 hover:text-foreground"
             >
               {link.label}
-
               <span className="absolute -bottom-1 left-0 h-[2px] w-full origin-right scale-x-0 bg-foreground transition-transform duration-300 group-hover:origin-left group-hover:scale-x-100" />
             </Link>
           ))}
         </div>
 
         {/* Contact */}
+        <MagneticButton>
         <Link
           href="/contact"
           className="hidden items-center gap-2 rounded-full bg-foreground px-4 py-2.5 text-[16px] font-semibold text-background transition-transform duration-300 hover:scale-[1.04] md:inline-flex"
@@ -100,6 +105,7 @@ export default function Navbar() {
           Let&apos;s talk
           <ArrowUpRight size={13} />
         </Link>
+        </MagneticButton>
 
         {/* Mobile menu */}
         <button

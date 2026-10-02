@@ -33,7 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" className={cn("h-full", "antialiased", manrope.variable, caveat.variable, outfit.variable)}>
       <body className="min-h-full bg-background font-sans text-foreground">
         <Navbar />
-        <div className="pt-[80px] lg:pt-[72px] cursor-default min-h-screen">{children}</div>
+        <div className="pt-[80px] lg:pt-[72px] cursor-default">{children}</div>
         <Footer/>
       </body>
     </html>

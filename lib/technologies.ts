@@ -98,3 +98,11 @@ export const technologies = [
     color: "#4169E1",
   },
 ] as const;
+
+export const technologiesHero = [
+  { name: "Next.js", icon: SiNextdotjs },
+  { name: "React", icon: SiReact },
+  { name: "MongoDB", icon: SiMongodb },
+  { name: "Cloudinary", icon: SiCloudinary },
+  { name: "Razorpay", icon: SiRazorpay },
+];

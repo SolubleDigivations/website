@@ -1,4 +1,5 @@
 import React from "react";
+import Reveal from "../motion/Reveal";
 
 // [#1C2C44]
 
@@ -9,7 +10,9 @@ function QuoteBrand() {
         SOLUBLE
       </div>
       <div className="max-w-310">
+        <Reveal>
         <blockquote className="relative font-outfit font-semibold text-[#f4f4f2] max-w-210 text-5xl mx-auto">
+          
           Engineering solutions that drive{" "}
           <em className="bg-[#0A92DB] py-1.5 inline-block transform-content -rotate-1 box-content shadow-lg shadow-black my-2.5">
             measurable outcomes
@@ -17,6 +20,7 @@ function QuoteBrand() {
           — not just empty site templates.
         </blockquote>
         <div className="mt-4 text-gray-600">— Value Proposition, Soluble Digivations</div>
+        </Reveal>
       </div>
     </section>
   );

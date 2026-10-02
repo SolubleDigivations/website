@@ -5,8 +5,10 @@ import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
 
 import HeroGraphic from "@/components/graphics/HeroGraphic";
-
-const technologies = ["Next.js", "React", "MongoDB", "Cloudinary", "Razorpay"];
+import MagneticButton from "../common/MagneticButton";
+import { technologiesHero } from "@/lib/technologies";
+import { ReactNode } from "react";
+import { IconType } from "react-icons";
 
 export default function Hero() {
   return (
@@ -102,56 +104,54 @@ export default function Hero() {
               }}
               className="mt-6 flex flex-wrap items-center gap-3"
             >
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-3 rounded-full bg-[#111111] px-4 py-3 text-xs font-semibold text-white transition-transform duration-300 hover:-translate-y-1"
-              >
-                Start a project
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/10">
-                  <ArrowUpRight
-                    size={14}
-                    className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                  />
-                </span>
-              </Link>
+              <MagneticButton>
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-3 rounded-full bg-[#111111] px-4 py-3 text-xs font-semibold text-white transition-transform duration-300 "
+                >
+                  Start a project
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/10">
+                    <ArrowUpRight
+                      size={14}
+                      className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5
+                    group-hover:scale-110"
+                    />
+                  </span>
+                </Link>
+              </MagneticButton>
 
-              <Link
-                href="/work"
-                className="group inline-flex items-center gap-3 rounded-full border border-border bg-white px-4 py-3 text-xs font-semibold text-foreground transition-all duration-300 hover:-translate-y-1 hover:border-foreground"
-              >
-                See our work
-                <span className="flex h-6 w-6 items-center justify-center rounded-full border border-border text-xs transition-transform duration-300 group-hover:rotate-[-45deg]">
-                  ↓
-                </span>
-              </Link>
+              <MagneticButton>
+                <Link
+                  href="/work"
+                  className="group inline-flex items-center gap-3 rounded-full border border-border bg-white px-4 py-3 text-xs font-semibold text-foreground transition-all duration-300 hover:border-foreground"
+                >
+                  See our work
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full border border-border text-xs transition-transform duration-300 group-hover:rotate-[-45deg]">
+                    ↓
+                  </span>
+                </Link>
+              </MagneticButton>
             </motion.div>
 
             {/* Technologies */}
             <motion.div
-              initial={{
-                opacity: 0,
-              }}
-              animate={{
-                opacity: 1,
-              }}
-              transition={{
-                duration: 0.7,
-                delay: 0.65,
-              }}
-              className="mt-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 1.15 }}
+              className="my-4"
             >
-              <p className="text-[10px] text-muted-foreground">
+              <p className="mb-3.5 text-[11px] font-medium tracking-tight text-[#888882] sm:text-[11.5px]">
                 Trusted by builders, startups and businesses
               </p>
-
-              <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
-                {technologies.map((technology) => (
-                  <span
-                    key={technology}
-                    className="text-[10px] font-semibold text-[#555555]"
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2.5 text-[12.5px] font-semibold text-[#555550] sm:text-[13px]">
+                {technologiesHero.map((tech) => (
+                  <div
+                    key={tech.name}
+                    className="flex items-center gap-1.5 transition-colors hover:text-[#111111]"
                   >
-                    {technology}
-                  </span>
+                    <span className="text-[#333333]"><Icon icon={tech.icon} size={15}/></span>
+                    <span>{tech.name}</span>
+                  </div>
                 ))}
               </div>
             </motion.div>
@@ -227,4 +227,16 @@ function YellowHighlight() {
       />
     </svg>
   );
+}
+
+function Icon({
+  icon: TechIcon,
+  size,
+  className,
+}: {
+  icon: IconType;
+  size: number;
+  className?:string
+}) {
+  return <TechIcon size={size} className={className} />;
 }

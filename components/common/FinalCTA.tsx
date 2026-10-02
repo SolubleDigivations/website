@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
 
 import Reveal from "@/components/motion/Reveal";
+import MagneticButton from "./MagneticButton";
 
 export default function FinalCTA() {
   return (
@@ -41,12 +42,13 @@ export default function FinalCTA() {
               {/* CTA */}
               <div className="lg:pb-1">
                 <Reveal delay={0.16}>
-                  <p className="max-w-sm text-sm leading-6 text-muted-foreground">
+                  <p className="max-w-sm text-sm leading-6 text-gray-800">
                     Let's discuss your idea and turn it into a real product.
                   </p>
                 </Reveal>
 
                 <Reveal delay={0.24}>
+                  <MagneticButton>
                   <Link
                     href="/contact"
                     className="group mt-6 inline-flex items-center gap-3 rounded-full bg-[#111111] px-5 py-3.5 text-sm font-semibold text-white transition-transform duration-300 hover:-translate-y-1"
@@ -56,6 +58,7 @@ export default function FinalCTA() {
                       <ArrowUpRight size={14} />
                     </span>
                   </Link>
+                  </MagneticButton>
                 </Reveal>
               </div>
             </div>

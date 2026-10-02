@@ -227,9 +227,21 @@
     transform: translateX(-50%);
   }
 }
+@keyframes soluble-marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
 
 .animate-soluble-marquee {
   animation: soluble-marquee 30s linear infinite;
+}
+.animate-soluble-marquee-right {
+  animation: soluble-marquee-right 30s linear infinite;
 }
 
 .animate-soluble-marquee:hover {
@@ -263,7 +275,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   html {
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
   }
 
   *,
