@@ -216,7 +216,7 @@ function MobileMenu({
         }
       ></div>
       <div
-        className={`bg-background h-screen w-full z-500 md:hidden transition-all duration-800 ${showMenu ? "delay-275" : "delay-0"} ease-out flex flex-col justify-center items-center space-y-0.5 overflow-hidden pb-24`}
+        className={`bg-background h-screen w-full z-500 md:hidden transition-all duration-800 ${showMenu ? "delay-275" : "delay-0"} ease-out flex flex-col justify-center items-center overflow-hidden pb-40`}
         style={
           showMenu
             ? {

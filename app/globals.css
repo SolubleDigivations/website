@@ -247,6 +247,9 @@
 .animate-soluble-marquee:hover {
   animation-play-state: paused;
 }
+.animate-soluble-marquee-right:hover {
+  animation-play-state: paused;
+}
 
 
 /* =========================================================

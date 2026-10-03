@@ -8,15 +8,15 @@ import MagneticButton from "../common/MagneticButton";
 
 function ServicesPageHero() {
   return (
-    <div className="container-soluble flex items-center h-[90vh]">
-      <div className="w-1/2">
+    <div className="container-soluble flex flex-col lg:flex-row items-center h-[90vh]">
+      <div className="w-full lg:w-1/2">
         <Reveal>
-          <span className="inline-flex rounded-full border border-border bg-soluble-blue/25 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+          <span className="inline-flex rounded-full border border-border bg-soluble-blue/25 px-3 py-1 my-4.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
             Our Services
           </span>
         </Reveal>
         <Reveal delay={0.2}>
-          <h4 className="font-extrabold text-7xl tracking-tighter">
+          <h4 className="font-extrabold text-5xl lg:text-7xl tracking-tighter">
             Everything
             <br />
             <div className="relative inline-block">
@@ -79,6 +79,7 @@ function ServicesPageHero() {
           </MagneticButton>
         </motion.div>
       </div>
+      <div className="w-full lg:w-1/2"></div>
     </div>
   );
 }

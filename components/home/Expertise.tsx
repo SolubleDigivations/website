@@ -3,6 +3,7 @@ import { RiNextjsLine } from "react-icons/ri";
 import { FaDocker, FaGithub, FaNodeJs, FaReact } from "react-icons/fa";
 import { AiFillExperiment } from "react-icons/ai";
 import {
+  SiCloudinary,
   SiExpress,
   SiFigma,
   SiFirebase,
@@ -11,10 +12,13 @@ import {
   SiMongodb,
   SiPostgresql,
   SiPrisma,
+  SiRazorpay,
+  SiReact,
   SiTailwindcss,
   SiTypescript,
   SiVercel,
 } from "react-icons/si";
+import { title } from "process";
 
 const expertiseData = [
   {
@@ -97,16 +101,33 @@ const expertiseData = [
     title: "Prisma",
     color: "#2D3748",
   },
+  {
+    title: "React Native",
+    icon: SiReact,
+    color: "#5FDCFB",
+  },
+  {
+    title: "Cloudinary",
+    icon: SiCloudinary,
+    color: "#3448C5",
+  },
+  {
+    title: "Razorpay",
+    icon: SiRazorpay,
+    color: "#0D94FB",
+  },
 ];
-function Expertise({left=true}:{left?:boolean}) {
+function Expertise({ left = true }: { left?: boolean }) {
   return (
     <div className="w-full overflow-hidden px-16">
       <div className="w-full overflow-hidden relative">
         <div className="absolute z-10 inset-x-0 top-8 -left-1.5 h-full w-18 bg-linear-to-r from-background to-transparent"></div>
 
         <div className="absolute z-10 top-8 -right-1.5 h-full w-18 bg-linear-to-l  from-background to-transparent"></div>
-        
-        <div className={`flex w-max ${left?'animate-soluble-marquee':'animate-soluble-marquee-right'} gap-6 py-8 z-0`}>
+
+        <div
+          className={`flex w-max ${left ? "animate-soluble-marquee" : "animate-soluble-marquee-right"} gap-6 py-8 z-0`}
+        >
           {[...expertiseData, ...expertiseData].map((item, index) => {
             const Icon = item.icon;
             return (
@@ -123,7 +144,7 @@ function Expertise({left=true}:{left?:boolean}) {
                   size={40}
                   className="text-(--icon-color) transition-colors duration-300"
                 />
-                <h3 className="font-outfit-400 text-[#222222] mt-1.5 text-base">
+                <h3 className="font-outfit text-foreground mt-1.5 text-base">
                   {item.title}
                 </h3>
               </div>

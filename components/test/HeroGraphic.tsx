@@ -19,9 +19,9 @@ export default function HeroGraphic() {
       
       {/* CARD 1: IDEA / Strategy (Entrance: 0.00s) */}
       <WorkflowCard
-        className="left-[6%] top-[5%] sm:left-[8%] sm:top-[5%]"
+        className="left-[6%] top-[5%] sm:left-[5%] sm:top-[-4%]"
         color="#6C8CFF"
-        rotate="-5deg"
+        rotate="-6deg"
         hoverRotate="0deg"
         delay={0.0}
         widthClass="w-[156px] sm:w-[172px] lg:w-[184px]"
@@ -30,16 +30,15 @@ export default function HeroGraphic() {
         title="IDEA"
         subtitle="Strategy"
         shadowColor="0 20px 50px rgba(108, 140, 255, 0.20)"
-        extraElement={
-          <div className="pointer-events-none absolute -bottom-5 -right-5 h-20 w-20 rounded-full bg-white/20 blur-xs" />
+        extraElement={''
         }
       />
 
       {/* CARD 2: DESIGN / UI/UX (Entrance: 0.10s) */}
       <WorkflowCard
-        className="right-[6%] top-[9%] sm:right-[8%] sm:top-[9%]"
+        className="right-[6%] top-[9%] sm:right-[24%] sm:top-[1%]"
         color="#FFD65A"
-        rotate="4deg"
+        rotate="-6deg"
         hoverRotate="0deg"
         delay={0.1}
         widthClass="w-[156px] sm:w-[172px] lg:w-[184px]"
@@ -52,9 +51,9 @@ export default function HeroGraphic() {
 
       {/* CARD 3: DEVELOP / Engineering (Visual Center, Entrance: 0.20s) */}
       <WorkflowCard
-        className="left-[35%] top-[38%] sm:left-[36%] sm:top-[38%]"
+        className="right-[35%] top-[38%] sm:right-[26%] sm:top-[42%]"
         color="#52D9AD"
-        rotate="-3deg"
+        rotate="-6deg"
         hoverRotate="0deg"
         delay={0.2}
         widthClass="w-[162px] sm:w-[178px] lg:w-[190px]"
@@ -67,9 +66,9 @@ export default function HeroGraphic() {
 
       {/* CARD 4: LAUNCH / Growth + White Puzzle Tab + Mouse Cursor (Entrance: 0.30s) */}
       <WorkflowCard
-        className="bottom-[4%] left-[14%] sm:bottom-[4%] sm:left-[16%]"
+        className="bottom-[4%] left-[14%] sm:bottom-[4%] sm:left-[10%]"
         color="#FF9B86"
-        rotate="4deg"
+        rotate="-4deg"
         hoverRotate="0deg"
         delay={0.3}
         widthClass="w-[156px] sm:w-[172px] lg:w-[184px]"
@@ -81,7 +80,6 @@ export default function HeroGraphic() {
         extraElement={
           <>
             {/* White Puzzle Tab */}
-            <div className="pointer-events-none absolute -right-3 top-3 h-9 w-9 rounded-full bg-white shadow-xs" />
 
             {/* Mouse Cursor Pointer (Black Arrow) */}
             <motion.div

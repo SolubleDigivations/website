@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
 
-import HeroGraphic from "@/components/graphics/HeroGraphic";
+import HeroGraphic from "@/components/test/HeroGraphic";
 import MagneticButton from "../common/MagneticButton";
 import { technologiesHero } from "@/lib/technologies";
 import { ReactNode } from "react";
@@ -174,7 +174,7 @@ export default function Hero() {
               delay: 0.25,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="relative mt-2 min-h-[390px] md:min-h-[450px] lg:mt-0 lg:min-h-[500px]"
+            className="relative flex items-center justify-center lg:justify-end"
           >
             <HeroGraphic />
           </motion.div>

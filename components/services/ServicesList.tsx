@@ -40,7 +40,7 @@ function ServiceItem({ index, title, subtitle }: ServiceItemProps) {
         </div>
       </div>
       <div className="flex flex-row items-center w-[55%] justify-between">
-        <div className="font-semibold tracking-tight text-muted-foreground">
+        <div className="font-medium text-muted-foreground">
           {subtitle}
         </div>
         <div className="border border-gray-300 bg-white rounded-full size-11 flex items-center justify-center mr-8 group-hover:translate-x-4 group-hover:border-soluble-blue transition-all">

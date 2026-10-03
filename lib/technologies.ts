@@ -87,7 +87,7 @@ export const technologies = [
     icon: SiGithub,
     color: "#181717",
   },
-    {
+  {
     icon: SiFirebase,
     name: "Firebase",
     color: "#FFCA28",

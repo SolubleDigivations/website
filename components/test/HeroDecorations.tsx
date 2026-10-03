@@ -6,16 +6,6 @@ export default function HeroDecorations() {
   return (
     <>
       {/* 1. Top-Left Yellow/Pink Spark & Cone Doodle near IDEA (Entrance: 0.35s) */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.6, rotate: -25 }}
-        animate={{ opacity: 1, scale: 1, rotate: -15 }}
-        transition={{ duration: 0.5, delay: 0.35 }}
-        className="absolute left-[2%] top-[2%] z-30 flex items-center"
-      >
-        <span className="h-3 w-7 rotate-45 rounded-full bg-soluble-yellow" />
-        <span className="-ml-2 mt-4 h-2 w-5 rounded-full bg-[#ff5747]" />
-        <span className="-ml-1 mt-6 h-2.5 w-2.5 rounded-full bg-soluble-pink" />
-      </motion.div>
 
       {/* 2. Top-Right Two-Tone Capsule (Behind/near DESIGN, Entrance: 0.35s + Subtle Idle Float) */}
       <motion.div
@@ -89,16 +79,17 @@ export default function HeroDecorations() {
 
       {/* 6. Hand-drawn Radiating Sunburst / Spark Lines (Between IDEA, DEVELOP, and DESIGN, Entrance: 0.35s) */}
       <motion.svg
-        viewBox="0 0 60 50"
-        className="absolute left-[44%] top-[27%] z-30 h-12 w-15"
+        viewBox="-329.12 -242.846 648.51 698.758"
+        className=""
         fill="none"
         initial={{ opacity: 0, scale: 0.7 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4, delay: 0.35 }}
       >
-        <path d="M 8 36 L 18 16" stroke="#111111" strokeWidth="3.2" strokeLinecap="round" />
-        <path d="M 27 34 L 30 12" stroke="#111111" strokeWidth="3.2" strokeLinecap="round" />
-        <path d="M 42 36 L 52 18" stroke="#111111" strokeWidth="3.2" strokeLinecap="round" />
+        <path d="M -67.427 35.02 L -101.11 32.877" stroke="#111111" strokeWidth="4.5" strokeLinecap="round" />
+        <path d="M -61.066 17.723 C -61.066 17.723 -91.311 1.619 -91.311 1.619" stroke="#111111" strokeWidth="4.5" strokeLinecap="round" />
+        <path d="M -48.449 -0.116 L -66.598 -24.196" stroke="#111111" strokeWidth="4.5" strokeLinecap="round" />
+        <path d="M -30.201 -10.044 L -34.618 -38.258" stroke="#111111" strokeWidth="4.5" strokeLinecap="round" />
       </motion.svg>
 
       {/* 7. "FROM IDEAS TO IMPACT" Annotation (Positioned at conclusion near final mint circle, Entrance: 0.90s) */}
@@ -106,14 +97,14 @@ export default function HeroDecorations() {
         initial={{ opacity: 0, y: 8, rotate: -14 }}
         animate={{ opacity: 1, y: 0, rotate: -8 }}
         transition={{ duration: 0.5, delay: 0.9 }}
-        className="absolute bottom-[15%] right-[1%] z-20 w-24 text-center font-bold uppercase leading-[1.25] tracking-[0.05em] text-[#111111]"
+        className="absolute bottom-[25%] right-[-8%] z-20 w-24 text-center text-[#111111] font-caveat font-medium leading-0.5 tracking-wide"
       >
-        <span className="text-[12px] sm:text-[13px]">
-          FROM
+        <span className="text-lg lg:text-lg uppercase">
+          From
           <br />
-          IDEAS TO
+          Ideas to
           <br />
-          IMPACT
+          Impact
         </span>
       </motion.div>
     </>

@@ -11,7 +11,7 @@ import Expertise from "@/components/home/Expertise";
 
 function ServicesPage() {
   return (
-    <div className="pb-15">
+    <div className="overflow-hidden">
       <ServicesPageHero />
       <div className="container-soluble py-5">
         <div className="">
