@@ -50,6 +50,14 @@ export default function Navbar() {
     };
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = showMenu ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [showMenu]);
+
   const scrolled = scrollY > 0;
   return (
     <section className="overflow-clip">
