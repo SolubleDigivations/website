@@ -91,10 +91,6 @@ export default function Navbar() {
               className="w-10 md:w-12 aspect-square h-auto"
             />
             <span className="flex items-center mt-auto -ml-2 gap-1.5  text-2xl md:text-3xl font-bold tracking-[-0.06em]">
-              {/* <span className="relative h-8 w-8 overflow-hidden rounded-full bg-[#ff7857]">
-              <span className="absolute -right-1 -top-1 h-6 w-6 rounded-full bg-soluble-purple" />
-              <span className="absolute -bottom-1 -left-1 h-6 w-6 rounded-full bg-soluble-yellow" />
-            </span> */}
               oluble
             </span>
           </Link>
@@ -220,7 +216,7 @@ function MobileMenu({
         }
       ></div>
       <div
-        className={`bg-background h-screen w-full z-500 md:hidden transition-all duration-800 ${showMenu ? "delay-275" : "delay-0"} ease-out flex flex-col justify-center items-center space-y-1 overflow-hidden pb-24`}
+        className={`bg-background h-screen w-full z-500 md:hidden transition-all duration-800 ${showMenu ? "delay-275" : "delay-0"} ease-out flex flex-col justify-center items-center space-y-0.5 overflow-hidden pb-24`}
         style={
           showMenu
             ? {
@@ -257,7 +253,7 @@ function MobileMenu({
             </motion.div>
           </Link>
         ))}
-        <div className="absolute w-screen bottom-12 flex flex-col gap-1">
+        <div className="absolute w-screen bottom-20 flex flex-col gap-1">
           <Link
             href="/contact"
             className="inline-flex w-32 mx-auto items-center gap-2 rounded-full bg-foreground px-4 py-2.5 text-[16px] font-semibold text-background transition-transform duration-300 hover:scale-[1.04] justify-center mb-4"
