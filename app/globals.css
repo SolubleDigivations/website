@@ -287,3 +287,10 @@
     scroll-behavior: auto !important;
   }
 }
+
+/*===============================*/
+
+.underline-soluble-mint{
+  text-decoration: underline var(--input);
+  text-underline-offset: 8px;
+}
