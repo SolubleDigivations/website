@@ -249,7 +249,7 @@ function MobileMenu({
             </motion.div>
           </Link>
         ))}
-        <div className="absolute w-screen bottom-6 flex flex-col gap-1">
+        <div className="absolute w-screen bottom-12 flex flex-col gap-1">
           <Link
             href="/contact"
             className="inline-flex w-32 mx-auto items-center gap-2 rounded-full bg-foreground px-4 py-2.5 text-[16px] font-semibold text-background transition-transform duration-300 hover:scale-[1.04] justify-center mb-4"
