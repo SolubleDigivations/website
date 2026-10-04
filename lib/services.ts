@@ -17,28 +17,28 @@ export const services = [
     description:
       "Marketing sites, corporate websites, landing pages.",
     icon: Globe,
-    color: "bg-soluble-blue",
+    color: "#6C8CFF",
   },
   {
     title: "Web Applications",
     description:
       "Dashboards, platforms, SaaS products.",
     icon: LayoutGrid,
-    color: "bg-soluble-pink",
+    color: "#FF91D4",
   },
   {
     title: "Mobile Applications",
     description:
       "iOS, Android & cross-platform apps.",
     icon: Smartphone,
-    color: "bg-soluble-mint",
+    color: "#52D9AD",
   },
   {
     title: "UI/UX Design",
     description:
       "Modern, user-focused design experiences.",
     icon: Palette,
-    color: "bg-soluble-yellow",
+    color: "#FFD65A",
   },
 ] as const;
 

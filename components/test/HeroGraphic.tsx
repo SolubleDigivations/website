@@ -40,7 +40,7 @@ export default function HeroGraphic() {
         color="#FFD65A"
         rotate="-6deg"
         hoverRotate="0deg"
-        delay={0.1}
+        delay={0.5}
         widthClass="w-[156px] sm:w-[172px] lg:w-[184px]"
         heightClass="h-[150px] sm:h-[166px] lg:h-[178px]"
         icon={<Palette className="h-8 w-8 sm:h-9 sm:w-9" strokeWidth={2.1} />}
@@ -55,7 +55,7 @@ export default function HeroGraphic() {
         color="#52D9AD"
         rotate="-6deg"
         hoverRotate="0deg"
-        delay={0.2}
+        delay={1}
         widthClass="w-[162px] sm:w-[178px] lg:w-[190px]"
         heightClass="h-[156px] sm:h-[172px] lg:h-[184px]"
         icon={<Code2 className="h-9 w-9 sm:h-10 sm:w-10" strokeWidth={2.2} />}
@@ -70,7 +70,7 @@ export default function HeroGraphic() {
         color="#FF9B86"
         rotate="-4deg"
         hoverRotate="0deg"
-        delay={0.3}
+        delay={1.5}
         widthClass="w-[156px] sm:w-[172px] lg:w-[184px]"
         heightClass="h-[150px] sm:h-[166px] lg:h-[178px]"
         icon={<BarChart3 className="h-8 w-8 sm:h-9 sm:w-9" strokeWidth={2.2} />}

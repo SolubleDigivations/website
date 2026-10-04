@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { motion } from "motion/react";
 
 export interface WorkflowCardProps {
@@ -61,10 +61,13 @@ export default function WorkflowCard({
     >
       <div
         style={{
+          backgroundImage:
+            "linear-gradient(to bottom right, var(--background), color-mix(in srgb, var(--service-color) 70%, transparent), var(--service-color))",
+          "--service-color": color,
+          
           backgroundColor: color,
-          boxShadow:
-            shadowColor || "0 20px 48px rgba(0, 0, 0, 0.08)",
-        }}
+          boxShadow: shadowColor || "0 20px 48px rgba(0, 0, 0, 0.08)",
+        } as CSSProperties}
         className={`relative flex ${widthClass} ${heightClass} flex-col items-center justify-center rounded-[26px] sm:rounded-[30px] p-4 text-center text-[#111111] transition-shadow duration-300`}
       >
         {/* Optional decorative bubble, puzzle tab, or badge */}

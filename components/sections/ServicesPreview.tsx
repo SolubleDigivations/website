@@ -25,7 +25,7 @@ export default function ServicesPreview() {
                 What we make
               </h2>
             </Reveal>
-            <CurvedArrow className="absolute right-60 top-10 font-extrabold" size={100}/>
+            <CurvedArrow className="absolute -right-5 -rotate-10 top-16 md:right-10 md:top-14 lg:rotate-0 lg:right-60 lg:top-10 font-extrabold" size={100}/>
           </div>
 
           <Reveal delay={0.15}>

@@ -30,18 +30,6 @@ export default function WorkflowArrows() {
         }}
         className={'translate-x-1'}
       />
-      {/* Arrowhead pointing into DESIGN */}
-      {/* <motion.path
-        d="M 417.209 55.288 L 422.633 74.163 L 402.909 71.195"
-        stroke="#111111"
-        strokeWidth="2.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.2, delay: 0.95 }}
-        className={'translate-x-1'}
-      /> */}
 
       {/* ===================================================================
           2. DESIGN -> DEVELOP (Curves downward toward DEVELOP)
@@ -57,7 +45,7 @@ export default function WorkflowArrows() {
         animate={{ pathLength: 1, opacity: 1 }}
         transition={{
           duration: 0.85,
-          delay: 0.6,
+          delay: 1,
           ease: [0.22, 1, 0.36, 1],
         }}
       />
@@ -72,7 +60,7 @@ export default function WorkflowArrows() {
         animate={{ pathLength: 1, opacity: 1 }}
         transition={{
           duration: 0.85,
-          delay: 0.6,
+          delay: 1.25,
           ease: [0.22, 1, 0.36, 1],
         }}
       />
@@ -93,7 +81,7 @@ export default function WorkflowArrows() {
         animate={{ pathLength: 1, opacity: 1 }}
         transition={{
           duration: 1.1,
-          delay: 0.75,
+          delay: 1.5,
           ease: [0.22, 1, 0.36, 1],
         }}
       />
@@ -108,7 +96,7 @@ export default function WorkflowArrows() {
         animate={{ pathLength: 1, opacity: 1 }}
         transition={{
           duration: 1.1,
-          delay: 0.75,
+          delay: 1.75,
           ease: [0.22, 1, 0.36, 1],
         }}
       />
@@ -127,7 +115,7 @@ export default function WorkflowArrows() {
         strokeLinejoin="round"
         initial={{ pathLength: 0, opacity: 0 }}
         animate={{ pathLength: 1, opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.9 }}
+        transition={{ duration: 0.6, delay: 2.65 }}
         className='translate-x-28'
       />
       <motion.path
@@ -138,7 +126,7 @@ export default function WorkflowArrows() {
         strokeLinejoin="round"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.2, delay: 1.35 }}
+        transition={{ duration: 0.2, delay: 3 }}
         className='translate-x-28'
       />
     </svg>

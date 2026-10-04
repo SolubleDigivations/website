@@ -25,7 +25,7 @@ export default function ProjectsPreview() {
             <Reveal delay={0.08}>
               <h2 className="mt-4 text-5xl font-bold leading-[0.95] tracking-[-0.06em] md:text-6xl relative">
                 Selected projects
-                <CurvedArrow className="absolute top-2 right-44" size={100}/>
+                <CurvedArrow className="absolute top-10 right-20 md:top-0 md:-right-7 lg:top-2 lg:right-44" size={100}/>
               </h2>
               
             </Reveal>

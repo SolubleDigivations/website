@@ -38,34 +38,36 @@ export default function ProcessStep({ step, index }: ProcessStepProps) {
       }}
       className="relative"
     >
-      {/* Number / icon */}
-      <motion.div
-        whileHover={{
-          scale: 1.08,
-          rotate: 4,
-        }}
-        transition={{
-          duration: 0.25,
-        }}
-        className={`relative z-10 flex h-14 w-14 items-center justify-center rounded-full ${step.color}`}
-      >
-        <Icon size={21} strokeWidth={1.8} />
-      </motion.div>
+      <div className={`border sm:border-border md:border-transparent sm:bg-white md:bg-transparent sm:max-w-max sm:p-4 md:p-0 rounded-xl ${index%2==0?'':'sm:ml-auto md:ml-0'}`}>
+        {/* Number / icon */}
+        <motion.div
+          whileHover={{
+            scale: 1.08,
+            rotate: 4,
+          }}
+          transition={{
+            duration: 0.25,
+          }}
+          className={`relative z-10 flex h-14 w-14 items-center justify-center rounded-full ${step.color} ${index%2==0?'':'sm:ml-auto md:ml-0'}`}
+        >
+          <Icon size={21} strokeWidth={1.8} />
+        </motion.div>
 
-      {/* Step number */}
-      <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-        {step.number}
-      </p>
+        {/* Step number */}
+        <p className={`mt-5 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground ${index%2==0?'':'sm:text-right md:text-left'}`}>
+          {step.number}
+        </p>
 
-      {/* Title */}
-      <h3 className="mt-2 text-xl font-bold tracking-[-0.04em]">
-        {step.title}
-      </h3>
+        {/* Title */}
+        <h3 className={`mt-2 text-xl font-bold tracking-[-0.04em] ${index%2==0?'':'sm:text-right md:text-left'}`}>
+          {step.title}
+        </h3>
 
-      {/* Description */}
-      <p className="mt-2 max-w-[190px] text-sm leading-5 text-gray-700">
-        {step.description}
-      </p>
+        {/* Description */}
+        <p className={`mt-2 max-w-[190px] text-sm leading-5 text-gray-700 ${index%2==0?'':'sm:text-right md:text-left'}`}>
+          {step.description}
+        </p>
+      </div>
     </motion.article>
   );
 }

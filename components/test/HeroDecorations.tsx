@@ -7,28 +7,19 @@ export default function HeroDecorations() {
     <>
       {/* 1. Top-Left Yellow/Pink Spark & Cone Doodle near IDEA (Entrance: 0.35s) */}
 
-      {/* 2. Top-Right Two-Tone Capsule (Behind/near DESIGN, Entrance: 0.35s + Subtle Idle Float) */}
+      {/* 2. Top-Right blob (Behind/near DESIGN, Entrance: 0.35s + Subtle Idle Float) */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.8, rotate: 22 }}
-        animate={{
-          opacity: 1,
-          scale: 1,
-          rotate: 28,
-          y: [0, -5, 0],
-        }}
-        transition={{
-          opacity: { duration: 0.6, delay: 0.35 },
-          scale: { duration: 0.6, delay: 0.35 },
-          rotate: { duration: 0.6, delay: 0.35 },
-          y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1.0 },
-        }}
-        className="absolute -right-1 top-[10%] z-0 h-32 w-16 overflow-hidden rounded-full shadow-[0_12px_28px_rgba(108,140,255,0.16)]"
-      >
-        {/* Top half: translucent frosted glass */}
-        <div className="h-1/2 w-full border-t border-l border-r border-white/70 bg-white/40 backdrop-blur-xs" />
-        {/* Bottom half: Soluble Blue */}
-        <div className="h-1/2 w-full bg-soluble-blue" />
-      </motion.div>
+        initial={{ opacity: 0, scale: 0.7, rotate: -15 }}
+        animate={{ opacity: 1, scale: 1, rotate: 16 }}
+        transition={{ duration: 0.6, delay: 0.35 }}
+        className="absolute right-[5%] top-[10%] z-10 h-20 w-28 rounded-[56%_82%_62%_68%] backdrop-blur-sm shadow-[0_8px_22px_rgba(177,140,255,0.2)]"
+      />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.7, rotate: -15 }}
+        animate={{ opacity: 1, scale: 1, rotate: 16 }}
+        transition={{ duration: 0.6, delay: 0.35 }}
+        className="absolute right-[-1%] top-[15%] z-0 h-20 w-24 rounded-[56%_82%_62%_68%] bg-[#026FEC] shadow-[0_8px_22px_rgba(177,140,255,0.2)] animate-soluble-float"
+      />
 
       {/* 3. Middle-Right Coral Organic Droplet (Near DEVELOP/LAUNCH, Entrance: 0.35s + Subtle Idle Float) */}
       <motion.div
@@ -53,7 +44,7 @@ export default function HeroDecorations() {
         initial={{ opacity: 0, scale: 0.7, rotate: -15 }}
         animate={{ opacity: 1, scale: 1, rotate: 16 }}
         transition={{ duration: 0.6, delay: 0.35 }}
-        className="absolute left-[1%] top-[38%] z-0 h-16 w-24 rounded-[56%_44%_62%_38%] bg-soluble-purple shadow-[0_8px_22px_rgba(177,140,255,0.2)]"
+        className="absolute left-[1%] top-[38%] z-0 h-16 w-24 rounded-[56%_44%_62%_38%] bg-soluble-purple animate-soluble-float rotate-45 shadow-[0_8px_22px_rgba(177,140,255,0.2)]"
       />
 
       {/* 5. Bottom-Right Soluble Mint Circle (Near the final stage, Entrance: 0.35s + Very Subtle Scale) */}
@@ -80,11 +71,11 @@ export default function HeroDecorations() {
       {/* 6. Hand-drawn Radiating Sunburst / Spark Lines (Between IDEA, DEVELOP, and DESIGN, Entrance: 0.35s) */}
       <motion.svg
         viewBox="-329.12 -242.846 648.51 698.758"
-        className=""
+        className="animate-pulse"
         fill="none"
         initial={{ opacity: 0, scale: 0.7 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.4, delay: 0.35 }}
+        transition={{ duration: 0.4, delay: 2.25 }}
       >
         <path d="M -67.427 35.02 L -101.11 32.877" stroke="#111111" strokeWidth="4.5" strokeLinecap="round" />
         <path d="M -61.066 17.723 C -61.066 17.723 -91.311 1.619 -91.311 1.619" stroke="#111111" strokeWidth="4.5" strokeLinecap="round" />
@@ -96,8 +87,8 @@ export default function HeroDecorations() {
       <motion.div
         initial={{ opacity: 0, y: 8, rotate: -14 }}
         animate={{ opacity: 1, y: 0, rotate: -8 }}
-        transition={{ duration: 0.5, delay: 0.9 }}
-        className="absolute bottom-[25%] right-[-8%] z-20 w-24 text-center text-[#111111] font-caveat font-medium leading-0.5 tracking-wide"
+        transition={{ duration: 0.5, delay: 2.75 }}
+        className="absolute bottom-[25%] right-[-8%] z-20 w-24 text-center text-[#111111] font-caveat font-medium leading-0.5 tracking-wide animate-soluble-float"
       >
         <span className="text-lg lg:text-lg uppercase">
           From

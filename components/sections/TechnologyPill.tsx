@@ -34,7 +34,7 @@ export default function TechnologyPill({
         delay: index * 0.05,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className={`group inline-flex items-center justify-center gap-2.5 rounded-full bg-white px-2 py-4 w-1/9 text-sm font-medium shadow-[0_1px_2px_rgba(0,0,0,0.02)] hover:border-foreground/20 cursor-default border border-foreground/10 hover:-translate-y-1 transition-all`}
+      className={`group inline-flex items-center justify-center gap-2.5 rounded-full bg-white px-2 py-3 md:px-3 md:py-3.5 lg:px-2 lg:py-4 w-auto lg:w-1/9 text-sm font-medium shadow-[0_1px_2px_rgba(0,0,0,0.02)] hover:border-foreground/20 cursor-default border border-foreground/10 hover:-translate-y-1 transition-all`}
     >
       <Icon
         size={20}

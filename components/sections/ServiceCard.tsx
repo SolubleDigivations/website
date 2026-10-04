@@ -2,6 +2,7 @@
 
 import { ArrowUpRight, type LucideIcon } from "lucide-react";
 import { motion } from "motion/react";
+import { CSSProperties } from "react";
 
 interface ServiceCardProps {
   title: string;
@@ -63,7 +64,14 @@ export default function ServiceCard({
 
       {/* Decorative color shape */}
       <div
-        className={`absolute -bottom-12 -right-10 h-32 w-32 rounded-full ${color} transition-transform duration-500 group-hover:scale-110`}
+        className={`absolute -bottom-12 -right-7 lg:-bottom-12 lg:-right-8 h-40 w-40 lg:h-32 lg:w-32 rounded-full ${color} transition-transform duration-500 group-hover:scale-110`}
+        style={
+          {
+            backgroundImage:
+              `linear-gradient(to bottom right, var(--background), color-mix(in srgb, var(--service-color) 100%, transparent), var(--service-color))`,
+            "--service-color": color,
+          } as CSSProperties
+        }
       />
     </motion.article>
   );

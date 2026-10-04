@@ -3,6 +3,7 @@
 import Reveal from "@/components/motion/Reveal";
 import { processSteps } from "@/lib/process";
 import ProcessStep from "./ProcessStep";
+import CrowShape from "../graphics/CrowShape";
 
 export default function ProcessPreview() {
   return (
@@ -18,10 +19,11 @@ export default function ProcessPreview() {
               </span>
             </Reveal>
 
-            <Reveal delay={0.08}>
+            <Reveal delay={0.08} className="relative">
               <h2 className="mt-4 text-5xl font-bold leading-[0.95] tracking-[-0.06em] md:text-6xl">
                 From idea to reality
               </h2>
+              <CrowShape className="absolute right-5 top-0 md:-right-4 md:-top-5 lg:top-0 lg:right-1/4 rotate-6 w-20"/>
             </Reveal>
           </div>
 
