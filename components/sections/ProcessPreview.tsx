@@ -39,9 +39,9 @@ export default function ProcessPreview() {
         <div className="relative">
 
           {/* Connecting line */}
-          <div className="absolute left-0 right-0 top-7 hidden h-px bg-border lg:block" />
+          <div className="absolute left-0 right-44 top-7 hidden h-px bg-border lg:block" />
 
-          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
             {processSteps.map((step, index) => (
               <ProcessStep
                 key={step.number}

@@ -2,11 +2,10 @@
 
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { easeIn, easeInOut, easeOut, motion } from "motion/react";
+import { easeOut, motion } from "motion/react";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import Image from "next/image";
 import MagneticButton from "../common/MagneticButton";
-import { FaInstagram, FaLinkedin } from "react-icons/fa6";
+import SolubleLogo from "../common/SolubleLogo";
 
 const navLinks = [
   {
@@ -51,11 +50,13 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = showMenu ? "hidden" : "";
-
-    return () => {
-      document.body.style.overflow = "";
-    };
+    if (showMenu) {
+      const prev = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = prev;
+      };
+    }
   }, [showMenu]);
 
   const scrolled = scrollY > 0;
@@ -78,22 +79,9 @@ export default function Navbar() {
       >
         <nav className="container-soluble flex h-20 items-center justify-between md:h-20 lg:h-18">
           {/* Logo */}
-          <Link
-            href="/"
-            className="group flex items-center"
-            aria-label="Soluble Digivations home"
-          >
-            <Image
-              src={"/assets/images/logo/logo-6.png"}
-              alt="Soluble Digital Innovation"
-              width={90}
-              height={90}
-              className="w-10 md:w-12 aspect-square h-auto"
-            />
-            <span className="flex items-center mt-auto -ml-2 gap-1.5  text-2xl md:text-3xl font-bold tracking-[-0.06em]">
-              oluble
-            </span>
-          </Link>
+          <div>
+            <SolubleLogo />
+          </div>
 
           {/* Desktop navigation */}
           <div className="hidden items-center gap-8 md:flex">
@@ -104,7 +92,7 @@ export default function Navbar() {
                 className="group relative text-[16px] font-semibold text-muted-foreground transition-colors duration-300 hover:text-foreground"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 h-[2px] w-full origin-right scale-x-0 bg-foreground transition-transform duration-300 group-hover:origin-left group-hover:scale-x-100" />
+                <span className="absolute -bottom-1 left-0 h-0.5 w-full origin-right scale-x-0 bg-foreground transition-transform duration-300 group-hover:origin-left group-hover:scale-x-100" />
               </Link>
             ))}
           </div>
@@ -156,7 +144,7 @@ export default function Navbar() {
           </button>
         </nav>
       </motion.header>
-      <MobileMenu showMenu={showMenu} setShowMenu={setShowMenu}/>
+      <MobileMenu showMenu={showMenu} setShowMenu={setShowMenu} />
     </section>
   );
 }

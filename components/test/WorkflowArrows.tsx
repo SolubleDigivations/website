@@ -11,10 +11,7 @@ export default function WorkflowArrows() {
       fill="none"
       aria-hidden="true"
     >
-      {/* ===================================================================
-          1. IDEA -> DESIGN (Curves gracefully above from IDEA to DESIGN)
-          Timing: 0.45s
-          =================================================================== */}
+      {/* 1. IDEA -> DESIGN */}
       <motion.path
         d="M 218.18 9.744 C 292.953 -44.195 340.463 -32.168 349.444 -6.864"
         stroke="#111111"
@@ -24,17 +21,14 @@ export default function WorkflowArrows() {
         initial={{ pathLength: 0, opacity: 0 }}
         animate={{ pathLength: 1, opacity: 1 }}
         transition={{
-          duration: 0.85,
-          delay: 0.45,
+          duration: 0.5,
+          delay: 0.35,
           ease: [0.22, 1, 0.36, 1],
         }}
-        className={'translate-x-1'}
+        className="translate-x-1"
       />
 
-      {/* ===================================================================
-          2. DESIGN -> DEVELOP (Curves downward toward DEVELOP)
-          Timing: 0.60s
-          =================================================================== */}
+      {/* 2. DESIGN -> DEVELOP */}
       <motion.path
         d="M 527.667 80.078 C 674.87 71.892 565.98 262.981 499.288 324.103"
         stroke="#111111"
@@ -44,8 +38,8 @@ export default function WorkflowArrows() {
         initial={{ pathLength: 0, opacity: 0 }}
         animate={{ pathLength: 1, opacity: 1 }}
         transition={{
-          duration: 0.85,
-          delay: 1,
+          duration: 0.5,
+          delay: 0.50,
           ease: [0.22, 1, 0.36, 1],
         }}
       />
@@ -59,18 +53,13 @@ export default function WorkflowArrows() {
         initial={{ pathLength: 0, opacity: 0 }}
         animate={{ pathLength: 1, opacity: 1 }}
         transition={{
-          duration: 0.85,
-          delay: 1.25,
+          duration: 0.4,
+          delay: 0.60,
           ease: [0.22, 1, 0.36, 1],
         }}
       />
 
-      
-
-      {/* ===================================================================
-          3. DEVELOP -> LAUNCH (Sweeps in a wide loop around LAUNCH card)
-          Timing: 0.75s
-          =================================================================== */}
+      {/* 3. DEVELOP -> LAUNCH */}
       <motion.path
         d="M 274.479 369.478 C -130.81 279.68 -14.421 497.699 42.168 519.107"
         stroke="#111111"
@@ -80,8 +69,8 @@ export default function WorkflowArrows() {
         initial={{ pathLength: 0, opacity: 0 }}
         animate={{ pathLength: 1, opacity: 1 }}
         transition={{
-          duration: 1.1,
-          delay: 1.5,
+          duration: 0.6,
+          delay: 0.65,
           ease: [0.22, 1, 0.36, 1],
         }}
       />
@@ -95,18 +84,13 @@ export default function WorkflowArrows() {
         initial={{ pathLength: 0, opacity: 0 }}
         animate={{ pathLength: 1, opacity: 1 }}
         transition={{
-          duration: 1.1,
-          delay: 1.75,
+          duration: 0.4,
+          delay: 0.75,
           ease: [0.22, 1, 0.36, 1],
         }}
       />
 
-      M 35.487 542.716 C 35.303 541.439 36.527 539.334 28.52 528.301 C 24.932 523.357 21.695 519.091 23.193 517.332 C 26.818 513.076 43.9 518.682 49.359 514.283
-
-      {/* ===================================================================
-          4. Small Hand-drawn Annotation Arrow towards the conclusion element
-          Timing: 0.90s
-          =================================================================== */}
+      {/* 4. Small Annotation Arrow */}
       <motion.path
         d="M 560 490 C 565 520, 545 545, 520 550"
         stroke="#111111"
@@ -115,8 +99,12 @@ export default function WorkflowArrows() {
         strokeLinejoin="round"
         initial={{ pathLength: 0, opacity: 0 }}
         animate={{ pathLength: 1, opacity: 1 }}
-        transition={{ duration: 0.6, delay: 2.65 }}
-        className='translate-x-28'
+        transition={{
+          duration: 0.35,
+          delay: 0.80,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="translate-x-28"
       />
       <motion.path
         d="M 528.755 539.663 L 520 550 L 531.817 555.274"
@@ -126,8 +114,12 @@ export default function WorkflowArrows() {
         strokeLinejoin="round"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.2, delay: 3 }}
-        className='translate-x-28'
+        transition={{
+          duration: 0.25,
+          delay: 0.85,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="translate-x-28"
       />
     </svg>
   );

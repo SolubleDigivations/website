@@ -7,7 +7,6 @@ import { motion } from "motion/react";
 import HeroGraphic from "@/components/test/HeroGraphic";
 import MagneticButton from "../common/MagneticButton";
 import { technologiesHero } from "@/lib/technologies";
-import { ReactNode } from "react";
 import { IconType } from "react-icons";
 
 export default function Hero() {
@@ -19,17 +18,9 @@ export default function Hero() {
           <div className="relative z-10 max-w-2xl">
             {/* Eyebrow */}
             <motion.div
-              initial={{
-                opacity: 0,
-                y: 15,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                duration: 0.5,
-              }}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
             >
               <span className="inline-flex rounded-full border border-border bg-white/70 px-3.5 py-1.5 text-[11px] font-medium tracking-wide text-muted-foreground backdrop-blur-sm">
                 Digital Engineering for Modern Businesses
@@ -38,14 +29,8 @@ export default function Hero() {
 
             {/* Heading */}
             <motion.h1
-              initial={{
-                opacity: 0,
-                y: 35,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
+              initial={{ opacity: 0, y: 35 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{
                 duration: 0.7,
                 delay: 0.1,
@@ -70,14 +55,8 @@ export default function Hero() {
 
             {/* Description */}
             <motion.p
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{
                 duration: 0.6,
                 delay: 0.3,
@@ -90,14 +69,8 @@ export default function Hero() {
 
             {/* Buttons */}
             <motion.div
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{
                 duration: 0.6,
                 delay: 0.4,
@@ -113,8 +86,7 @@ export default function Hero() {
                   <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/10">
                     <ArrowUpRight
                       size={14}
-                      className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5
-                    group-hover:scale-110"
+                      className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:scale-110"
                     />
                   </span>
                 </Link>
@@ -137,7 +109,7 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 1.15 }}
+              transition={{ duration: 0.6, delay: 0.55 }}
               className="my-4"
             >
               <p className="mb-3.5 text-[11px] font-medium tracking-tight text-[#888882] sm:text-[11.5px]">
@@ -171,7 +143,7 @@ export default function Hero() {
             }}
             transition={{
               duration: 0.9,
-              delay: 0.25,
+              delay: 0.2,
               ease: [0.22, 1, 0.36, 1],
             }}
             className="relative flex items-center justify-center lg:justify-end"
@@ -213,15 +185,11 @@ function YellowHighlight() {
         strokeWidth="4"
         strokeLinecap="round"
         strokeLinejoin="round"
-        initial={{
-          pathLength: 0,
-        }}
-        animate={{
-          pathLength: 1,
-        }}
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1 }}
         transition={{
-          duration: 2.5,
-          delay: 0.55,
+          duration: 1.2,
+          delay: 0.45,
           ease: [0.22, 1, 0.36, 1],
         }}
       />
@@ -236,7 +204,7 @@ function Icon({
 }: {
   icon: IconType;
   size: number;
-  className?:string
+  className?: string;
 }) {
   return <TechIcon size={size} className={className} />;
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import type { CSSProperties, ReactNode } from "react";
+import { useState, type CSSProperties, type ReactNode } from "react";
 import { motion } from "motion/react";
 
 export interface WorkflowCardProps {
@@ -32,12 +32,13 @@ export default function WorkflowCard({
   heightClass = "h-[150px] sm:h-[165px] lg:h-[176px]",
   extraElement,
 }: WorkflowCardProps) {
+  const [entered,setEntered]=useState(false)
   return (
     <motion.div
       initial={{
         opacity: 0,
         y: 20,
-        scale: 0.94,
+        scale: 0.96,
         rotate: 0,
       }}
       animate={{
@@ -46,8 +47,9 @@ export default function WorkflowCard({
         scale: 1,
         rotate,
       }}
-      transition={{
-        duration: 0.7,
+      transition={
+      entered?{}:{
+        duration: 0.5,
         delay,
         ease: [0.22, 1, 0.36, 1],
       }}
@@ -55,19 +57,22 @@ export default function WorkflowCard({
         y: -6,
         rotate: hoverRotate,
         scale: 1.025,
-        transition: { duration: 0.25, ease: "easeOut" },
+        transition: { duration: 0.20, ease: "easeOut" },
       }}
+      onAnimationComplete={()=>setEntered(true)}
       className={`absolute z-20 cursor-pointer select-none ${className}`}
     >
       <div
-        style={{
-          backgroundImage:
-            "linear-gradient(to bottom right, var(--background), color-mix(in srgb, var(--service-color) 70%, transparent), var(--service-color))",
-          "--service-color": color,
-          
-          backgroundColor: color,
-          boxShadow: shadowColor || "0 20px 48px rgba(0, 0, 0, 0.08)",
-        } as CSSProperties}
+        style={
+          {
+            backgroundImage:
+              "linear-gradient(to bottom right, var(--background), color-mix(in srgb, var(--service-color) 70%, transparent), var(--service-color))",
+            "--service-color": color,
+
+            backgroundColor: color,
+            boxShadow: shadowColor || "0 20px 48px rgba(0, 0, 0, 0.08)",
+          } as CSSProperties
+        }
         className={`relative flex ${widthClass} ${heightClass} flex-col items-center justify-center rounded-[26px] sm:rounded-[30px] p-4 text-center text-[#111111] transition-shadow duration-300`}
       >
         {/* Optional decorative bubble, puzzle tab, or badge */}

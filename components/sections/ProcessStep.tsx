@@ -36,9 +36,11 @@ export default function ProcessStep({ step, index }: ProcessStepProps) {
         delay: index * 0.1,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className="relative"
+      className={`relative flex md:block ${index % 2 == 0 ? "" : "flex-row-reverse"}`}
     >
-      <div className={`border sm:border-border md:border-transparent sm:bg-white md:bg-transparent sm:max-w-max sm:p-4 md:p-0 rounded-xl ${index%2==0?'':'sm:ml-auto md:ml-0'}`}>
+      <div
+        className={`border border-border md:border-transparent bg-white md:bg-transparent max-w-max p-4 md:p-0 rounded-xl ${index % 2 == 0 ? "" : "ml-auto md:ml-0"}`}
+      >
         {/* Number / icon */}
         <motion.div
           whileHover={{
@@ -48,25 +50,35 @@ export default function ProcessStep({ step, index }: ProcessStepProps) {
           transition={{
             duration: 0.25,
           }}
-          className={`relative z-10 flex h-14 w-14 items-center justify-center rounded-full ${step.color} ${index%2==0?'':'sm:ml-auto md:ml-0'}`}
+          className={`relative z-10 flex h-14 w-14 items-center justify-center rounded-full ${step.color} ${index % 2 == 0 ? "" : "ml-auto md:ml-0"}`}
         >
           <Icon size={21} strokeWidth={1.8} />
         </motion.div>
 
         {/* Step number */}
-        <p className={`mt-5 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground ${index%2==0?'':'sm:text-right md:text-left'}`}>
+        <p
+          className={`mt-5 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground ${index % 2 == 0 ? "" : "text-right md:text-left"}`}
+        >
           {step.number}
         </p>
 
         {/* Title */}
-        <h3 className={`mt-2 text-xl font-bold tracking-[-0.04em] ${index%2==0?'':'sm:text-right md:text-left'}`}>
+        <h3
+          className={`mt-2 text-xl font-bold tracking-[-0.04em] ${index % 2 == 0 ? "" : "text-right md:text-left"}`}
+        >
           {step.title}
         </h3>
 
         {/* Description */}
-        <p className={`mt-2 max-w-[190px] text-sm leading-5 text-gray-700 ${index%2==0?'':'sm:text-right md:text-left'}`}>
+        <p
+          className={`mt-2 max-w-[190px] text-sm leading-5 text-gray-700 ${index % 2 == 0 ? "" : "text-right md:text-left"}`}
+        >
           {step.description}
         </p>
+      </div>
+      <div className={`md:hidden w-[40%] h-full flex items-center justify-center ${index%2==0?'':'flex-row-reverse'} ${index==4 && 'hidden'}`}>
+        <div className={`${step.color} w-[40%] ${index>1 && 'mb-px'} h-5`}></div>
+        <div className={`${step.color} w-5 h-[55%] mt-auto ${index%2==0?'rounded-tr-full':'rounded-tl-full'}`}></div>
       </div>
     </motion.article>
   );

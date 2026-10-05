@@ -6,9 +6,11 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "../motion/Reveal";
 import MagneticButton from "../common/MagneticButton";
 
+import ServicesHeroGraphic from "./ServicesHeroGraphic";
+
 function ServicesPageHero() {
   return (
-    <div className="container-soluble flex flex-col lg:flex-row items-center h-[90vh]">
+    <div className="container-soluble flex flex-col lg:flex-row items-center justify-between min-h-[90vh] py-12 lg:py-0 gap-12 lg:gap-8">
       <div className="w-full lg:w-1/2">
         <Reveal>
           <span className="inline-flex rounded-full border border-border bg-soluble-blue/25 px-3 py-1 my-4.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
@@ -30,7 +32,7 @@ function ServicesPageHero() {
           </h4>
         </Reveal>
         <Reveal delay={0.3}>
-          <p className="text-foreground mt-4 w-[65%]">
+          <p className="text-foreground mt-4 w-full sm:w-[85%] lg:w-[75%] text-base sm:text-lg leading-relaxed text-muted-foreground">
             We combine strategy, design and engineering to build websites,
             application and digital experienes that are fast, scalable and
             actually useful.
@@ -54,7 +56,7 @@ function ServicesPageHero() {
           <MagneticButton>
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-3 rounded-full bg-[#111111] px-4 py-3 text-xs font-semibold text-white transition-transform duration-300"
+            className="group inline-flex items-center gap-3 rounded-full bg-[#111111] px-5 py-3.5 text-xs font-semibold text-white transition-transform duration-300 shadow-md hover:bg-black"
           >
             Start a project
             <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/10">
@@ -69,7 +71,7 @@ function ServicesPageHero() {
           <MagneticButton>
           <Link
             href="/work"
-            className="group inline-flex items-center gap-3 rounded-full border border-border bg-white px-4 py-3 text-xs font-semibold text-foreground transition-all duration-300 hover:border-foreground"
+            className="group inline-flex items-center gap-3 rounded-full border border-border bg-white px-5 py-3.5 text-xs font-semibold text-foreground transition-all duration-300 hover:border-foreground shadow-sm"
           >
             See our work
             <span className="flex h-6 w-6 items-center justify-center rounded-full border border-border text-xs transition-transform duration-300 group-hover:rotate-[-45deg]">
@@ -79,7 +81,15 @@ function ServicesPageHero() {
           </MagneticButton>
         </motion.div>
       </div>
-      <div className="w-full lg:w-1/2"></div>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9, y: 30 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+        className="w-full lg:w-1/2 flex items-center justify-center"
+      >
+        <ServicesHeroGraphic />
+      </motion.div>
     </div>
   );
 }

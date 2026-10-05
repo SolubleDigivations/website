@@ -20,9 +20,9 @@ export default function AboutPreview() {
   return (
     <section className="py-24 md:py-32">
       <div className="container-soluble">
-        <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr_0.75fr] relative">
+        <div className="grid items-center gap-12 md:grid-cols-2 lg:grid-cols-[0.9fr_1.1fr_0.75fr] relative">
           {/* Left content */}
-          <div>
+          <div className="">
             <Reveal>
               <span className="inline-flex rounded-full border border-border bg-soluble-pink/25 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                 About Soluble
@@ -73,7 +73,7 @@ export default function AboutPreview() {
           </div>
 
           {/* Principles */}
-          <div className="space-y-5">
+          <div className="space-y-5 md:flex lg:block md:col-span-2 lg:col-auto md:justify-evenly">
             {aboutHighlights.map((highlight, index) => {
               const Icon = icons[highlight.icon];
 
