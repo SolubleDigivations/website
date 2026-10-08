@@ -83,7 +83,7 @@ export default function WorkHeroGraphic() {
       </div>
 
       {/* Bottom Right Sunburst */}
-      <div className="absolute bottom-[4%] right-[6%] z-20 sm:bottom-[2%] sm:right-[8%]">
+      <div className="absolute bottom-[4%] right-[6%] z-20 sm:bottom-[-5%] sm:right-[9%]">
         <SunburstBottom />
       </div>
 

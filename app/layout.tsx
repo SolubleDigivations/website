@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope, Caveat, Outfit } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+
 import SiteShell from "@/components/layout/SiteShell";
 
 const manrope = Manrope({

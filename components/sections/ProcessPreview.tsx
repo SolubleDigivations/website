@@ -23,7 +23,7 @@ export default function ProcessPreview() {
               <h2 className="mt-4 text-5xl font-bold leading-[0.95] tracking-[-0.06em] md:text-6xl">
                 From idea to reality
               </h2>
-              <CrowShape className="absolute right-5 top-0 md:-right-4 md:-top-5 lg:top-0 lg:right-1/4 rotate-6 w-20"/>
+              <CrowShape className="absolute right-5 top-0 md:-right-4 md:-top-5 lg:-top-8 lg:right-1/4 rotate-6"/>
             </Reveal>
           </div>
 

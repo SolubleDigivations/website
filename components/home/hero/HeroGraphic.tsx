@@ -79,24 +79,6 @@ export default function HeroGraphic() {
         shadowColor="0 20px 50px rgba(255, 155, 134, 0.22)"
         extraElement={
           <>
-            {/* White Puzzle Tab */}
-
-            {/* Mouse Cursor Pointer (Black Arrow) */}
-            <motion.div
-              animate={{ x: [0, 3, 0], y: [0, -3, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -right-7 top-0.5 z-30 drop-shadow-md"
-            >
-              <svg width="32" height="32" viewBox="0 0 34 34" fill="none">
-                <path
-                  d="M 5 5 L 14 29 L 19 20 L 28 17 Z"
-                  fill="#111111"
-                  stroke="#FFFFFF"
-                  strokeWidth="2"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </motion.div>
           </>
         }
       />

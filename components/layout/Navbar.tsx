@@ -125,8 +125,8 @@ export default function Navbar() {
                 style={
                   showMenu
                     ? {
-                        transform: "translateY(5px) rotate(45deg)",
-                      }
+                      transform: "translateY(5px) rotate(45deg)",
+                    }
                     : {}
                 }
               />
@@ -135,8 +135,8 @@ export default function Navbar() {
                 style={
                   showMenu
                     ? {
-                        transform: "translateY(-2px) rotate(-45deg)",
-                      }
+                      transform: "translateY(-2px) rotate(-45deg)",
+                    }
                     : {}
                 }
               />
@@ -163,14 +163,14 @@ function MobileMenu({
         style={
           showMenu
             ? {
-                translate: 0,
-                position: "fixed",
-                top: 0,
-              }
+              translate: 0,
+              position: "fixed",
+              top: 0,
+            }
             : {
-                position: "fixed",
-                translate: 500,
-              }
+              position: "fixed",
+              translate: 500,
+            }
         }
       ></div>
       <div
@@ -178,14 +178,14 @@ function MobileMenu({
         style={
           showMenu
             ? {
-                translate: 0,
-                position: "fixed",
-                top: 0,
-              }
+              translate: 0,
+              position: "fixed",
+              top: 0,
+            }
             : {
-                position: "fixed",
-                translate: 500,
-              }
+              position: "fixed",
+              translate: 500,
+            }
         }
       ></div>
       <div
@@ -193,14 +193,14 @@ function MobileMenu({
         style={
           showMenu
             ? {
-                translate: 0,
-                position: "fixed",
-                top: 0,
-              }
+              translate: 0,
+              position: "fixed",
+              top: 0,
+            }
             : {
-                position: "fixed",
-                translate: 500,
-              }
+              position: "fixed",
+              translate: 500,
+            }
         }
       ></div>
       <div
@@ -208,14 +208,14 @@ function MobileMenu({
         style={
           showMenu
             ? {
-                translate: 0,
-                position: "fixed",
-                top: 0,
-              }
+              translate: 0,
+              position: "fixed",
+              top: 0,
+            }
             : {
-                position: "fixed",
-                translate: 500,
-              }
+              position: "fixed",
+              translate: 500,
+            }
         }
       >
         {navLinks.map((link, index) => (

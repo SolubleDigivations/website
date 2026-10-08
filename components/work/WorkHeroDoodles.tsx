@@ -95,7 +95,7 @@ export function SunburstTop() {
       initial={{ opacity: 0,y:30, x:-5 , scale: 0.6 }}
       animate={{ opacity: 1, y:0, x:0, scale: 1 }}
       transition={{ duration: 0.4, delay: 0.45 }}
-      className="text-[#111111]"
+      className="text-[#111111] animate-pulse"
     >
       <path d="M 11.69 33.939 L 0.209 18.159" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" />
       <path d="M 22.344 29.811 L 18.842 8.189" stroke="currentColor" strokeWidth="2.9" strokeLinecap="round" />
@@ -108,18 +108,18 @@ export function SunburstTop() {
 export function SunburstBottom() {
   return (
     <motion.svg
-      width="44"
-      height="36"
-      viewBox="0 0 44 36"
+      width="90"
+      height="80"
+      viewBox="-30 10 55 36"
       fill="none"
-      initial={{ opacity: 0, scale: 0.6 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.4, delay: 0.6 }}
-      className="text-[#111111]"
+      initial={{ opacity: 0, y:-20, x:-10 }}
+      animate={{ opacity: 1, y:0, x:0 }}
+      transition={{ duration: 0.4, delay: 1.6, ease:[0.1,0.15,0.25,1] }}
+      className="text-[#111111] animate-pulse"
     >
-      <path d="M 6 28 L 16 14" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-      <path d="M 24 32 L 24 8" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" />
-      <path d="M 38 28 L 30 14" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+      <path d="M -17.957 43.851 L -24.267 26.669" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+      <path d="M -1.958 33.94 L -13.694 18.666" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" />
+      <path d="M 10.686 17.984 L -5.15 10.296" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
     </motion.svg>
   );
 }

@@ -83,9 +83,6 @@ function ServicesPageHero() {
       </div>
 
       <motion.div
-        initial={{ opacity: 0, scale: 0.9, y: 30 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
         className="w-full lg:w-1/2 flex items-center justify-center"
       >
         <ServicesHeroGraphic />

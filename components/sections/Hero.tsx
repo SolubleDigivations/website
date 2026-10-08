@@ -4,10 +4,11 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
 
-import HeroGraphic from "@/components/test/HeroGraphic";
+import HeroGraphic from "@/components/home/hero/HeroGraphic";
 import MagneticButton from "../common/MagneticButton";
 import { technologiesHero } from "@/lib/technologies";
 import { IconType } from "react-icons";
+import Spark from "../graphics/Spark";
 
 export default function Hero() {
   return (
@@ -38,7 +39,10 @@ export default function Hero() {
               }}
               className="mt-6 max-w-[570px] text-[clamp(3.2rem,5.1vw,5rem)] font-bold leading-[0.92] [word-spacing:4px] tracking-[-0.07em]"
             >
-              We build
+              <span className="relative">
+                We build
+                <Spark className="absolute -right-9 top-0" color="#FF91D4"/>
+              </span>
               <br />
               digital products
               <br />
@@ -121,7 +125,9 @@ export default function Hero() {
                     key={tech.name}
                     className="flex items-center gap-1.5 transition-colors hover:text-[#111111]"
                   >
-                    <span className="text-[#333333]"><Icon icon={tech.icon} size={15}/></span>
+                    <span className="text-[#333333]">
+                      <Icon icon={tech.icon} size={15} />
+                    </span>
                     <span>{tech.name}</span>
                   </div>
                 ))}

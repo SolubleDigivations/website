@@ -1,11 +1,13 @@
 "use client";
 
+import Spark from "@/components/graphics/Spark";
 import { motion } from "motion/react";
 
 export default function HeroDecorations() {
   return (
     <>
       {/* 1. Top-Left Yellow/Pink Spark & Cone Doodle near IDEA (Entrance: 0.35s) */}
+      <Spark className="absolute right-0"/>
 
       {/* 2. Top-Right blob (Behind/near DESIGN, Entrance: 0.35s + Subtle Idle Float) */}
       <motion.div
