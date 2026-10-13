@@ -110,7 +110,7 @@ export default function InsightsGraphic() {
             />
           ))}
         </div>
-        <p className="mt-3 text-xl font-extrabold tracking-[-0.07em] md:text-2xl">
+        <p className="mt-3 text-xl font-extrabold tracking-[-0.07em] md:text-2xl text-foreground">
           +120%
         </p>
         <p className="mt-1 text-[10px] leading-tight text-muted-foreground md:text-xs">
@@ -186,7 +186,7 @@ function ProductCard() {
           <span className="rounded-full bg-soluble-blue px-2 py-1 text-[8px] font-bold text-white">
             PRODUCT
           </span>
-          <p className="mt-2 text-[12px] font-extrabold leading-tight md:text-base">
+          <p className="mt-2 text-[12px] font-extrabold leading-tight md:text-base text-foreground">
             How modern businesses
             <br />
             can build for scale

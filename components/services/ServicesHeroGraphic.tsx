@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "motion/react";
+import { Sunburst4 } from "../graphics/Sunburst4";
 
 export default function ServicesHeroGraphic() {
   const [entered, setEntered] = useState(false);
@@ -15,14 +16,16 @@ export default function ServicesHeroGraphic() {
 
         {/* Top-Left Mint / Cyan Green Blob */}
         <motion.div
-          initial={entered ? {} : { opacity: 0, scale: 0.9, y: 30 }}
+          initial={
+            entered ? {} : { opacity: 0, scale: 0.9, y: 30, rotate: -12 }
+          }
           animate={
             entered
               ? {
                   y: [0, -5, 0],
                   rotate: [-12, -8, -12],
                 }
-              : { opacity: 1, scale: 1, y: 0 }
+              : { opacity: 1, scale: 1, y: 0, rotate: -12 }
           }
           transition={
             entered
@@ -33,13 +36,15 @@ export default function ServicesHeroGraphic() {
                 }
               : { duration: 0.4, delay: 0.1, ease: [0.22, 1, 0.36, 1] }
           }
-          className="absolute left-[-15%] top-[-10%] h-[15%] w-[20%] rounded-[52%_48%_60%_40%] bg-linear-to-br from-[#38EF7D] to-[#11998E] opacity-90 blur-[0.3px]"
+          className="absolute left-[-15%] top-[-10%] h-[15%] w-[20%] rounded-[52%_48%_60%_40%] bg-linear-to-br from-background to-55% to-soluble-mint opacity-90 blur-[0.3px]"
           style={{ transformOrigin: "center" }}
         />
 
         {/* Top Periwinkle Rounded Card with Globe Icon */}
         <motion.div
-          initial={entered ? {} : { opacity: 0, scale: 0.88, y: 30 }}
+          initial={
+            entered ? {} : { opacity: 0, scale: 0.88, y: 30, rotate: -6 }
+          }
           viewport={{ once: true }}
           animate={
             entered
@@ -47,7 +52,7 @@ export default function ServicesHeroGraphic() {
                   y: [0, -6, 0],
                   rotate: [-6, -4, -6],
                 }
-              : { opacity: 1, scale: 1, y: 0 }
+              : { opacity: 1, scale: 1, y: 0, rotate: -6 }
           }
           transition={
             entered
@@ -58,7 +63,7 @@ export default function ServicesHeroGraphic() {
                 }
               : { duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }
           }
-          className="absolute left-[22%] top-[-4%] z-10 flex h-[22%] w-[21%] items-center justify-center rounded-[24px] bg-[#9BB7FF] shadow-[0_12px_30px_rgba(108,140,255,0.25)]"
+          className="absolute left-[22%] top-[-4%] z-10 flex h-[22%] w-[21%] items-center justify-center rounded-[24px] bg-linear-to-br from-background to-40% to-[#9BB7FF] shadow-[0_12px_30px_rgba(108,140,255,0.25)]"
         >
           {/* Hand-drawn Globe SVG */}
           <svg
@@ -88,7 +93,9 @@ export default function ServicesHeroGraphic() {
 
         {/* Top-Right Royal Blue Elongated Pill */}
         <motion.div
-          initial={entered ? {} : { opacity: 0, scale: 0.88, y: 30 }}
+          initial={
+            entered ? {} : { opacity: 0, scale: 0.88, y: 30, rotate: -20 }
+          }
           viewport={{ once: true }}
           animate={
             entered
@@ -100,6 +107,7 @@ export default function ServicesHeroGraphic() {
                   opacity: 1,
                   scale: 1,
                   y: 0,
+                  rotate: -20,
                 }
           }
           transition={
@@ -111,12 +119,16 @@ export default function ServicesHeroGraphic() {
                 }
               : { duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }
           }
-          className="absolute right-[17%] rotate-45 top-[-4%] h-[52%] w-[22%] rounded-[55px] bg-linear-to-b from-[#4A72FF] to-[#2B54E8] shadow-[0_15px_35px_rgba(43,84,232,0.22)]"
+          className="absolute right-[17%] rotate-45 top-[-4%] h-[52%] w-[22%] rounded-[55px] bg-linear-240 from-background to-soluble-blue to-50% shadow-[0_15px_35px_rgba(43,84,232,0.22)]"
         ></motion.div>
+
+        <div className="absolute top-[28%] left-[-25%] -rotate-160">
+          <Sunburst4 className="animate-pulse" delay={3}/>
+        </div>
 
         {/* Right Warm Golden Yellow Blob */}
         <motion.div
-          initial={entered ? {} : { opacity: 0, scale: 0.88, y: 30 }}
+          initial={entered ? {} : { opacity: 0, scale: 0.88, y: 30, rotate: 8 }}
           viewport={{ once: true }}
           animate={
             entered
@@ -128,6 +140,7 @@ export default function ServicesHeroGraphic() {
                   opacity: 1,
                   scale: 1,
                   y: 0,
+                  rotate: 8,
                 }
           }
           transition={
@@ -139,7 +152,7 @@ export default function ServicesHeroGraphic() {
                 }
               : { duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }
           }
-          className="absolute -right-[2%] top-[33%] h-[38%] w-[22%] rounded-[55%_45%_58%_42%] bg-gradient-to-br from-[#FFE17D] to-[#FBBF24] opacity-95 blur-[0.2px]"
+          className="absolute -right-[2%] top-[33%] h-[38%] w-[22%] rounded-[55%_45%_58%_42%] bg-linear-120 from-background to-soluble-yellow to-50% opacity-95 blur-[0.2px]"
         />
 
         {/* Right Hand-Drawn Curly Swirl Spiral Doodle */}
@@ -160,9 +173,14 @@ export default function ServicesHeroGraphic() {
           strokeLinejoin="round"
         >
           <motion.path
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 0.6, delay: 2.5, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 1 }}
+            transition={{
+              duration: 0.6,
+              delay: 2.5,
+              ease: [0.22, 1, 0.36, 1],
+              opacity: { duration: 0.4, delay: 2.5 },
+            }}
             onAnimationComplete={() => setEntered(true)}
             d="M 5 45 C 30 15, 60 70, 75 42 C 85 24, 75 10, 60 20 C 50 30, 65 55, 85 45 C 95 40, 100 35, 105 38"
           />
@@ -170,7 +188,9 @@ export default function ServicesHeroGraphic() {
 
         {/* Bottom-Right Lavender / Lilac Organic Shape */}
         <motion.div
-          initial={entered ? {} : { opacity: 0, scale: 0.88, y: 30 }}
+          initial={
+            entered ? {} : { opacity: 0, scale: 0.88, y: 30, rotate: -4 }
+          }
           viewport={{ once: true }}
           animate={
             entered
@@ -178,7 +198,7 @@ export default function ServicesHeroGraphic() {
                   y: [0, 5, 0],
                   rotate: [-4, 2, -4],
                 }
-              : { opacity: 1, scale: 1, y: 0 }
+              : { opacity: 1, scale: 1, y: 0, rotate: -4 }
           }
           transition={
             entered
@@ -194,7 +214,9 @@ export default function ServicesHeroGraphic() {
 
         {/* Bottom-Left Pink / Magenta Soft Organic Blob */}
         <motion.div
-          initial={entered ? {} : { opacity: 0, scale: 0.88, y: 30 }}
+          initial={
+            entered ? {} : { opacity: 0, scale: 0.88, y: 30, rotate: -8 }
+          }
           viewport={{ once: true }}
           animate={
             entered
@@ -202,7 +224,7 @@ export default function ServicesHeroGraphic() {
                   y: [0, -5, 0],
                   rotate: [-8, -4, -8],
                 }
-              : { opacity: 1, scale: 1, y: 0 }
+              : { opacity: 1, scale: 1, y: 0, rotate: -8 }
           }
           transition={
             entered
@@ -213,7 +235,7 @@ export default function ServicesHeroGraphic() {
                 }
               : { duration: 0.8, delay: 1.2, ease: [0.22, 1, 0.36, 1] }
           }
-          className="absolute bottom-[8%] left-[-10%] h-[32%] w-[40%] rounded-[60%_40%_52%_48%] bg-linear-to-br from-[#FF7EB3] to-[#FF758C] opacity-90 blur-[0.3px]"
+          className="absolute bottom-[8%] left-[-10%] h-[32%] w-[40%] rounded-[60%_40%_52%_48%] bg-linear-240 to-80% from-background to-soluble-pink opacity-90 blur-[0.3px]"
         />
 
         {/* ======================================================== */}
@@ -252,7 +274,7 @@ export default function ServicesHeroGraphic() {
                 }
               : { duration: 0.8, delay: 2, ease: [0.22, 1, 0.36, 1] }
           }
-          className="absolute left-[14%] top-[20%] z-20 flex h-[64%] w-[59%] flex-col rounded-[26px] border border-white bg-white/95 p-3.5 shadow-[0_28px_65px_-10px_rgba(15,23,42,0.18),0_10px_25px_-5px_rgba(15,23,42,0.08)] backdrop-blur-md sm:p-4"
+          className="absolute left-[14%] top-[20%] z-20 flex h-[64%] w-[59%] flex-col rounded-[26px] border border-white bg-white/95 p-3.5 shadow-[0_28px_65px_-10px_rgba(15,23,42,0.18),0_10px_25px_-5px_rgba(15,23,42,0.08)] backdrop-blur-md sm:p-4 transition-all"
           style={{
             transform: "rotate(-6deg)",
           }}
@@ -401,7 +423,9 @@ export default function ServicesHeroGraphic() {
 
         {/* 3A: Top-Left Card: "Modern Digital Solutions" */}
         <motion.div
-          initial={entered ? {} : { opacity: 0, scale: 0.88, y: 30 }}
+          initial={
+            entered ? {} : { opacity: 0, scale: 0.88, y: 30, rotate: -3 }
+          }
           viewport={{ once: true }}
           animate={
             entered
@@ -409,7 +433,7 @@ export default function ServicesHeroGraphic() {
                   y: [0, -8, 0],
                   rotate: [-3, -1, -3],
                 }
-              : { opacity: 1, scale: 1, y: 0 }
+              : { opacity: 1, scale: 1, y: 0, rotate: -3 }
           }
           transition={
             entered
@@ -432,7 +456,9 @@ export default function ServicesHeroGraphic() {
 
         {/* 3B: Right Card: Code Symbol </> */}
         <motion.div
-          initial={entered ? {} : { opacity: 0, scale: 0.88, y: 30 }}
+          initial={
+            entered ? {} : { opacity: 0, scale: 0.88, y: 30, rotate: -6 }
+          }
           viewport={{ once: true }}
           animate={
             entered
@@ -440,7 +466,7 @@ export default function ServicesHeroGraphic() {
                   y: [0, 7, 0],
                   rotate: [-6, -3, -6],
                 }
-              : { opacity: 1, scale: 1, y: 0 }
+              : { opacity: 1, scale: 1, y: 0, rotate: -6 }
           }
           transition={
             entered
@@ -460,7 +486,9 @@ export default function ServicesHeroGraphic() {
 
         {/* 3C: Bottom Card: Growth Bar Chart (Blue Ascending Bars) */}
         <motion.div
-          initial={entered ? {} : { opacity: 0, scale: 0.88, y: 30 }}
+          initial={
+            entered ? {} : { opacity: 0, scale: 0.88, y: 30, rotate: -5 }
+          }
           viewport={{ once: true }}
           animate={
             entered
@@ -468,7 +496,7 @@ export default function ServicesHeroGraphic() {
                   y: [0, -6, 0],
                   rotate: [-5, -2, -5],
                 }
-              : { opacity: 1, scale: 1, y: 0 }
+              : { opacity: 1, scale: 1, y: 0, rotate: -5 }
           }
           transition={
             entered

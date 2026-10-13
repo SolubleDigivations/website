@@ -6,6 +6,7 @@ import { easeOut, motion } from "motion/react";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import MagneticButton from "../common/MagneticButton";
 import SolubleLogo from "../common/SolubleLogo";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   {
@@ -35,6 +36,8 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+
   const [scrollY, setScrollY] = useState(0);
   const [showMenu, setShowMenu] = useState(false);
 
@@ -89,10 +92,10 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group relative text-[16px] font-semibold text-muted-foreground transition-colors duration-300 hover:text-foreground"
+                className={`group relative text-[16px] font-semibold ${pathname == link.href ? "text-black" : "text-muted-foreground"} transition-colors duration-300 hover:text-foreground`}
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 h-0.5 w-full origin-right scale-x-0 bg-foreground transition-transform duration-300 group-hover:origin-left group-hover:scale-x-100" />
+                <span className={`absolute -bottom-1 left-0 h-0.5 w-full origin-right scale-x-0 bg-foreground transition-transform duration-300 ${pathname==link.href && 'scale-x-100'} group-hover:origin-left group-hover:scale-x-100`} />
               </Link>
             ))}
           </div>
@@ -112,7 +115,7 @@ export default function Navbar() {
           <button
             type="button"
             aria-label="Open menu"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-border md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-border md:hidden bg-background"
             onClick={() =>
               setShowMenu((prev) => {
                 return !prev;
@@ -125,8 +128,8 @@ export default function Navbar() {
                 style={
                   showMenu
                     ? {
-                      transform: "translateY(5px) rotate(45deg)",
-                    }
+                        transform: "translateY(5px) rotate(45deg)",
+                      }
                     : {}
                 }
               />
@@ -135,8 +138,8 @@ export default function Navbar() {
                 style={
                   showMenu
                     ? {
-                      transform: "translateY(-2px) rotate(-45deg)",
-                    }
+                        transform: "translateY(-2px) rotate(-45deg)",
+                      }
                     : {}
                 }
               />
@@ -163,14 +166,14 @@ function MobileMenu({
         style={
           showMenu
             ? {
-              translate: 0,
-              position: "fixed",
-              top: 0,
-            }
+                translate: 0,
+                position: "fixed",
+                top: 0,
+              }
             : {
-              position: "fixed",
-              translate: 500,
-            }
+                position: "fixed",
+                translate: 500,
+              }
         }
       ></div>
       <div
@@ -178,14 +181,14 @@ function MobileMenu({
         style={
           showMenu
             ? {
-              translate: 0,
-              position: "fixed",
-              top: 0,
-            }
+                translate: 0,
+                position: "fixed",
+                top: 0,
+              }
             : {
-              position: "fixed",
-              translate: 500,
-            }
+                position: "fixed",
+                translate: 500,
+              }
         }
       ></div>
       <div
@@ -193,14 +196,14 @@ function MobileMenu({
         style={
           showMenu
             ? {
-              translate: 0,
-              position: "fixed",
-              top: 0,
-            }
+                translate: 0,
+                position: "fixed",
+                top: 0,
+              }
             : {
-              position: "fixed",
-              translate: 500,
-            }
+                position: "fixed",
+                translate: 500,
+              }
         }
       ></div>
       <div
@@ -208,14 +211,14 @@ function MobileMenu({
         style={
           showMenu
             ? {
-              translate: 0,
-              position: "fixed",
-              top: 0,
-            }
+                translate: 0,
+                position: "fixed",
+                top: 0,
+              }
             : {
-              position: "fixed",
-              translate: 500,
-            }
+                position: "fixed",
+                translate: 500,
+              }
         }
       >
         {navLinks.map((link, index) => (
@@ -225,7 +228,7 @@ function MobileMenu({
               setShowMenu(false);
             }}
             href={link.href}
-            className="group relative text-5xl font-[1000] text-foreground transition-colors duration-300 overflow-hidden pb-2 active:text-soluble-blue"
+            className="group relative text-5xl font-[1000] text-foreground transition-colors duration-300 overflow-hidden pb-2 active:text-soluble-blue tracking-tighter"
           >
             <motion.div
               initial={{ y: 52 }}

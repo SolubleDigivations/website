@@ -13,7 +13,7 @@ export default function ResponsiveShowcase() {
         {/* =========================================================
             1. HEADER: HEADLINE & SUBTITLE
             ========================================================= */}
-        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end mb-16 md:mb-24">
+        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end mb-16 md:mb-10">
           {/* Main Headline */}
           <div>
             <Reveal>
@@ -46,7 +46,7 @@ export default function ResponsiveShowcase() {
         <div className="grid gap-12 lg:grid-cols-[260px_1fr] lg:gap-14 items-start">
           
           {/* Left Column: Stat Metrics */}
-          <div className="space-y-12 sm:space-y-16">
+          <div className="space-y-12 sm:space-y-16 mt-auto">
             
             {/* Metric 1: >60% Mobile First */}
             <Reveal delay={0.15}>

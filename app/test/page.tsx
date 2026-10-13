@@ -1,5 +1,6 @@
 import React from "react";
 import ResponsiveShowcase from "@/components/test/ResponsiveShowcase";
+import RotatingCube from "@/components/graphics/RotatingCube";
 
 export const metadata = {
   title: "Responsive Showcase | Soluble Digivations",

@@ -11,7 +11,7 @@ export default function CurvedArrow2({
   className = "",
 }: CurvedArrowProps) {
   const arrowTransition = {
-    duration: 0.9,
+    duration: 0.4,
     ease: "easeOut" as const,
   };
 

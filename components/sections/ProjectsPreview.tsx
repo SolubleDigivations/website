@@ -53,7 +53,7 @@ export default function ProjectsPreview() {
 
         {/* Projects */}
         <div className="space-y-10">
-          {projects.map((project, index) => (
+          {projects.slice(0,2).map((project, index) => (
             <ProjectCard
               key={project.title}
               project={project}

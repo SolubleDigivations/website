@@ -29,7 +29,7 @@ export default function WorkHeroGraphic() {
         initial={{ opacity: 0, scale: 0.88, rotate: 0 }}
         animate={{ opacity: 1, scale: 1, rotate: 3 }}
         transition={{ duration: 0.65, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute left-[8%] top-[12%] z-0 h-[240px] w-[300px] rounded-[32px] bg-[#FED65B] shadow-[0_16px_36px_rgba(254,214,91,0.22)] sm:left-[12%] sm:top-[10%] lg:top-[15%] sm:h-[290px] sm:w-[370px] sm:rounded-[40px] lg:left-[-2%] lg:h-[290px] lg:w-[380px] lg:rounded-[44px]"
+        className="absolute left-[8%] top-[12%] z-0 h-[240px] w-[300px] rounded-[32px] bg-linear-to-br from-background to-50% to-soluble-yellow shadow-[0_16px_36px_rgba(254,214,91,0.22)] sm:left-[12%] sm:top-[10%] lg:top-[15%] sm:h-[290px] sm:w-[370px] sm:rounded-[40px] lg:left-[-2%] lg:h-[290px] lg:w-[380px] lg:rounded-[44px]"
       >
         {/* Tiny bird/wave doodle on top-left of yellow card */}
         <div className="absolute left-6 top-6 sm:left-8 sm:top-8 text-[#111111]">
@@ -49,7 +49,7 @@ export default function WorkHeroGraphic() {
         initial={{ opacity: 0, scale: 0.88, rotate: 0 }}
         animate={{ opacity: 1, scale: 1, rotate: 7 }}
         transition={{ duration: 0.65, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute right-[8%] top-[16%] z-0 h-[310px] w-[190px] rounded-[34px] bg-gradient-to-b from-[#DCD0FD] to-[#C7B3FA] shadow-[0_16px_36px_rgba(199,179,250,0.25)] sm:right-[10%] sm:top-[14%] sm:h-[370px] sm:w-[230px] sm:rounded-[42px] lg:right-[10%] lg:h-[380px] lg:w-[220px] lg:rounded-[46px]"
+        className="absolute right-[8%] top-[16%] z-0 h-[310px] w-[190px] rounded-[34px] bg-gradient-to-br from-background to-45% to-soluble-purple shadow-[0_16px_36px_rgba(199,179,250,0.25)] sm:right-[10%] sm:top-[14%] sm:h-[370px] sm:w-[230px] sm:rounded-[42px] lg:right-[10%] lg:h-[380px] lg:w-[220px] lg:rounded-[46px]"
       />
 
       {/* ===================================================================
