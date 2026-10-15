@@ -4,6 +4,10 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 
 import SiteShell from "@/components/layout/SiteShell";
+import { GoogleAnalytics } from "@next/third-parties/google";
+
+const googleAnalyticsId =
+  process.env.NEXT_PUBLIC_GA_ID ?? "G-LRBF36JBLJ";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -42,6 +46,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full bg-background font-sans text-foreground">
         <SiteShell>{children}</SiteShell>
+        <GoogleAnalytics gaId={googleAnalyticsId} />
       </body>
     </html>
   );
