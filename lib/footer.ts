@@ -25,19 +25,19 @@ export const footerLinks = {
   socialLinks: [
     {
       label: "Instagram",
-      href: "#",
+      href: "https://www.instagram.com/solubledigivations",
     },
     {
       label: "LinkedIn",
-      href: "#",
+      href: "https://www.linkedin.com/company/soluble-digivations",
     },
     {
       label: "GitHub",
-      href: "#",
+      href: "https://github.com/SolubleDigivations",
     },
-    {
-      label: "Twitter",
-      href: "#",
-    },
+    // {
+    //   label: "Twitter",
+    //   href: "#",
+    // },
   ],
 } as const;
