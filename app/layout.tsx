@@ -33,6 +33,9 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Soluble Digivations",
   description: "Digital Engineering for Modern Businesses.",
+  verification: {
+    google: "rdEcBOjJ_QwNIIXiqgxlx-AesDUEEmAD6A-XF-jwn1U",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -49,6 +52,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full bg-background font-sans text-foreground">
         <SiteShell>{children}</SiteShell>
+
         <GoogleAnalytics gaId={googleAnalyticsId} />
         <Script id="microsoft-clarity" strategy="afterInteractive">
           {`
