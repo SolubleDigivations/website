@@ -62,10 +62,46 @@ export default function ContactFormContainer() {
 
   // Final Submission
   const handleSubmitBrief = async () => {
+    if (isSubmitting) return;
+
     setIsSubmitting(true);
     setSubmitError(null);
 
     try {
+      const uploadedFiles = [];
+      for (const item of formData.files || []) {
+        const uploadResponse = await fetch("/api/contact/upload", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: item.name,
+            size: item.size,
+            type: item.type,
+          }),
+        });
+        const uploadResult = await uploadResponse.json().catch(() => null);
+        if (!uploadResponse.ok || !uploadResult?.success || !uploadResult.upload) {
+          throw new Error(uploadResult?.error || "Unable to prepare an attachment.");
+        }
+
+        const storageResponse = await fetch(uploadResult.upload.signedUrl, {
+          method: "PUT",
+          headers: { "Content-Type": item.type },
+          body: item.file,
+        });
+        if (!storageResponse.ok) {
+          throw new Error(`Unable to upload "${item.name}". Please try again.`);
+        }
+
+        uploadedFiles.push({
+          name: item.name,
+          size: item.size,
+          type: item.type,
+          path: uploadResult.upload.path,
+          uploadToken: uploadResult.upload.token,
+        });
+      }
+
       const payloadData = {
         name: formData.name,
         email: formData.email,
@@ -84,31 +120,19 @@ export default function ContactFormContainer() {
         projectObjectives: formData.projectObjectives,
         referenceLinks: formData.referenceLinks,
         additionalMessage: formData.additionalMessage,
-        files: (formData.files || []).map((f) => ({
-          name: f.name,
-          size: f.size,
-          type: f.type,
-        })),
+        files: uploadedFiles,
       };
-
-      const bodyFormData = new FormData();
-      bodyFormData.append("data", JSON.stringify(payloadData));
-
-      if (formData.files && formData.files.length > 0) {
-        for (const item of formData.files) {
-          bodyFormData.append("files", item.file);
-        }
-      }
 
       const response = await fetch("/api/contact", {
         method: "POST",
-        body: bodyFormData,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payloadData),
       });
 
-      const result = await response.json();
+      const result = await response.json().catch(() => null);
 
-      if (!response.ok || !result.success) {
-        throw new Error(result.error || "Failed to submit enquiry. Please try again.");
+      if (!response.ok || !result?.success) {
+        throw new Error(result?.error || "Failed to submit enquiry. Please try again.");
       }
 
       // Transition to success screen
@@ -237,7 +261,7 @@ export default function ContactFormContainer() {
         {/* Steps 1 to 6: Shared 2-column layout with FIXED Stepper */}
         {isFormStep && (
           <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-14 py-1 sm:py-2">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start">
               {/* Left Column: Heading & Creative Drawing Illustration */}
               <div className="lg:col-span-5 flex flex-col justify-center">
                 <AnimatePresence mode="wait">
@@ -259,9 +283,9 @@ export default function ContactFormContainer() {
               </div>
 
               {/* Right Column: Persistent Stepper + Animated Form Fields */}
-              <div className="lg:col-span-7 flex flex-col justify-center max-w-2xl w-full mx-auto lg:mx-0">
+              <div className="lg:col-span-7 flex flex-col justify-center max-w-2xl w-full mx-auto lg:mx-0 ">
                 {/* FIXED STEPPER: Completely stationary during step transitions */}
-                <div className="mb-2 sm:mb-3">
+                <div className="mb-2 sm:mb-18">
                   <ProgressBar currentStep={currentStepNumber} totalSteps={6} />
                 </div>
 

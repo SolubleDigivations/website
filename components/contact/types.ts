@@ -77,7 +77,7 @@ export const SERVICE_OPTIONS = [
     description: "Marketing sites, corporate, e-commerce and more.",
     icon: "globe",
     color: "#7C98FF",
-    bgColor: "bg-blue-50",
+    bgColor: "bg-soluble-blue/50",
     borderColor: "border-blue-400",
   },
   {
@@ -86,7 +86,7 @@ export const SERVICE_OPTIONS = [
     description: "iOS, Android or cross-platform apps.",
     icon: "phone",
     color: "#FF91D4",
-    bgColor: "bg-pink-50",
+    bgColor: "bg-soluble-pink/50",
     borderColor: "border-pink-400",
   },
   {
@@ -95,7 +95,7 @@ export const SERVICE_OPTIONS = [
     description: "Tailored solutions for your unique needs.",
     icon: "code",
     color: "#65DDB5",
-    bgColor: "bg-emerald-50",
+    bgColor: "bg-soluble-mint/50",
     borderColor: "border-emerald-400",
   },
   {
@@ -104,7 +104,7 @@ export const SERVICE_OPTIONS = [
     description: "User focused, modern and intuitive designs.",
     icon: "pencil",
     color: "#FFD66B",
-    bgColor: "bg-amber-50",
+    bgColor: "bg-soluble-yellow/50",
     borderColor: "border-amber-400",
   },
   {
@@ -113,7 +113,7 @@ export const SERVICE_OPTIONS = [
     description: "Research, planning and technical guidance.",
     icon: "layers",
     color: "#A98BFF",
-    bgColor: "bg-purple-50",
+    bgColor: "bg-soluble-purple/50",
     borderColor: "border-purple-400",
   },
   {
@@ -122,7 +122,7 @@ export const SERVICE_OPTIONS = [
     description: "Maintenance, optimization and feature updates.",
     icon: "dots",
     color: "#94A3B8",
-    bgColor: "bg-slate-50",
+    bgColor: "bg-slate-200",
     borderColor: "border-slate-400",
   },
 ];

@@ -92,7 +92,7 @@ export default function ContactHeader() {
           <button
             type="button"
             aria-label="Open menu"
-            className="flex px-4 h-12 items-center justify-center gap-1 rounded-full bg-black overflow-hidden cursor-pointer"
+            className="flex px-4 h-12 items-center justify-center gap-1 rounded-full bg-white border border-border hover:scale-104 transition-transform duration-200 overflow-hidden cursor-pointer group"
             onClick={() =>
               setShowMenu((prev) => {
                 return !prev;
@@ -100,12 +100,12 @@ export default function ContactHeader() {
             }
           >
             <div
-              className={`text-foreground text-lg flex flex-col ${showMenu ? "-translate-y-6" : "translate-y-3.5"} transition-all duration-200 text-white`}
+              className={`text-foreground text-lg flex flex-col ${showMenu ? "-translate-y-6" : "translate-y-3.5"} transition-all duration-200 text-black`}
             >
-              <span className="font-medium">Menu</span>
-              <span className="translate-y-[9px]">Close</span>
+              <span className="font-medium transition-transform duration-200">Menu</span>
+              <span className="translate-y-[9px] transition-transform duration-200">Close</span>
             </div>
-            {showMenu ? <IoCloseOutline color="#ffffff" size={26} className="-mr-1"/> : <MenuIcon color="#ffffff" size={20}/>}
+            {showMenu ? <IoCloseOutline color="#000000" size={26} className="-mr-1 group-hover:scale-102"/> : <MenuIcon color="#000000" size={20} className="group-hover:scale-102"/>}
           </button>
         </nav>
       </motion.header>

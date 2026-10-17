@@ -5,6 +5,7 @@ import { ArrowRight, Mouse } from "lucide-react";
 import ContactHeader from "./ContactHeader";
 import { EntryHeroGraphic } from "./graphics/StepGraphics";
 import { BurstTicks } from "./graphics/ContactDoodles";
+import MagneticButton from "../common/MagneticButton";
 
 interface EntryScreenProps {
   onStart: () => void;
@@ -13,7 +14,6 @@ interface EntryScreenProps {
 export default function EntryScreen({ onStart }: EntryScreenProps) {
   return (
     <div className="relative h-full flex flex-col justify-between overflow-hidden bg-[#F8F8F5]">
-
       {/* Main Content Area */}
       <main className="relative flex-1 flex flex-col items-center justify-center px-4 sm:px-6 py-2 sm:py-4 z-10">
         {/* Floating Background/Surrounding Graphics */}
@@ -41,7 +41,11 @@ export default function EntryScreen({ onStart }: EntryScreenProps) {
             className="relative mt-5 sm:mt-6"
           >
             {/* Top-right burst ticks with drawing animation */}
-            <BurstTicks className="absolute -top-6 right-0 sm:right-6 w-8 h-8 text-[#111111]" color="#111111" delay={0.65} />
+            <BurstTicks
+              className="absolute -top-5 right-0 sm:right-4 w-10 h-10 rotate-24 text-[#111111]"
+              color="#111111"
+              delay={0.65}
+            />
 
             <h1 className="text-4xl sm:text-6xl md:text-[68px] font-black tracking-[-0.04em] text-[#111111] leading-[1.04]">
               Good ideas
@@ -66,7 +70,11 @@ export default function EntryScreen({ onStart }: EntryScreenProps) {
                     strokeLinecap="round"
                     initial={{ pathLength: 0 }}
                     animate={{ pathLength: 1 }}
-                    transition={{ delay: 0.55, duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{
+                      delay: 0.55,
+                      duration: 0.75,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
                   />
                 </svg>
               </span>
@@ -80,7 +88,8 @@ export default function EntryScreen({ onStart }: EntryScreenProps) {
             transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
             className="mt-6 sm:mt-7 text-sm sm:text-base md:text-lg text-muted-foreground/90 max-w-md mx-auto leading-relaxed text-balance"
           >
-            Tell us about your idea, and we&apos;ll help you figure out the best way forward.
+            Tell us about your idea, and we&apos;ll help you figure out the best
+            way forward.
           </motion.p>
 
           {/* Primary CTA Button */}
@@ -92,15 +101,17 @@ export default function EntryScreen({ onStart }: EntryScreenProps) {
           >
             {/* Ambient orange/pink glow behind button */}
             <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#FFD66B]/40 via-[#FF8B68]/30 to-[#FF91D4]/40 blur-md opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
-            
-            <button
-              type="button"
-              onClick={onStart}
-              className="relative inline-flex items-center justify-center gap-2.5 rounded-full bg-[#111111] px-7 py-3.5 sm:px-8 sm:py-4 text-sm sm:text-base font-semibold text-white shadow-xl hover:bg-black hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
-            >
-              <span>Let&apos;s get started</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 duration-200" />
-            </button>
+
+            <MagneticButton>
+              <button
+                type="button"
+                onClick={onStart}
+                className="relative inline-flex items-center justify-center gap-2.5 rounded-full bg-[#111111] px-7 py-3.5 sm:px-8 sm:py-4 text-sm sm:text-base font-semibold text-white shadow-xl hover:bg-black hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
+              >
+                <span>Let&apos;s get started</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 duration-200" />
+              </button>
+            </MagneticButton>
           </motion.div>
         </div>
       </main>

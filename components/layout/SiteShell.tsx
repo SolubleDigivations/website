@@ -3,6 +3,7 @@
 import Navbar from "./Navbar";
 import Footer from "@/components/layout/Footer";
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 export default function SiteShell({
   children,
@@ -11,6 +12,15 @@ export default function SiteShell({
 }) {
   const pathname = usePathname();
   const isContact = pathname === "/contact";
+
+  useEffect(() => {
+    if (isContact) {
+      document.documentElement.classList.add("contact-shell");
+      return () => {
+        document.documentElement.classList.remove("contact-shell");
+      };
+    }
+  }, [isContact]);
 
   if (isContact) {
     return (

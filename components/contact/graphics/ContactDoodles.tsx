@@ -36,7 +36,7 @@ export function DoodleArrow({
           }}
         />
         <motion.path
-          d="M38 43 L53 47 L51 32"
+          d="M 40.819 35.706 L 52.33 46.559 L 56.311 30.936"
           stroke={color}
           strokeWidth="2.5"
           strokeLinecap="round"
@@ -62,7 +62,7 @@ export function DoodleArrow({
         aria-hidden="true"
       >
         <motion.path
-          d="M60 8 C45 6, 22 16, 18 44"
+          d="M 70.196 2.097 C 55.196 0.097 22 16 18 44"
           stroke={color}
           strokeWidth="2.5"
           strokeLinecap="round"
@@ -74,7 +74,7 @@ export function DoodleArrow({
           }}
         />
         <motion.path
-          d="M32 41 L17 45 L19 30"
+          d="M 27.999 34.766 L 17.558 45.062 L 14.813 31.675"
           stroke={color}
           strokeWidth="2.5"
           strokeLinecap="round"
@@ -177,14 +177,14 @@ export function BurstTicks({
 }) {
   return (
     <svg
-      viewBox="0 0 36 28"
+      viewBox="0 0 36 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
+      className={`${className}`}
       aria-hidden="true"
     >
       <motion.path
-        d="M4 22 L11 7"
+        d="M 4.766 26.976 L -0.355 8.149"
         stroke={color}
         strokeWidth="2.5"
         strokeLinecap="round"
@@ -208,7 +208,7 @@ export function BurstTicks({
         }}
       />
       <motion.path
-        d="M32 22 L25 7"
+        d="M 29.448 27.359 L 36.611 7.511"
         stroke={color}
         strokeWidth="2.5"
         strokeLinecap="round"
@@ -353,7 +353,7 @@ export function StickyNote({
         damping: 22,
         delay,
       }}
-      className={`relative bg-[#FFF089] text-[#111111] p-3 sm:p-4 rounded-xl shadow-md border border-[#F3E26B] font-caveat ${rotate} ${className}`}
+      className={`relative bg-linear-to-br from-background to-50% to-soluble-yellow text-[#111111] p-3 sm:p-4 rounded-xl shadow-md border border-[#F3E26B] font-caveat ${rotate} ${className}`}
     >
       {/* Subtle top tape / fold mark */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-2 bg-black/5 rounded-xs" />
