@@ -30,6 +30,11 @@
   --color-soluble-yellow: #FFD65A;
   --color-soluble-pink: #FF91D4;
   --color-soluble-orange: #FF7445;
+  --color-soluble-peach: #FF9C86;
+
+  /*Soluble decorative pallete */
+  --color-blob-blue:#026FEC;
+  --color-blob-orange:#FF7445;
 
   /* UI */
   --color-card: var(--card);

@@ -72,19 +72,19 @@ export default function SuccessScreen({
           {/* Right Column: Brief Received Details & Next Steps */}
           <div className="lg:col-span-7 flex flex-col justify-center max-w-2xl w-full mx-auto lg:mx-0 space-y-3 sm:space-y-3.5">
             {/* Eyebrow badge */}
-            <div className="inline-flex w-fit items-center rounded-full bg-[#E0FAF0] px-3 py-0.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#059669]">
+            <div className="inline-flex w-fit items-center rounded-full bg-soluble-mint/40 px-3 py-0.5 lg:py-1 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-foreground/80">
               Brief received
             </div>
 
             {/* Heading */}
-            <h1 className="text-2xl sm:text-4xl lg:text-[42px] font-black tracking-[-0.04em] text-[#111111] leading-tight">
+            <h1 className="mt-4 text-2xl sm:text-4xl lg:text-6xl font-[1000] tracking-tighter text-[#111111] leading-13">
               Your idea is
               <br />
-              with us<span className="text-[#FF8B68]">.</span>
+              with us<span className="text-soluble-orange font-outfit">.</span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-lg">
+            <p className="mt-4 mb-4 text-xs sm:text-sm lg:text-base font-medium text-muted-foreground/80 leading-relaxed max-w-72">
               Thanks for sharing the details{formData.name ? `, ${formData.name.split(" ")[0]}` : ""}. We&apos;ve received your project brief and will get back to you soon.
             </p>
 
@@ -93,17 +93,17 @@ export default function SuccessScreen({
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="rounded-3xl bg-white border border-[#E7E7E2] p-3.5 sm:p-4 shadow-xs"
+              className="rounded-lg bg-white border border-[#E7E7E2] p-3.5 sm:p-5 shadow-xs"
             >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 {/* 1. Services */}
                 <div className="flex items-start gap-2.5">
-                  <div className="w-8 h-8 rounded-full bg-[#FFE4F2] flex items-center justify-center shrink-0">
-                    <Globe className="w-4 h-4 text-[#111111]" />
+                  <div className="w-10 h-10 rounded-full bg-soluble-pink/70 flex items-center justify-center shrink-0">
+                    <Globe className="w-4.5 h-4.5 text-[#111111]" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[10px] text-muted-foreground font-medium">Services</p>
-                    <p className="text-xs font-bold text-[#111111] line-clamp-2">
+                    <p className="text-xs text-muted-foreground font-medium">Services</p>
+                    <p className="text-sm font-bold text-[#111111] line-clamp-2">
                       {servicesText}
                     </p>
                   </div>
@@ -111,12 +111,12 @@ export default function SuccessScreen({
 
                 {/* 2. Audience */}
                 <div className="flex items-start gap-2.5">
-                  <div className="w-8 h-8 rounded-full bg-[#E0FAF0] flex items-center justify-center shrink-0">
-                    <Users className="w-4 h-4 text-[#111111]" />
+                  <div className="w-10 h-10 rounded-full bg-soluble-mint/50 flex items-center justify-center shrink-0">
+                    <Users className="w-4.5 h-4.5 text-[#111111]" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[10px] text-muted-foreground font-medium">Audience</p>
-                    <p className="text-xs font-bold text-[#111111] truncate">
+                    <p className="text-xs text-muted-foreground font-medium">Audience</p>
+                    <p className="text-sm font-bold text-[#111111] truncate">
                       {audienceText}
                     </p>
                   </div>
@@ -124,12 +124,12 @@ export default function SuccessScreen({
 
                 {/* 3. Budget */}
                 <div className="flex items-start gap-2.5">
-                  <div className="w-8 h-8 rounded-full bg-[#FEF3C7] flex items-center justify-center shrink-0">
-                    <IndianRupee className="w-4 h-4 text-[#111111]" />
+                  <div className="w-10 h-10 rounded-full bg-soluble-yellow/60 flex items-center justify-center shrink-0">
+                    <IndianRupee className="w-4.5 h-4.5 text-[#111111]" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[10px] text-muted-foreground font-medium">Budget</p>
-                    <p className="text-xs font-bold text-[#111111] truncate">
+                    <p className="text-xs text-muted-foreground font-medium">Budget</p>
+                    <p className="text-sm font-bold text-[#111111] truncate">
                       {budgetText}
                     </p>
                   </div>
@@ -137,12 +137,12 @@ export default function SuccessScreen({
 
                 {/* 4. Files */}
                 <div className="flex items-start gap-2.5">
-                  <div className="w-8 h-8 rounded-full bg-[#E0ECFF] flex items-center justify-center shrink-0">
-                    <FileText className="w-4 h-4 text-[#111111]" />
+                  <div className="w-10 h-10 rounded-full bg-soluble-blue/50 flex items-center justify-center shrink-0">
+                    <FileText className="w-4.5 h-4.5 text-[#111111]" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[10px] text-muted-foreground font-medium">Files</p>
-                    <p className="text-xs font-bold text-[#111111] truncate">
+                    <p className="text-xs text-muted-foreground font-medium">Files</p>
+                    <p className="text-sm font-bold text-[#111111] truncate">
                       {filesText}
                     </p>
                   </div>
@@ -150,12 +150,12 @@ export default function SuccessScreen({
 
                 {/* 5. Timeline */}
                 <div className="flex items-start gap-2.5">
-                  <div className="w-8 h-8 rounded-full bg-[#EBE4FF] flex items-center justify-center shrink-0">
-                    <Calendar className="w-4 h-4 text-[#111111]" />
+                  <div className="w-10 h-10 rounded-full bg-soluble-purple/50 flex items-center justify-center shrink-0">
+                    <Calendar className="w-4.5 h-4.5 text-[#111111]" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[10px] text-muted-foreground font-medium">Timeline</p>
-                    <p className="text-xs font-bold text-[#111111] truncate">
+                    <p className="text-xs text-muted-foreground font-medium">Timeline</p>
+                    <p className="text-sm font-bold text-[#111111] truncate">
                       {timelineText}
                     </p>
                   </div>
@@ -163,12 +163,12 @@ export default function SuccessScreen({
 
                 {/* 6. Additional details */}
                 <div className="flex items-start gap-2.5">
-                  <div className="w-8 h-8 rounded-full bg-[#FFE4F2] flex items-center justify-center shrink-0">
-                    <MessageSquare className="w-4 h-4 text-[#111111]" />
+                  <div className="w-10 h-10 rounded-full bg-soluble-pink/50 flex items-center justify-center shrink-0">
+                    <MessageSquare className="w-4.5 h-4.5 text-[#111111]" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[10px] text-muted-foreground font-medium">Additional details</p>
-                    <p className="text-xs font-bold text-[#111111] truncate">
+                    <p className="text-xs text-muted-foreground font-medium">Additional details</p>
+                    <p className="text-sm font-bold text-[#111111] truncate">
                       {detailsText}
                     </p>
                   </div>

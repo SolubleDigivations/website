@@ -104,9 +104,9 @@ export default function Step02Services({
   };
 
   return (
-    <div className="relative">
-      <Sunburst3 className="absolute w-14 h-14  right-[-20%]"/>
-      <motion.div className="absolute top-0 right-[-38%] bg-linear-to-tr from-background to-soluble-pink w-35 h-40 rounded-lg rotate-38"/>
+    <div className="relative mt-18">
+      <Sunburst3 className="absolute w-14 h-14 rotate-180 right-[-16%] -top-5"/>
+      <motion.div className="absolute top-0 right-[-38%] bg-linear-to-tr from-background to-40% to-soluble-pink w-35 h-40 rounded-lg rotate-38"/>
       <label className="block text-[11px] font-bold uppercase tracking-wider text-foreground/80 mb-2">
         Select Services <span className="text-[#FF8B68]">*</span>
       </label>

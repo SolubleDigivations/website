@@ -85,7 +85,7 @@ export default function Step01Introduction({
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-6 relative"
+      className="space-y-6 relative mt-18"
       autoComplete="on"
     >
       <motion.div

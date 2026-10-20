@@ -353,7 +353,7 @@ export function StickyNote({
         damping: 22,
         delay,
       }}
-      className={`relative bg-linear-to-br from-background to-50% to-soluble-yellow text-[#111111] p-3 sm:p-4 rounded-xl shadow-md border border-[#F3E26B] font-caveat ${rotate} ${className}`}
+      className={`relative bg-linear-to-br from-background to-50% to-soluble-yellow text-[#111111] p-3 sm:p-4 rounded-md lg:rounded-xl shadow-md border border-[#F3E26B] font-caveat ${rotate} ${className}`}
     >
       {/* Subtle top tape / fold mark */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-2 bg-black/5 rounded-xs" />

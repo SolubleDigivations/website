@@ -221,12 +221,12 @@ export default function ContactFormContainer() {
   }[currentStep as "step1" | "step2" | "step3" | "step4" | "step5" | "step6"] || 1;
 
   return (
-    <div className="h-full w-full overflow-hidden flex flex-col justify-between">
+    <div className="min-h-full w-full overflow-x-clip flex flex-col justify-between lg:h-full lg:overflow-hidden">
       {/* If on step1 to step6, render consistent Header */}
-      <ContactHeader />
+      <ContactHeader/>
 
       {/* Main Container for Active Step */}
-      <div className="flex-1 flex flex-col justify-center">
+      <div className="flex-1 flex flex-col justify-start pt-20 pb-8 lg:justify-center lg:pt-0 lg:pb-0">
         <AnimatePresence mode='popLayout'>
           {currentStep === "entry" && (
             <motion.div
@@ -235,7 +235,7 @@ export default function ContactFormContainer() {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="w-full h-full"
+              className="w-full min-h-full"
             >
               <EntryScreen onStart={() => goToStep("step1")} />
             </motion.div>
@@ -248,7 +248,7 @@ export default function ContactFormContainer() {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="w-full h-full"
+              className="w-full min-h-full"
             >
               <SuccessScreen
                 formData={formData}
@@ -260,10 +260,10 @@ export default function ContactFormContainer() {
 
         {/* Steps 1 to 6: Shared 2-column layout with FIXED Stepper */}
         {isFormStep && (
-          <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-14 py-1 sm:py-2">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-14 py-4 sm:py-6 lg:py-1">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 items-start lg:items-center">
               {/* Left Column: Heading & Creative Drawing Illustration */}
-              <div className="lg:col-span-5 flex flex-col justify-center">
+              <div className="lg:col-span-5 flex flex-col justify-center min-w-0 max-w-xl mx-auto w-full lg:max-w-none">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={`left-${currentStep}`}
@@ -283,9 +283,9 @@ export default function ContactFormContainer() {
               </div>
 
               {/* Right Column: Persistent Stepper + Animated Form Fields */}
-              <div className="lg:col-span-7 flex flex-col justify-center max-w-2xl w-full mx-auto lg:mx-0 ">
+              <div className="lg:col-span-7 flex flex-col justify-center max-w-2xl w-full mx-auto lg:mx-0 min-w-0">
                 {/* FIXED STEPPER: Completely stationary during step transitions */}
-                <div className="mb-2 sm:mb-18">
+                <div className="mb-2">
                   <ProgressBar currentStep={currentStepNumber} totalSteps={6} />
                 </div>
 
@@ -363,7 +363,7 @@ export default function ContactFormContainer() {
       </div>
 
       {/* Spacing bottom for form screens */}
-      {isFormStep && <div className="h-6" />}
+      {isFormStep && <div className="h-6 shrink-0" />}
     </div>
   );
 }

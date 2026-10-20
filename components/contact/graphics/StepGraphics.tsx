@@ -9,7 +9,6 @@ import {
   Code2,
   MoreHorizontal,
   PenTool,
-  Calendar,
   IndianRupee,
   Target,
   Users,
@@ -19,7 +18,10 @@ import {
   Play,
   Link2,
   Sparkles,
+  LucidePartyPopper,
 } from "lucide-react";
+import { CiCalendarDate } from "react-icons/ci";
+import { TbTargetArrow } from "react-icons/tb";
 import {
   DoodleArrow,
   BurstTicks,
@@ -29,19 +31,22 @@ import {
   DoodleSwirl,
 } from "./ContactDoodles";
 import Spark from "@/components/graphics/Spark";
+import { FaFigma } from "react-icons/fa6";
+import { FaRegSmile } from "react-icons/fa";
+import BorderGlow from "@/components/BorderGlow";
 
 /* =========================================================
    ENTRY HERO GRAPHIC (Good Ideas, Better Conversations)
    ========================================================= */
 export function EntryHeroGraphic() {
   return (
-    <div className="relative w-full max-w-5xl mx-auto h-[380px] md:h-[430px] pointer-events-none select-none">
+    <div className="relative w-full max-w-5xl mx-auto h-full md:h-[430px] pointer-events-none select-none">
       {/* Dynamic Connecting Curvy Line with animated stroke drawing */}
       <svg
         viewBox="0 0 1000 360"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="absolute inset-x-0 top-1/2 -translate-y-1/2 w-full h-[320px] z-0 overflow-visible"
+        className="absolute inset-x-0 -ml-5 bottom-0 lg:top-1/2 -translate-y-1/2 w-full h-[320px] z-0 overflow-visible"
         aria-hidden="true"
       >
         <motion.path
@@ -95,10 +100,10 @@ export function EntryHeroGraphic() {
         initial={{ opacity: 0, scale: 0.7, y: -24, rotate: -14 }}
         animate={{ opacity: 1, scale: 1, y: 0, rotate: -6 }}
         transition={{ type: "spring", stiffness: 340, damping: 22, delay: 0.2 }}
-        className="absolute top-12 left-4 sm:left-12 lg:left-24 z-10"
+        className="absolute top-14 left-18 lg:top-12 lg:left-24 z-10"
       >
-        <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-3xl bg-gradient-to-br from-background/50 via-soluble-pink/90 to-background/50 backdrop-blur-md border border-pink-200/60 shadow-[0_16px_36px_rgba(255,145,212,0.22)] flex items-center justify-center p-4">
-          <Lightbulb className="w-12 h-12 text-[#111111] stroke-[2]" />
+        <div className="relative w-22 h-22 lg:w-32 lg:h-32 rounded-xl lg:rounded-3xl bg-gradient-to-br from-background/50 via-soluble-pink/90 to-background/50 backdrop-blur-md border border-pink-200/60 shadow-[0_16px_36px_rgba(255,145,212,0.22)] flex items-center justify-center p-4">
+          <Lightbulb className="h-9 w-9 lg:w-12 lg:h-12 text-[#111111] stroke-[2]" />
           {/* Burst ticks around lightbulb */}
           <BurstTicks
             className="absolute -top-5 -right-5 w-8 h-8 text-soluble-pink rotate-45"
@@ -118,9 +123,9 @@ export function EntryHeroGraphic() {
           damping: 20,
           delay: 0.35,
         }}
-        className="absolute top-0 left-2 sm:left-8 lg:-left-5 z-20"
+        className="absolute top-28 left-4 lg:top-0 lg:-left-5 z-20"
       >
-        <span className="font-caveat text-sm sm:text-base font-bold text-[#111111] leading-tight block uppercase tracking-wide -rotate-22 text-center">
+        <span className="font-caveat text-sm sm:text-base font-bold text-[#111111] leading-tight block uppercase tracking-wide -rotate-22 text-left lg:text-center">
           Your <br /> Idea
           <br /> Starts <br /> Here.
         </span>
@@ -139,14 +144,14 @@ export function EntryHeroGraphic() {
           scale: { type: "spring", stiffness: 280, damping: 20, delay: 0.25 },
           y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.6 },
         }}
-        className="absolute top-44 left-0 sm:left-4 lg:top-48 lg:-left-6 w-36 h-20 rounded-[45%_55%_60%_40%/50%_60%_40%_50%] bg-soluble-blue backdrop-blur-xs -rotate-12"
+        className="absolute bottom-32 left-6 sm:left-4 lg:top-48 lg:-left-6 w-24 h-14 lg:w-36 lg:h-20 rounded-[45%_55%_60%_40%/50%_60%_40%_50%] bg-soluble-blue backdrop-blur-xs -rotate-12"
       />
 
       {/* Yellow sticky note: IDEA, GOALS, NEXT STEPS */}
-      <div className="absolute top-76 left-6 sm:left-16 lg:-left-10 z-20">
+      <div className="absolute bottom-10 lg:top-76 left-6 sm:left-16 lg:-left-10 z-20">
         <StickyNote
           rotate="-rotate-6"
-          className="w-28 sm:w-32 py-3 px-3 shadow-md"
+          className="w-26 lg:w-32 py-3 px-3 shadow-md"
           delay={0.4}
         >
           <ul className="text-xs sm:text-sm font-bold tracking-tight text-[#111111] space-y-1">
@@ -175,7 +180,7 @@ export function EntryHeroGraphic() {
           scale: { type: "spring", stiffness: 280, damping: 20, delay: 0.2 },
           y: { duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.6 },
         }}
-        className="absolute top-8 right-16 sm:right-28 lg:right-32 w-24 h-32 rounded-[55%_45%_50%_50%/60%_40%_60%_40%] bg-soluble-purple rotate-25 z-0"
+        className="absolute top-8 right-17 sm:right-28 lg:right-32 w-18 h-24 lg:w-24 lg:h-32 rounded-[55%_45%_50%_50%/60%_40%_60%_40%] bg-soluble-purple rotate-25 z-0"
       />
       <motion.div
         initial={{ scale: 0, opacity: 0 }}
@@ -184,7 +189,7 @@ export function EntryHeroGraphic() {
           scale: { type: "spring", stiffness: 280, damping: 20, delay: 0.3 },
           y: { duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.7 },
         }}
-        className="absolute top-2 right-8 sm:right-16 lg:right-10 w-24 h-36 rounded-[40%_60%_55%_45%/50%_50%_50%_50%] bg-soluble-mint rotate-12 z-0"
+        className="absolute top-4 right-6 sm:right-16 lg:right-10 w-16 h-24 lg:w-24 lg:h-36 rounded-[40%_60%_55%_45%/50%_50%_50%_50%] bg-soluble-mint rotate-12 z-0"
       />
       <motion.div
         initial={{ scale: 0 }}
@@ -271,7 +276,7 @@ export function Step01Graphic() {
         transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.1 }}
         className="absolute bottom-[-70%] left-[-50%] w-52 h-52 rounded-full bg-linear-to-bl from-background to-50% to-soluble-mint"
       />
-      
+
       <motion.div
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -289,7 +294,11 @@ export function Step01Graphic() {
         transition={{ type: "spring", stiffness: 450, damping: 18, delay: 0.4 }}
         className="absolute top-14 -left-28 w-12 h-12 rounded-full bg-soluble-yellow z-0"
       />
-      <Spark className="absolute top-36 -left-10 w-7 h-7 text-soluble-purple" color="#B18CFF" delay={1}/>
+      <Spark
+        className="absolute top-36 -left-10 w-7 h-7 text-soluble-purple"
+        color="#B18CFF"
+        delay={1}
+      />
 
       {/* Hand-drawn loop doodle connecting to avatar: draws itself */}
       <svg
@@ -416,7 +425,9 @@ export function Step01Graphic() {
             <br />
             MEET YOU!
             <br />
-            <span className="mt-0.5 text-base tracking-widest flex items-center justify-evenly">— <span className="block rotate-90 font-outfit">:)</span></span>
+            <span className="mt-0.5 text-base tracking-widest flex items-center justify-evenly">
+              — <span className="block rotate-90 font-outfit">:)</span>
+            </span>
           </p>
         </StickyNote>
       </div>
@@ -437,7 +448,6 @@ export function Step01Graphic() {
       </motion.div>
 
       {/* Top right note: GOOD IDEAS START HERE */}
-      
     </div>
   );
 }
@@ -451,7 +461,7 @@ export function Step02Graphic() {
       {/* Background blobs bloom out */}
       <motion.div
         initial={{ scale: 0 }}
-        animate={{ scale: 1}}
+        animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 280, damping: 20, delay: 0.1 }}
         className="absolute bottom-[-65%] left-[-50%] w-52 h-52 rounded-full bg-soluble-yellow"
       />
@@ -464,7 +474,7 @@ export function Step02Graphic() {
           damping: 20,
           delay: 0.15,
         }}
-        className="absolute bottom-[-28%] right-24 w-28 h-28 rounded-[65%_35%_70%_30%/70%_30%_65%_35%] bg-soluble-mint "
+        className="absolute bottom-[-28%] right-24 w-28 h-28 rounded-[65%_35%_70%_30%/70%_30%_65%_35%] bg-soluble-mint"
       />
       <motion.div
         initial={{ scale: 0 }}
@@ -501,18 +511,15 @@ export function Step02Graphic() {
         initial={{ opacity: 0, scale: 0.85, x: -12 }}
         animate={{ opacity: 1, scale: 1, x: 0 }}
         transition={{ type: "spring", stiffness: 360, damping: 20, delay: 0.2 }}
-        className="absolute top-[-16%] left-0 sm:left-[-24%] z-20"
+        className="absolute top-[-10%] left-0 sm:left-[-24%] z-20"
       >
-        <span className="font-caveat text-xs sm:text-sm font-bold text-[#111111] tracking-wide block uppercase -rotate-20 mb-4 -ml-2">
+        <span className="font-caveat text-xs sm:text-base font-bold text-[#111111] tracking-wide block uppercase -rotate-20 mb-4 -ml-2">
           We turn
           <br />
           ideas into
           <br />
-          websites,
-          <br />
-          apps and
-          <br />
-          more.
+          digital <br />
+          products.
         </span>
         <DoodleArrow
           direction="down-left"
@@ -540,7 +547,7 @@ export function Step02Graphic() {
           }}
           className="absolute top-2 left-[-55%] w-32 h-30 rounded-lg bg-linear-to-br from-background to-soluble-pink shadow-md flex items-center justify-center cursor-default"
         >
-          <Globe className="w-12 h-12 text-[#111111]" strokeWidth={1.6}/>
+          <Globe className="w-12 h-12 text-[#111111]" strokeWidth={1.6} />
         </motion.div>
 
         {/* White Phone card */}
@@ -659,11 +666,11 @@ export function Step02Graphic() {
         className="absolute bottom-10 right-4 sm:right-8 z-20 text-right"
       >
         <DoodleArrow
-          direction="up-left"
-          className="w-8 h-8 mb-1 ml-auto -rotate-12"
+          direction="down-left"
+          className="w-14 h-14 mb-1 ml-auto rotate-90 mr-4"
           delay={0.55}
         />
-        <span className="font-caveat text-sm sm:text-base font-bold text-[#111111] leading-tight block uppercase">
+        <span className="font-caveat text-sm sm:text-lg font-bold text-[#111111] leading-tight block uppercase rotate-12">
           Pick
           <br />
           What
@@ -686,7 +693,7 @@ export function Step03Graphic() {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 280, damping: 20, delay: 0.1 }}
-        className="absolute top-16 left-6 w-24 h-24 rounded-full bg-[#FFD66B]/60 "
+        className="absolute top-16 left-6 w-24 h-24 rounded-full bg-soluble-yellow"
       />
       <motion.div
         initial={{ scale: 0 }}
@@ -697,13 +704,13 @@ export function Step03Graphic() {
           damping: 20,
           delay: 0.15,
         }}
-        className="absolute bottom-8 left-2 w-32 h-32 rounded-full bg-[#A98BFF]/35"
+        className="absolute bottom-[-45%] left-[-55%] w-60 h-60 rounded-full bg-linear-to-tr from-soluble-purple from-55% to-background"
       />
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 300, damping: 18, delay: 0.2 }}
-        className="absolute bottom-16 right-16 w-20 h-20 rounded-full bg-[#7C98FF]/50 "
+        className="absolute top-16 right-36 w-20 h-20 rounded-full bg-[#7C98FF]/50 "
       />
 
       {/* Hand-drawn scope bracket / timeline curve that draws across */}
@@ -734,9 +741,9 @@ export function Step03Graphic() {
         initial={{ opacity: 0, scale: 0.85, x: -12 }}
         animate={{ opacity: 1, scale: 1, x: 0 }}
         transition={{ type: "spring", stiffness: 360, damping: 20, delay: 0.2 }}
-        className="absolute top-6 left-0 sm:left-4 z-20"
+        className="absolute top-[-10%] -rotate-18 left-0 sm:left-4 lg:left-[-25%] z-20"
       >
-        <span className="font-caveat text-xs sm:text-sm font-bold text-[#111111] leading-tight block uppercase">
+        <span className="font-caveat text-xs sm:text-sm lg:text-base font-bold text-[#111111] leading-tight block uppercase">
           No
           <br />
           pressure
@@ -745,8 +752,8 @@ export function Step03Graphic() {
           ballpark.
         </span>
         <DoodleArrow
-          direction="down-right"
-          className="w-8 h-8 mt-1 rotate-12"
+          direction="down-left"
+          className="w-10 h-10 mt-1 -rotate-90 ml-5"
           delay={0.35}
         />
       </motion.div>
@@ -756,7 +763,7 @@ export function Step03Graphic() {
         {/* Calendar frosted card */}
         <motion.div
           initial={{ scale: 0.6, opacity: 0, y: -20, rotate: -14 }}
-          animate={{ scale: 1, opacity: 1, y: [0, -4, 0], rotate: -6 }}
+          animate={{ scale: 1, opacity: 1, y: [0, -4, 0], rotate: -10 }}
           transition={{
             scale: { type: "spring", stiffness: 350, damping: 20, delay: 0.15 },
             opacity: { duration: 0.1, delay: 0.15 },
@@ -773,15 +780,19 @@ export function Step03Graphic() {
               delay: 0.6,
             },
           }}
-          className="absolute -top-2 left-2 w-26 h-28 rounded-3xl bg-white/90 backdrop-blur-md border border-white/80 shadow-xl flex items-center justify-center z-10 cursor-default"
+          className="absolute -top-2 left-[-50%] w-34 h-34 rounded-xl bg-white/90 backdrop-blur-md border border-white/80 shadow-xl flex items-center justify-center z-10 cursor-default"
         >
-          <Calendar className="w-10 h-10 text-[#111111] stroke-[2]" />
+          <CiCalendarDate
+            className="w-18 h-18 text-[#111111]"
+            strokeWidth={0.2}
+          />
           <BurstTicks
-            className="absolute -top-3 right-2 w-7 h-7 text-[#111111]"
+            className="absolute -top-6 -right-8 rotate-45 w-10 h-10 text-[#111111]"
             color="#111111"
             delay={0.4}
           />
         </motion.div>
+        <motion.div className="absolute -top-4 left-[-60%] w-34 h-38 rounded-xl bg-linear-to-tr from-background to-[#FF9C87] shadow-xl flex items-center -rotate-24 justify-center z-0 cursor-default"></motion.div>
 
         {/* Mint Rupee card */}
         <motion.div
@@ -803,7 +814,7 @@ export function Step03Graphic() {
               delay: 0.65,
             },
           }}
-          className="absolute top-10 right-4 w-24 h-24 rounded-3xl bg-[#E0FAF0] border border-emerald-200 shadow-lg flex items-center justify-center cursor-default"
+          className="absolute top-14 right-20 w-32 h-32 rounded-lg bg-linear-to-bl from-background to-soluble-mint shadow-lg flex items-center justify-center cursor-default z-20"
         >
           <IndianRupee className="w-10 h-10 text-[#111111] stroke-[2.5]" />
         </motion.div>
@@ -818,16 +829,17 @@ export function Step03Graphic() {
             rotate: { type: "spring", stiffness: 350, damping: 20, delay: 0.3 },
             y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.7 },
           }}
-          className="absolute bottom-0 right-10 w-26 h-20 rounded-3xl bg-[#FEF3C7] border border-amber-200 shadow-lg flex items-center justify-center cursor-default"
+          className="absolute bottom-[-10%] right-10 w-32 h-24 rounded-md bg-linear-to-r from-[#FBEABA] to-soluble-yellow shadow-lg flex items-center justify-center cursor-default z-40"
         >
-          <Target className="w-10 h-10 text-[#111111] stroke-[2]" />
-          <BurstTicks
-            className="absolute -bottom-3 left-2 w-7 h-7 text-[#111111] rotate-180"
-            color="#111111"
-            delay={0.48}
-          />
+          <TbTargetArrow className="w-12 h-12 text-[#111111] stroke-[1.8]" />
         </motion.div>
       </div>
+
+      <BurstTicks
+        className="absolute bottom-5 left-15 w-15 h-15 text-[#111111] rotate-220"
+        color="#111111"
+        delay={0.48}
+      />
 
       {/* Top Right Note: THIS HELPS US PLAN BETTER */}
       <motion.div
@@ -839,9 +851,9 @@ export function Step03Graphic() {
           damping: 20,
           delay: 0.35,
         }}
-        className="absolute top-10 right-2 sm:right-6 z-20 text-right"
+        className="absolute top-[-20%] right-2 sm:right-6 z-20 text-right"
       >
-        <span className="font-caveat text-xs sm:text-sm font-bold text-[#111111] leading-tight block uppercase">
+        <span className="font-caveat text-xs sm:text-sm lg:text-base font-bold text-[#111111] leading-tight block uppercase">
           This
           <br />
           helps us
@@ -851,8 +863,8 @@ export function Step03Graphic() {
           better.
         </span>
         <DoodleArrow
-          direction="down-left"
-          className="w-8 h-8 mt-1 ml-auto -rotate-12"
+          direction="down-right"
+          className="w-12 h-12 mt-1 mr-auto -ml-4 rotate-90"
           delay={0.45}
         />
       </motion.div>
@@ -871,8 +883,29 @@ export function Step04Graphic() {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 280, damping: 20, delay: 0.1 }}
-        className="absolute bottom-6 left-0 w-36 h-36 rounded-full bg-[#FF91D4]/40"
-      />
+        className="absolute bottom-[-50%] left-[-55%] w-xs h-xs"
+      >
+        <svg viewBox="30 50 400 400" className="">
+          <defs>
+            <radialGradient
+              gradientUnits="userSpaceOnUse"
+              cx="260.963"
+              cy="243.53"
+              r="171.264"
+              id="gradient-0"
+              gradientTransform="matrix(-0.716784, -1.175012, 0.853695, -0.520774, 198.115953, 673.324541)"
+            >
+              <stop offset="0" stopColor="rgb(249, 215, 248)"></stop>
+              <stop offset="1" stopColor="rgb(255, 145, 212)"></stop>
+            </radialGradient>
+          </defs>
+
+          <path
+            fill="url(#gradient-0)"
+            d="M 87.391 143.653 C 154.232 107.362 225.809 139.236 230.689 203.321 C 235.06 260.722 256.971 279.184 303.217 282.751 C 393.94 289.749 456.564 377.332 361.56 404.113 C 266.556 430.894 161.645 401.829 161.645 401.829 C 79.207 415.665 49.727 370.734 66.829 299.015 L 87.391 143.653 Z"
+          ></path>
+        </svg>
+      </motion.div>
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
@@ -888,7 +921,13 @@ export function Step04Graphic() {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 280, damping: 20, delay: 0.2 }}
-        className="absolute top-24 right-4 w-28 h-28 rounded-full bg-[#65DDB5]/40"
+        className="absolute top-24 right-[10%] w-28 h-28 rounded-full bg-soluble-purple/50"
+      />
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ type: "spring", stiffness: 280, damping: 20, delay: 0.2 }}
+        className="absolute top-24 left-[-20%] w-12 h-12 rounded-[65%_35%_70%_30%/70%_30%_65%_35%] shadow-[0_10px_24px_rgba(255,116,69,0.2)] bg-soluble-yellow"
       />
 
       {/* Hand-drawn network connecting doodle */}
@@ -919,9 +958,9 @@ export function Step04Graphic() {
         initial={{ opacity: 0, scale: 0.85, x: -12 }}
         animate={{ opacity: 1, scale: 1, x: 0 }}
         transition={{ type: "spring", stiffness: 360, damping: 20, delay: 0.2 }}
-        className="absolute top-6 left-0 sm:left-4 z-20"
+        className="absolute top-0 left-0 sm:left-4 lg:top-[-20%] lg:left-[-25%] z-20 -rotate-14"
       >
-        <span className="font-caveat text-xs sm:text-sm font-bold text-[#111111] leading-tight block uppercase">
+        <span className="font-caveat text-xs sm:text-sm lg:text-lg font-bold text-[#111111] leading-tight block uppercase">
           Who
           <br />
           are your
@@ -929,8 +968,8 @@ export function Step04Graphic() {
           users?
         </span>
         <DoodleArrow
-          direction="down-right"
-          className="w-8 h-8 mt-1 rotate-12"
+          direction="down-left"
+          className="w-14 h-14 ml-auto mt-1 -rotate-90"
           delay={0.35}
         />
       </motion.div>
@@ -939,8 +978,8 @@ export function Step04Graphic() {
       <div className="relative w-56 h-56 z-10 flex items-center justify-center">
         {/* Pink Users card */}
         <motion.div
-          initial={{ scale: 0.55, opacity: 0, y: -16, rotate: -16 }}
-          animate={{ scale: 1, opacity: 1, y: [0, -4, 0], rotate: -6 }}
+          initial={{ scale: 0.55, opacity: 0, y: -16, rotate: -18 }}
+          animate={{ scale: 1, opacity: 1, y: [0, -4, 0], rotate: -10 }}
           transition={{
             scale: { type: "spring", stiffness: 350, damping: 20, delay: 0.14 },
             opacity: { duration: 0.1, delay: 0.14 },
@@ -957,30 +996,30 @@ export function Step04Graphic() {
               delay: 0.55,
             },
           }}
-          className="absolute top-2 left-4 w-22 h-22 rounded-3xl bg-[#FFE4F2] border border-pink-200 shadow-md flex items-center justify-center cursor-default"
+          className="absolute top-[-10%] left-[-50%] w-30 h-30 rounded-lg bg-linear-to-br from-background to-soluble-pink shadow-md flex items-center justify-center cursor-default"
         >
-          <Users className="w-9 h-9 text-[#111111]" />
+          <Users className="w-10 h-10 text-[#111111]" />
         </motion.div>
 
         {/* Blue Chart card */}
         <motion.div
-          initial={{ scale: 0.55, opacity: 0, y: -16, rotate: 16 }}
-          animate={{ scale: 1, opacity: 1, y: [0, 4, 0], rotate: 6 }}
+          initial={{ scale: 0.55, opacity: 0, y: -16, rotate: 22 }}
+          animate={{ scale: 1, opacity: 1, y: [0, 4, 0], rotate: 15 }}
           transition={{
             scale: { type: "spring", stiffness: 350, damping: 20, delay: 0.2 },
             opacity: { duration: 0.1, delay: 0.2 },
             rotate: { type: "spring", stiffness: 350, damping: 20, delay: 0.2 },
             y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.6 },
           }}
-          className="absolute top-4 right-4 w-22 h-22 rounded-3xl bg-[#E0ECFF] border border-blue-200 shadow-md flex items-center justify-center cursor-default"
+          className="absolute top-0 right-18 w-30 h-30 rounded-lg bg-linear-to-bl from-background to-soluble-blue shadow-md flex items-center justify-center cursor-default"
         >
           <BarChart3 className="w-9 h-9 text-[#111111]" />
         </motion.div>
 
         {/* Yellow Target card */}
         <motion.div
-          initial={{ scale: 0.55, opacity: 0, y: 14, rotate: -10 }}
-          animate={{ scale: 1, opacity: 1, y: [0, -3, 0], rotate: 3 }}
+          initial={{ scale: 0.55, opacity: 0, y: 14, rotate: -18 }}
+          animate={{ scale: 1, opacity: 1, y: [0, -3, 0], rotate: -8 }}
           transition={{
             scale: { type: "spring", stiffness: 350, damping: 20, delay: 0.26 },
             opacity: { duration: 0.1, delay: 0.26 },
@@ -997,15 +1036,15 @@ export function Step04Graphic() {
               delay: 0.65,
             },
           }}
-          className="absolute bottom-4 left-6 w-22 h-22 rounded-3xl bg-[#FEF3C7] border border-amber-200 shadow-md flex items-center justify-center cursor-default"
+          className="absolute bottom-[-5%] left-[-40%] w-30 h-30 rounded-lg bg-linear-to-tl from-background to-soluble-yellow shadow-md flex items-center justify-center cursor-default"
         >
-          <Target className="w-9 h-9 text-[#111111]" />
+          <TbTargetArrow className="w-14 h-14 text-[#111111] stroke-[1.5]" />
         </motion.div>
 
         {/* Mint Doc card */}
         <motion.div
           initial={{ scale: 0.55, opacity: 0, y: 14, rotate: 14 }}
-          animate={{ scale: 1, opacity: 1, y: [0, 3, 0], rotate: -6 }}
+          animate={{ scale: 1, opacity: 1, y: [0, 3, 0], rotate: -8 }}
           transition={{
             scale: { type: "spring", stiffness: 350, damping: 20, delay: 0.32 },
             opacity: { duration: 0.1, delay: 0.32 },
@@ -1022,19 +1061,19 @@ export function Step04Graphic() {
               delay: 0.7,
             },
           }}
-          className="absolute bottom-6 right-6 w-20 h-20 rounded-3xl bg-[#E0FAF0] border border-emerald-200 shadow-md flex items-center justify-center cursor-default"
+          className="absolute bottom-[-12%] right-13 w-30 h-30 rounded-lg bg-linear-to-br from-background to-soluble-peach shadow-md flex items-center justify-center cursor-default"
         >
-          <FileText className="w-8 h-8 text-[#111111]" />
+          <FileText className="w-10 h-10 text-[#111111]" />
         </motion.div>
 
         {/* Burst ticks */}
         <BurstTicks
-          className="absolute top-0 right-18 w-7 h-7 text-[#111111]"
+          className="absolute top-[-20%] left-2 w-11 h-11 text-[#111111]"
           color="#111111"
           delay={0.4}
         />
         <BurstTicks
-          className="absolute -bottom-3 left-18 w-7 h-7 text-[#111111] rotate-180"
+          className="absolute bottom-[20%] left-[-70%] w-12 h-12 text-[#111111] rotate-210"
           color="#111111"
           delay={0.46}
         />
@@ -1050,9 +1089,9 @@ export function Step04Graphic() {
           damping: 20,
           delay: 0.35,
         }}
-        className="absolute top-6 right-2 sm:right-6 z-20 text-right"
+        className="absolute top-6 right-2 sm:right-6 lg:right-6 lg:top-[-20%] z-20 text-right"
       >
-        <span className="font-caveat text-xs sm:text-sm font-bold text-[#111111] leading-tight block uppercase">
+        <span className="font-caveat text-xs sm:text-sm lg:text-lg font-bold text-[#111111] leading-tight block uppercase -rotate-12">
           Understand
           <br />
           your
@@ -1060,8 +1099,8 @@ export function Step04Graphic() {
           business.
         </span>
         <DoodleArrow
-          direction="down-left"
-          className="w-8 h-8 mt-1 ml-auto -rotate-12"
+          direction="down-right"
+          className="w-16 h-16 mt-1.5 mr-auto rotate-90"
           delay={0.45}
         />
       </motion.div>
@@ -1076,14 +1115,14 @@ export function Step04Graphic() {
           damping: 20,
           delay: 0.45,
         }}
-        className="absolute bottom-2 right-6 sm:right-12 z-20 text-right"
+        className="absolute bottom-[-25%] right-6 sm:right-0 lg:right-0 z-20 text-right -rotate-11"
       >
         <DoodleArrow
           direction="up-left"
-          className="w-8 h-8 mb-1 ml-auto"
+          className="w-14 h-14 mb-1 mr-auto -rotate-90"
           delay={0.55}
         />
-        <span className="font-caveat text-xs sm:text-sm font-bold text-[#111111] leading-tight block uppercase">
+        <span className="font-caveat text-xs sm:text-sm lg:text-base font-bold text-[#111111] leading-tight block uppercase">
           So we can
           <br />
           build something
@@ -1106,7 +1145,39 @@ export function Step05Graphic() {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 280, damping: 20, delay: 0.1 }}
-        className="absolute bottom-2 left-2 w-36 h-36 rounded-full bg-[#7C98FF]/45 "
+        className="absolute bottom-[-78%] left-[-54%] w-78 h-78"
+      >
+        <svg viewBox="42 96 396 334">
+          <defs>
+            <radialGradient
+              gradientUnits="userSpaceOnUse"
+              cx="268.701"
+              cy="256.508"
+              r="171.264"
+              id="gradient-2"
+              gradientTransform="matrix(-0.564615, -0.890086, 1.134157, -0.719439, 93.009528, 639.47716)"
+            >
+              <stop offset="0" stopColor="rgb(205, 218, 251)"></stop>
+              <stop offset="1" stopColor="rgb(108, 140, 255)"></stop>
+            </radialGradient>
+          </defs>
+
+          <path
+            fill="url(#gradient-2)"
+            d="M 72.931 136.423 C 139.772 100.132 211.242 154.283 196.949 212.961 C 186.534 255.717 253.355 282.237 292.372 277.931 C 383.121 267.915 456.564 377.332 361.56 404.113 C 266.556 430.894 161.645 401.829 161.645 401.829 C 79.207 415.665 49.727 370.734 66.829 299.015 L 72.931 136.423 Z"
+          />
+        </svg>
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 280,
+          damping: 20,
+          delay: 0.15,
+        }}
+        className="absolute top-20 left-[-20%] w-20 h-20 rounded-[65%_35%_70%_30%/70%_30%_65%_35%] bg-soluble-yellow"
       />
       <motion.div
         initial={{ scale: 0 }}
@@ -1117,46 +1188,34 @@ export function Step05Graphic() {
           damping: 20,
           delay: 0.15,
         }}
-        className="absolute top-20 left-12 w-20 h-20 rounded-full bg-[#FFD66B]/50 "
+        className="absolute top-10 left-[-20%] w-20 h-20 rounded-[65%_35%_70%_30%/70%_30%_65%_35%] bg-linear-to-br from-white/40 via-foreground/5 to-white/40 backdrop-blur-md"
       />
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 350, damping: 18, delay: 0.2 }}
-        className="absolute top-28 left-4 w-12 h-12 rounded-full bg-[#FFD66B] "
+        className="absolute top-14 right-18 w-14 h-14 rounded-[85%_30%_50%_30%/75%_30%_45%_25%] bg-blob-blue"
       />
-
-      {/* Hand-drawn loop doodle connecting upload files */}
-      <svg
-        viewBox="0 0 240 240"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="absolute inset-0 w-full h-full -z-5 overflow-visible"
-        aria-hidden="true"
-      >
-        <motion.path
-          d="M 50 160 C 40 90, 110 50, 150 70 C 190 90, 180 170, 120 180 C 80 190, 90 130, 130 130"
-          stroke="#111111"
-          strokeWidth="2"
-          strokeDasharray="4 6"
-          strokeLinecap="round"
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: 0.65 }}
-          transition={{
-            pathLength: { duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 },
-            opacity: { duration: 0.1, delay: 0.15 },
-          }}
-        />
-      </svg>
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 280,
+          damping: 20,
+          delay: 0.15,
+        }}
+        className="absolute bottom-0 left-[-10%] w-14 h-18 rounded-[65%_35%_70%_30%/70%_30%_65%_35%] bg-blob-orange rotate-45"
+      />
 
       {/* Top Left Note: MOODBOARDS, DESIGNS, IDEAS... */}
       <motion.div
         initial={{ opacity: 0, scale: 0.85, x: -12 }}
         animate={{ opacity: 1, scale: 1, x: 0 }}
         transition={{ type: "spring", stiffness: 360, damping: 20, delay: 0.2 }}
-        className="absolute top-4 left-0 sm:left-4 z-20"
+        className="absolute top-[-15%] left-[-28%] z-20"
       >
-        <span className="font-caveat text-xs sm:text-sm font-bold text-[#111111] leading-tight block uppercase">
+        <span className="font-caveat text-xs sm:text-base font-bold text-[#111111] leading-tight block uppercase -rotate-18">
           Moodboards,
           <br />
           designs,
@@ -1164,8 +1223,8 @@ export function Step05Graphic() {
           ideas...
         </span>
         <DoodleArrow
-          direction="curved-down"
-          className="w-8 h-8 mt-1"
+          direction="down-left"
+          className="w-14 h-14 mt-4 mx-auto -rotate-90"
           delay={0.35}
         />
       </motion.div>
@@ -1174,8 +1233,8 @@ export function Step05Graphic() {
       <div className="relative w-56 h-56 z-10 flex items-center justify-center">
         {/* Pink Image card */}
         <motion.div
-          initial={{ scale: 0.55, opacity: 0, y: -16, rotate: -16 }}
-          animate={{ scale: 1, opacity: 1, y: [0, -4, 0], rotate: -6 }}
+          initial={{ scale: 0.55, opacity: 0, y: -16, rotate: -6 }}
+          animate={{ scale: 1, opacity: 1, y: [0, -4, 0], rotate: -14 }}
           transition={{
             scale: { type: "spring", stiffness: 350, damping: 20, delay: 0.12 },
             opacity: { duration: 0.1, delay: 0.12 },
@@ -1192,15 +1251,15 @@ export function Step05Graphic() {
               delay: 0.55,
             },
           }}
-          className="absolute top-0 left-4 w-22 h-22 rounded-3xl bg-[#FFE4F2] border border-pink-200 shadow-md flex items-center justify-center cursor-default"
+          className="absolute top-0 left-[-50%] w-29 h-29 rounded-lg bg-linear-to-br from-background bg-soluble-pink shadow-md flex items-center justify-center cursor-default"
         >
-          <ImageIcon className="w-9 h-9 text-[#111111]" />
+          <ImageIcon className="w-15 h-15 text-[#111111] stroke-[1.5]" />
         </motion.div>
 
         {/* Blue Document card */}
         <motion.div
-          initial={{ scale: 0.55, opacity: 0, y: -16, rotate: 16 }}
-          animate={{ scale: 1, opacity: 1, y: [0, 4, 0], rotate: 4 }}
+          initial={{ scale: 0.55, opacity: 0, y: -16, rotate: 1 }}
+          animate={{ scale: 1, opacity: 1, y: [0, 4, 0], rotate: 12 }}
           transition={{
             scale: { type: "spring", stiffness: 350, damping: 20, delay: 0.18 },
             opacity: { duration: 0.1, delay: 0.18 },
@@ -1217,9 +1276,9 @@ export function Step05Graphic() {
               delay: 0.6,
             },
           }}
-          className="absolute top-4 right-6 w-20 h-22 rounded-3xl bg-[#E0ECFF] border border-blue-200 shadow-md flex items-center justify-center cursor-default"
+          className="absolute top-6 right-18 w-28 h-28 rounded-lg bg-linear-to-bl from-background to-soluble-purple shadow-md flex items-center justify-center cursor-default"
         >
-          <FileText className="w-8 h-8 text-[#111111]" />
+          <FileText className="w-13 h-13 stroke-[1.5] text-[#111111]" />
         </motion.div>
 
         {/* Cyan Sparkles / Figma Card */}
@@ -1242,9 +1301,9 @@ export function Step05Graphic() {
               delay: 0.65,
             },
           }}
-          className="absolute top-18 left-10 w-20 h-20 rounded-3xl bg-[#DDF4FF] border border-sky-200 shadow-md flex items-center justify-center z-10 cursor-default"
+          className="absolute bottom-[0%] left-[-36%] w-28 h-28 rounded-lg bg-linear-to-bl from-background to-soluble-blue shadow-md flex items-center justify-center z-10 cursor-default"
         >
-          <Sparkles className="w-8 h-8 text-[#111111]" />
+          <FaFigma className="w-10 h-10 text-[#111111]" />
         </motion.div>
 
         {/* Yellow Play card */}
@@ -1262,15 +1321,15 @@ export function Step05Graphic() {
               delay: 0.7,
             },
           }}
-          className="absolute bottom-2 left-6 w-20 h-18 rounded-3xl bg-[#FEF3C7] border border-amber-200 shadow-md flex items-center justify-center cursor-default"
+          className="absolute bottom-[-40%] left-[-20%] w-24 h-24 rounded-lg bg-linear-to-br from-soluble-yellow to-[#FBE7B0] shadow-md flex items-center justify-center cursor-default z-20"
         >
           <Play className="w-8 h-8 text-[#111111]" />
         </motion.div>
 
         {/* Mint Link card */}
         <motion.div
-          initial={{ scale: 0.55, opacity: 0, y: 14, rotate: 16 }}
-          animate={{ scale: 1, opacity: 1, y: [0, -3, 0], rotate: 6 }}
+          initial={{ scale: 0.55, opacity: 0, y: 14, rotate: -16 }}
+          animate={{ scale: 1, opacity: 1, y: [0, -3, 0], rotate: -6 }}
           transition={{
             scale: { type: "spring", stiffness: 350, damping: 20, delay: 0.36 },
             opacity: { duration: 0.1, delay: 0.36 },
@@ -1287,14 +1346,14 @@ export function Step05Graphic() {
               delay: 0.75,
             },
           }}
-          className="absolute bottom-6 right-8 w-20 h-20 rounded-3xl bg-[#E0FAF0] border border-emerald-200 shadow-md flex items-center justify-center cursor-default"
+          className="absolute bottom-[-10%] left-14 w-24 h-24 rounded-lg bg-linear-to-br from-[#B4EAD3] to-soluble-mint/80  shadow-md flex items-center justify-center cursor-default"
         >
-          <Link2 className="w-8 h-8 text-[#111111]" />
+          <Link2 className="w-10 h-10 text-[#111111]" />
         </motion.div>
 
         {/* Burst ticks */}
         <BurstTicks
-          className="absolute -top-3 right-16 w-7 h-7 text-[#111111]"
+          className="absolute rotate-45 -top-8 right-16 w-14 h-14 text-[#111111]"
           color="#111111"
           delay={0.42}
         />
@@ -1310,14 +1369,14 @@ export function Step05Graphic() {
           damping: 20,
           delay: 0.45,
         }}
-        className="absolute bottom-4 right-4 sm:right-8 z-20 text-right"
+        className="absolute bottom-[-15%] right-4 sm:right-15 z-20 text-left -rotate-30"
       >
         <DoodleArrow
-          direction="up-left"
-          className="w-8 h-8 mb-1 ml-auto"
+          direction="down-left"
+          className="w-12 h-12 mb-2 mr-auto rotate-100"
           delay={0.55}
         />
-        <span className="font-caveat text-xs sm:text-sm font-bold text-[#111111] leading-tight block uppercase">
+        <span className="font-caveat text-xs sm:text-base font-extrabold text-[#111111] leading-tight block uppercase">
           Anything
           <br />
           that helps
@@ -1342,8 +1401,29 @@ export function Step06Graphic() {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 280, damping: 20, delay: 0.1 }}
-        className="absolute bottom-2 left-0 w-36 h-36 rounded-full bg-[#FFD66B]/50 "
-      />
+        className="absolute bottom-[-75%] left-[-50%] w-88 h-88"
+      >
+        <svg viewBox="40 50 400 400" className="">
+          <defs>
+            <radialGradient
+              gradientUnits="userSpaceOnUse"
+              cx="260.963"
+              cy="243.53"
+              r="171.264"
+              id="gradient-0"
+              gradientTransform="matrix(-0.716784, -1.175012, 0.853695, -0.520774, 198.115953, 673.324541)"
+            >
+              <stop offset="0" stopColor="#FCE5A1"></stop>
+              <stop offset="1" stopColor="#FED559"></stop>
+            </radialGradient>
+          </defs>
+
+          <path
+            fill="url(#gradient-0)"
+            d="M 72.931 136.423 C 164.086 87.147 197.8 154.783 207.849 212.961 C 215.378 256.549 260.827 281.716 292.372 277.931 C 320.91 274.507 366.201 292.977 382.094 312.98 C 403.837 340.345 424.415 380.843 361.56 404.113 C 268.993 438.383 161.645 401.829 161.645 401.829 C 79.207 415.665 49.727 370.734 66.829 299.015 L 72.931 136.423 Z"
+          ></path>
+        </svg>
+      </motion.div>
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
@@ -1353,46 +1433,23 @@ export function Step06Graphic() {
           damping: 20,
           delay: 0.15,
         }}
-        className="absolute top-18 right-8 w-24 h-32 rounded-full bg-[#7C98FF]/60 "
+        className="absolute top-[-10%] left-1/2 w-20 h-28 rounded-full bg-soluble-blue/90 rotate-20"
       />
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 350, damping: 18, delay: 0.2 }}
-        className="absolute bottom-16 right-20 w-12 h-12 rounded-full bg-[#FF91D4]/60"
+        className="absolute bottom-6 right-24 w-12 h-12 rounded-full bg-soluble-peach"
       />
-
-      {/* Hand-drawn celebration flourish that draws */}
-      <svg
-        viewBox="0 0 240 240"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="absolute inset-0 w-full h-full -z-5 overflow-visible"
-        aria-hidden="true"
-      >
-        <motion.path
-          d="M 40 100 C 60 50, 140 40, 180 80 C 220 120, 190 200, 130 190 C 70 180, 80 120, 120 130"
-          stroke="#111111"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeDasharray="5 7"
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: 0.7 }}
-          transition={{
-            pathLength: { duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 },
-            opacity: { duration: 0.1, delay: 0.15 },
-          }}
-        />
-      </svg>
 
       {/* Top Left Note: TELL US ANYTHING THAT MATTERS */}
       <motion.div
         initial={{ opacity: 0, scale: 0.85, x: -12 }}
         animate={{ opacity: 1, scale: 1, x: 0 }}
         transition={{ type: "spring", stiffness: 360, damping: 20, delay: 0.2 }}
-        className="absolute top-6 left-0 sm:left-4 z-20"
+        className="absolute top-[-10%] left-[-20%] z-20"
       >
-        <span className="font-caveat text-xs sm:text-sm font-bold text-[#111111] leading-tight block uppercase">
+        <span className="font-caveat text-xs sm:text-sm lg:text-base font-bold text-[#111111] leading-tight block uppercase -rotate-18">
           Tell us
           <br />
           anything
@@ -1402,8 +1459,8 @@ export function Step06Graphic() {
           matters.
         </span>
         <DoodleArrow
-          direction="down-right"
-          className="w-8 h-8 mt-1 rotate-12"
+          direction="down-left"
+          className="w-12 h-12 mt-1 lg:mt-3 -rotate-90 ml-auto"
           delay={0.35}
         />
       </motion.div>
@@ -1412,8 +1469,8 @@ export function Step06Graphic() {
       <div className="relative w-56 h-56 z-10 flex items-center justify-center">
         {/* Pink Lightbulb card */}
         <motion.div
-          initial={{ scale: 0.55, opacity: 0, y: -16, rotate: -16 }}
-          animate={{ scale: 1, opacity: 1, y: [0, -4, 0], rotate: -6 }}
+          initial={{ scale: 0.55, opacity: 0, y: -16, rotate: 8 }}
+          animate={{ scale: 1, opacity: 1, y: [0, -4, 0], rotate: -16 }}
           transition={{
             scale: { type: "spring", stiffness: 350, damping: 20, delay: 0.14 },
             opacity: { duration: 0.1, delay: 0.14 },
@@ -1430,15 +1487,15 @@ export function Step06Graphic() {
               delay: 0.55,
             },
           }}
-          className="absolute top-2 left-6 w-24 h-24 rounded-3xl bg-[#FFE4F2] border border-pink-200 shadow-md flex items-center justify-center cursor-default"
+          className="absolute top-2 left-[-45%] w-30 h-30 rounded-lg bg-linear-to-br from-[#FDD5E9] to-soluble-pink shadow-md flex items-center justify-center cursor-default"
         >
-          <Lightbulb className="w-10 h-10 text-[#111111]" />
+          <Lightbulb className="w-14 h-14 text-[#111111]" />
         </motion.div>
 
         {/* Mint Big Ideas card */}
         <motion.div
-          initial={{ scale: 0.55, opacity: 0, y: -16, rotate: 16 }}
-          animate={{ scale: 1, opacity: 1, y: [0, 4, 0], rotate: 4 }}
+          initial={{ scale: 0.55, opacity: 0, y: -16, rotate: 20 }}
+          animate={{ scale: 1, opacity: 1, y: [0, 4, 0], rotate: 10 }}
           transition={{
             scale: { type: "spring", stiffness: 350, damping: 20, delay: 0.22 },
             opacity: { duration: 0.1, delay: 0.22 },
@@ -1455,23 +1512,23 @@ export function Step06Graphic() {
               delay: 0.65,
             },
           }}
-          className="absolute top-16 right-4 w-28 h-28 rounded-3xl bg-[#E0FAF0] border border-emerald-200 shadow-lg flex flex-col items-center justify-center p-3 cursor-default"
+          className="absolute top-16 right-22 w-30 h-30 rounded-lg bg-linear-to-bl from-background to-soluble-mint shadow-lg flex flex-col items-center justify-center p-3 cursor-default"
         >
-          <span className="font-caveat font-bold text-xs sm:text-sm text-center uppercase tracking-tight text-[#111111] leading-tight">
+          <span className="font-caveat font-black text-xs sm:text-base text-left uppercase tracking-[0.7] text-[#000000] leading-tight -rotate-12">
             Big
             <br />
             ideas
             <br />
             welcome.
             <br />
-            —)
+            <LucidePartyPopper size={20} className="mt-1 mx-auto" />
           </span>
         </motion.div>
 
         {/* Yellow Scribble Smiley card */}
         <motion.div
           initial={{ scale: 0.55, opacity: 0, y: 16, rotate: -12 }}
-          animate={{ scale: 1, opacity: 1, y: [0, -3, 0], rotate: -3 }}
+          animate={{ scale: 1, opacity: 1, y: [0, -3, 0], rotate: -5 }}
           transition={{
             scale: { type: "spring", stiffness: 350, damping: 20, delay: 0.3 },
             opacity: { duration: 0.1, delay: 0.3 },
@@ -1483,21 +1540,22 @@ export function Step06Graphic() {
               delay: 0.7,
             },
           }}
-          className="absolute bottom-2 left-4 w-24 h-22 rounded-3xl bg-[#FEF3C7] border border-amber-200 shadow-md flex flex-col items-center justify-center cursor-default"
+          className="absolute bottom-[-15%] left-[-50%] w-28 h-28 rounded-lg bg-linear-to-bl from-soluble-yellow/40 to-soluble-yellow shadow-md flex flex-col items-center justify-center cursor-default"
         >
           {/* Hand drawn scribble icon */}
-          <div className="font-caveat text-2xl font-bold">~ ͜ʖ ~</div>
-          <div className="font-caveat text-sm font-bold">☺</div>
+          <div className="font-caveat text-sm font-bold">
+            <FaRegSmile size={50} color="#111111" />
+          </div>
         </motion.div>
 
         {/* Burst ticks */}
         <BurstTicks
-          className="absolute top-0 right-20 w-7 h-7 text-[#111111]"
+          className="absolute top-[-20%] left-0 w-14 h-14 text-[#111111] rotate-40"
           color="#111111"
           delay={0.4}
         />
         <BurstTicks
-          className="absolute -bottom-3 left-18 w-7 h-7 text-[#111111] rotate-180"
+          className="absolute -bottom-10 left-8 w-15 h-15 text-[#111111] rotate-160"
           color="#111111"
           delay={0.48}
         />
@@ -1513,7 +1571,7 @@ export function Step06Graphic() {
           damping: 20,
           delay: 0.35,
         }}
-        className="absolute top-12 right-0 sm:right-4 z-20 text-right"
+        className="absolute top-12 right-15 rotate-15 z-20 text-right"
       >
         <span className="font-caveat text-xs sm:text-sm font-bold text-[#111111] leading-tight block uppercase">
           Questions?
@@ -1525,8 +1583,8 @@ export function Step06Graphic() {
           requirements?
         </span>
         <DoodleArrow
-          direction="down-left"
-          className="w-8 h-8 mt-1 ml-auto -rotate-12"
+          direction="down-right"
+          className="w-14 h-14 mt-1 my-auto rotate-100"
           delay={0.45}
         />
       </motion.div>
@@ -1545,8 +1603,10 @@ export function SuccessGraphic() {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 280, damping: 20, delay: 0.1 }}
-        className="absolute top-4 right-4 w-28 h-36 rounded-full bg-[#FF91D4]/40"
-      />
+        className="absolute top-[-40%] right-[-213%] w-28 h-36 rounded-full bg-[#FF91D4]/60 rotate-35"
+      >
+        <BurstTicks className="aspect-square w-14 absolute top-10 -rotate-85 left-[-70%]" />
+      </motion.div>
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
@@ -1556,75 +1616,130 @@ export function SuccessGraphic() {
           damping: 20,
           delay: 0.15,
         }}
-        className="absolute bottom-4 left-0 w-36 h-36 rounded-full bg-[#A98BFF]/40"
-      />
+        className="absolute bottom-[-85%] left-[-55%] w-88 h-88"
+      >
+        <svg viewBox="30 50 400 400" className="">
+          <defs>
+            <radialGradient
+              gradientUnits="userSpaceOnUse"
+              cx="260.963"
+              cy="243.53"
+              r="171.264"
+              id="gradient-0"
+              gradientTransform="matrix(-0.716784, -1.175012, 0.853695, -0.520774, 198.115953, 673.324541)"
+            >
+              <stop offset="0" stopColor="#DFD6F9"></stop>
+              <stop offset="1" stopColor="#B18CFF"></stop>
+            </radialGradient>
+          </defs>
+
+          <path
+            fill="url(#gradient-0)"
+            d="M 87.391 143.653 C 154.232 107.362 225.809 139.236 230.689 203.321 C 235.06 260.722 256.971 279.184 303.217 282.751 C 393.94 289.749 456.564 377.332 361.56 404.113 C 266.556 430.894 161.645 401.829 161.645 401.829 C 79.207 415.665 49.727 370.734 66.829 299.015 L 87.391 143.653 Z"
+          ></path>
+        </svg>
+      </motion.div>
+
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 280,
+          damping: 20,
+          delay: 0.15,
+        }}
+        className="absolute bottom-[-95%] right-[-225%] w-88 h-88"
+      >
+        <svg viewBox="30 50 400 400" className="rotate-y-180">
+          <defs>
+            <radialGradient
+              gradientUnits="userSpaceOnUse"
+              cx="260.963"
+              cy="243.53"
+              r="171.264"
+              id="gradient-1"
+              gradientTransform="matrix(-0.716784, -1.175012, 0.853695, -0.520774, 198.115953, 673.324541)"
+            >
+              <stop offset="0" stopColor="#FCE5A1"></stop>
+              <stop offset="1" stopColor="#FED559"></stop>
+            </radialGradient>
+          </defs>
+
+          <path
+            fill="url(#gradient-1)"
+            d="M 87.391 143.653 C 154.232 107.362 224.446 139.354 230.689 203.321 C 236.794 265.878 253.844 278.594 303.217 282.751 C 373.495 288.668 456.706 376.952 361.56 404.113 C 266.414 431.274 161.645 401.829 161.645 401.829 C 79.207 415.665 49.727 370.734 66.829 299.015 L 87.391 143.653 Z"
+          ></path>
+        </svg>
+      </motion.div>
 
       {/* Radiating Curved Lines to 7 cards: draw themselves outward like sunbeams */}
       <svg
         viewBox="0 0 340 340"
+        opacity={0.8}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="absolute inset-0 w-full h-full -z-5 overflow-visible"
+        className="absolute inset-0 w-full h-full overflow-visible"
         aria-hidden="true"
       >
         <motion.path
-          d="M 170 170 C 140 120, 100 110, 80 80"
+          d="M 132.301 126.59 C 116.222 71.595 72.774 86.77 59.437 43.444"
           stroke="#FF91D4"
-          strokeWidth="2.5"
+          strokeWidth="8"
           strokeLinecap="round"
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
           transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
         />
         <motion.path
-          d="M 170 170 C 140 160, 90 150, 60 145"
+          d="M 115.167 165.431 C 74.306 138.083 41.683 134.005 18.875 148.428"
           stroke="#7C98FF"
-          strokeWidth="2.5"
+          strokeWidth="8"
           strokeLinecap="round"
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         />
         <motion.path
-          d="M 170 170 C 130 190, 80 200, 65 230"
-          stroke="#FF91D4"
-          strokeWidth="2.5"
+          d="M 123.163 198.559 C 83.163 218.559 62.864 234.271 47.864 264.271"
+          stroke="#FF9C86"
+          strokeWidth="8"
           strokeLinecap="round"
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
           transition={{ duration: 0.7, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
         />
         <motion.path
-          d="M 170 170 C 180 120, 190 90, 200 70"
-          stroke="#65DDB5"
-          strokeWidth="2.5"
+          d="M 179.139 111.74 C 161.917 29.224 204.051 49.672 238.841 23.163"
+          stroke="#7DB4F0"
+          strokeWidth="8"
           strokeLinecap="round"
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
           transition={{ duration: 0.7, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
         />
         <motion.path
-          d="M 170 170 C 210 130, 230 120, 250 110"
+          d="M 214.552 139.156 C 251.715 111.637 281.533 169.705 312.83 110"
           stroke="#FFD66B"
-          strokeWidth="2.5"
+          strokeWidth="8"
           strokeLinecap="round"
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
           transition={{ duration: 0.7, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
         />
         <motion.path
-          d="M 170 170 C 210 180, 230 200, 240 230"
+          d="M 191.706 183.709 C 231.706 193.709 251.706 219.421 261.706 249.421"
           stroke="#A98BFF"
-          strokeWidth="2.5"
+          strokeWidth="8"
           strokeLinecap="round"
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
           transition={{ duration: 0.7, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
         />
         <motion.path
-          d="M 170 170 C 150 210, 120 230, 95 260"
+          d="M 160.861 205.414 C 140.861 245.414 181.688 279.122 156.688 309.122"
           stroke="#65DDB5"
-          strokeWidth="2.5"
+          strokeWidth="8"
           strokeLinecap="round"
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
@@ -1636,10 +1751,15 @@ export function SuccessGraphic() {
       <motion.div
         initial={{ scale: 0.5, opacity: 0, rotate: -15 }}
         animate={{ scale: 1, opacity: 1, rotate: 0 }}
-        transition={{ type: "spring", stiffness: 380, damping: 20, delay: 0.1 }}
+        transition={{
+          type: "spring",
+          stiffness: 380,
+          damping: 20,
+          delay: 0.1,
+        }}
         className="relative z-20"
       >
-        <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-3xl bg-white/90 backdrop-blur-md border border-white/90 shadow-[0_20px_40px_rgba(0,0,0,0.08)] flex items-center justify-center p-4">
+        <div className="relative w-28 h-28 sm:w-28 sm:h-28 rounded-4xl bg-white shadow-[0_20px_40px_rgba(0,0,0,0.08)] flex items-center justify-center p-4">
           <div className="relative w-14 h-14 sm:w-16 sm:h-16">
             <Image
               src="/assets/images/logo/logo-6.png"
@@ -1663,9 +1783,9 @@ export function SuccessGraphic() {
           opacity: { duration: 0.1, delay: 0.3 },
           y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.7 },
         }}
-        className="absolute top-6 left-12 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-[#FFE4F2] border border-pink-200 shadow-md flex items-center justify-center z-10"
+        className="absolute top-[-10%] left-20 w-22 h-22 rounded-lg bg-linear-to-bl from-[#FED8EB] to-soluble-pink shadow-md flex items-center justify-center z-10 -rotate-20"
       >
-        <Lightbulb className="w-6 h-6 sm:w-7 sm:h-7 text-[#111111]" />
+        <Lightbulb className="w-6 h-6 sm:w-10 sm:h-10 text-[#111111]" />
       </motion.div>
 
       {/* 2. Users (Blue) */}
@@ -1682,9 +1802,9 @@ export function SuccessGraphic() {
             delay: 0.75,
           },
         }}
-        className="absolute top-26 left-2 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-[#E0ECFF] border border-blue-200 shadow-md flex items-center justify-center z-10"
+        className="absolute top-32 left-0 w-22 h-22 rounded-lg bg-linear-to-br from-background to-soluble-blue shadow-md flex items-center justify-center z-10 rotate-12"
       >
-        <Users className="w-6 h-6 sm:w-7 sm:h-7 text-[#111111]" />
+        <Users className="w-6 h-6 sm:w-9 sm:h-9 text-[#111111]" />
       </motion.div>
 
       {/* 3. Image (White/Pink) */}
@@ -1696,9 +1816,9 @@ export function SuccessGraphic() {
           opacity: { duration: 0.1, delay: 0.4 },
           y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.8 },
         }}
-        className="absolute bottom-22 left-4 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white border border-gray-200 shadow-md flex items-center justify-center z-10"
+        className="absolute bottom-0 left-12 w-20 h-20 rounded-lg bg-linear-to-br from-background to-soluble-peach shadow-md flex items-center justify-center z-10 -rotate-12"
       >
-        <ImageIcon className="w-6 h-6 sm:w-7 sm:h-7 text-[#111111]" />
+        <ImageIcon className="w-9 h-9 stroke-[1.5] text-[#111111]" />
       </motion.div>
 
       {/* 4. Link (Pink) */}
@@ -1715,9 +1835,9 @@ export function SuccessGraphic() {
             delay: 0.85,
           },
         }}
-        className="absolute -bottom-2 left-16 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-[#FFE4F2] border border-pink-200 shadow-md flex items-center justify-center z-10"
+        className="absolute -bottom-10 left-46 w-22 h-22 rounded-lg bg-linear-to-br from-background to-soluble-mint shadow-md flex items-center justify-center z-10 rotate-12"
       >
-        <Link2 className="w-6 h-6 sm:w-7 sm:h-7 text-[#111111]" />
+        <Link2 className="w-6 h-6 sm:w-9 sm:h-9 text-[#111111]" />
       </motion.div>
 
       {/* 5. Document (Mint) */}
@@ -1734,9 +1854,9 @@ export function SuccessGraphic() {
             delay: 0.72,
           },
         }}
-        className="absolute top-4 left-36 sm:left-40 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-[#E0FAF0] border border-emerald-200 shadow-md flex items-center justify-center z-10"
+        className="absolute top-[-15%] left-60 w-20 h-20 rounded-lg bg-linear-to-br from-background to-[#7DB4F0] shadow-md flex items-center justify-center z-10 rotate-12"
       >
-        <FileText className="w-6 h-6 sm:w-7 sm:h-7 text-[#111111]" />
+        <FileText className="w-6 h-6 sm:w-9 sm:h-9 text-[#111111]" />
       </motion.div>
 
       {/* 6. Target (Yellow) */}
@@ -1753,9 +1873,9 @@ export function SuccessGraphic() {
             delay: 0.78,
           },
         }}
-        className="absolute top-18 right-2 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-[#FEF3C7] border border-amber-200 shadow-md flex items-center justify-center z-10"
+        className="absolute top-18 right-2 w-22 h-22 rounded-lg bg-linear-to-br from-background to-soluble-yellow shadow-md flex items-center justify-center z-10"
       >
-        <Target className="w-6 h-6 sm:w-7 sm:h-7 text-[#111111]" />
+        <TbTargetArrow className="w-6 h-6 sm:w-12 sm:h-12 stroke-[1.5] text-[#111111]" />
       </motion.div>
 
       {/* 7. Code (Purple) */}
@@ -1772,9 +1892,9 @@ export function SuccessGraphic() {
             delay: 0.82,
           },
         }}
-        className="absolute bottom-16 right-4 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-[#EBE4FF] border border-purple-200 shadow-md flex items-center justify-center z-10"
+        className="absolute bottom-8 right-14 w-20 h-20 rounded-lg bg-linear-to-br from-background to-soluble-purple shadow-md flex items-center justify-center z-10 -rotate-12"
       >
-        <Code2 className="w-6 h-6 sm:w-7 sm:h-7 text-[#111111]" />
+        <Code2 className="w-6 h-6 sm:w-9 sm:h-9 text-[#111111]" />
       </motion.div>
 
       {/* Top Left Note: YOUR IDEAS, IN ONE PLACE */}
@@ -1787,9 +1907,9 @@ export function SuccessGraphic() {
           damping: 20,
           delay: 0.35,
         }}
-        className="absolute top-0 left-0 sm:left-4 z-20"
+        className="absolute top-[-20%] left-[-10%] z-20 -rotate-22"
       >
-        <span className="font-caveat text-xs sm:text-sm font-bold text-[#111111] leading-tight block uppercase">
+        <span className="font-caveat text-xs sm:text-sm lg:text-lg font-bold text-[#111111] leading-tight block uppercase text-left">
           Your
           <br />
           ideas,
@@ -1799,8 +1919,8 @@ export function SuccessGraphic() {
           place.
         </span>
         <DoodleArrow
-          direction="curved-down"
-          className="w-8 h-8 mt-1"
+          direction="down-left"
+          className="w-16 h-16 mt-1 ml-auto -rotate-90"
           delay={0.45}
         />
       </motion.div>
@@ -1815,14 +1935,14 @@ export function SuccessGraphic() {
           damping: 20,
           delay: 0.45,
         }}
-        className="absolute -bottom-4 right-2 sm:right-6 z-20 text-right"
+        className="absolute -bottom-24 right-10 z-20 text-right rotate-12"
       >
         <DoodleArrow
-          direction="up-left"
-          className="w-8 h-8 mb-1 ml-auto"
+          direction="down-left"
+          className="w-12 h-12 mb-2 mx-auto rotate-100"
           delay={0.55}
         />
-        <span className="font-caveat text-xs sm:text-sm font-bold text-[#111111] leading-tight block uppercase">
+        <span className="font-caveat text-xs sm:text-sm lg:text-base font-bold text-[#111111] leading-tight block uppercase text-left">
           We turn
           <br />
           your ideas

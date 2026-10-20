@@ -21,23 +21,23 @@ import {
 
 export function Step03Left() {
   return (
-    <div className="flex flex-col justify-center">
+    <div className="flex flex-col justify-center mt-11">
       {/* Eyebrow badge */}
-      <div className="inline-flex w-fit items-center rounded-full bg-[#E0FAF0] px-3 py-0.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#059669]">
+      <div className="inline-flex w-fit items-center rounded-full bg-soluble-mint/30 px-3 py-1 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
         Budget &amp; Timeline
       </div>
 
       {/* Heading */}
-      <h2 className="mt-2 text-2xl sm:text-4xl lg:text-[42px] font-black tracking-[-0.04em] text-[#111111] leading-tight">
-        Help us
+      <h2 className="mt-4 text-2xl sm:text-4xl lg:text-6xl font-[1000] tracking-tighter text-[#111111] leading-13">
+        Let us
         <br />
         understand
         <br />
-        the scope<span className="text-[#FF8B68]">.</span>
+        the scope<span className="text-soluble-orange font-outfit">.</span>
       </h2>
 
       {/* Subtitle */}
-      <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-md">
+      <p className="mt-4 mb-4 text-xs sm:text-sm lg:text-base font-medium text-muted-foreground/80 leading-relaxed max-w-72">
         A few details about your budget, timeline and goals help us suggest the right approach.
       </p>
 
@@ -67,23 +67,23 @@ export default function Step03Scope({
   const renderGoalIcon = (iconName: string) => {
     switch (iconName) {
       case "trending-up":
-        return <TrendingUp className="w-4 h-4 text-[#FF8B68]" />;
+        return <TrendingUp className="w-4 h-4 text-foreground" />;
       case "shopping-cart":
-        return <ShoppingCart className="w-4 h-4 text-[#7C98FF]" />;
+        return <ShoppingCart className="w-4 h-4 text-foreground" />;
       case "users":
-        return <Users className="w-4 h-4 text-[#059669]" />;
+        return <Users className="w-4 h-4 text-foreground" />;
       case "settings":
-        return <Settings className="w-4 h-4 text-[#D97706]" />;
+        return <Settings className="w-4 h-4 text-foreground" />;
       case "lightbulb":
-        return <Lightbulb className="w-4 h-4 text-[#A98BFF]" />;
+        return <Lightbulb className="w-4 h-4 text-foreground" />;
       case "more-horizontal":
       default:
-        return <MoreHorizontal className="w-4 h-4 text-[#94A3B8]" />;
+        return <MoreHorizontal className="w-4 h-4 text-foreground" />;
     }
   };
 
   return (
-    <div className="space-y-3 sm:space-y-3.5">
+    <div className="space-y-3 sm:space-y-3.5 lg:-mt-6 lg:space-y-4 pt-18">
 
           {/* 1. ESTIMATED BUDGET (OPTIONAL) */}
           <div>
@@ -103,13 +103,13 @@ export default function Step03Scope({
                         budget: isSelected ? "" : item.label,
                       })
                     }
-                    className={`relative py-2 px-1.5 rounded-2xl border text-center transition-all duration-200 cursor-pointer ${
+                    className={`relative flex items-center justify-center py-4 lg:py-3 px-1.5 lg:px-4 rounded-md border text-center transition-all duration-100 cursor-pointer ${
                       isSelected
                         ? "bg-[#F3F7FF] border-[#6C8CFF] text-[#111111] font-bold shadow-xs ring-1 ring-[#6C8CFF]/40"
-                        : "bg-white border-[#E7E7E2] text-foreground/80 font-medium hover:border-black/30 hover:bg-neutral-50/70"
+                        : "bg-white border-[#E7E7E2] text-foreground font-medium hover:border-black/30 hover:bg-neutral-50/70"
                     }`}
                   >
-                    <span className="text-xs sm:text-[12px] block leading-tight">
+                    <span className="text-xs sm:text-sm block leading-tight">
                       {item.label}
                     </span>
                     {isSelected && (
@@ -141,7 +141,7 @@ export default function Step03Scope({
                         timeline: isSelected ? "" : item.label,
                       })
                     }
-                    className={`relative py-2 px-1.5 rounded-2xl border text-center transition-all duration-200 cursor-pointer ${
+                    className={`relative py-2 px-1.5 lg:px-2 lg:py-4 rounded-md border text-center transition-all duration-200 cursor-pointer ${
                       isSelected
                         ? "bg-[#F3F7FF] border-[#6C8CFF] text-[#111111] font-bold shadow-xs ring-1 ring-[#6C8CFF]/40"
                         : "bg-white border-[#E7E7E2] text-foreground/80 font-medium hover:border-black/30 hover:bg-neutral-50/70"
@@ -179,20 +179,20 @@ export default function Step03Scope({
                         primaryGoal: isSelected ? "" : goal.label,
                       })
                     }
-                    className={`p-2.5 rounded-2xl border text-left transition-all duration-200 flex items-center gap-2.5 cursor-pointer ${
+                    className={`py-2.5 px-2.5 lg:py-3 lg:px-4 rounded-md border text-left transition-all duration-200 flex items-center gap-2.5 cursor-pointer ${
                       isSelected
-                        ? "bg-[#F3F7FF] border-[#6C8CFF] shadow-xs ring-1 ring-[#6C8CFF]/30"
+                        ? "bg-[#F3F7FF] border-[#6C8CFF] shadow-xs"
                         : "bg-white border-[#E7E7E2] hover:border-black/30 hover:bg-neutral-50/70"
                     }`}
                   >
-                    <div className="w-7 h-7 rounded-full bg-neutral-100 flex items-center justify-center shrink-0">
+                    <div className={`w-10 h-10 rounded-full ${goal.iconBgColor} flex items-center justify-center shrink-0`}>
                       {renderGoalIcon(goal.icon)}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h4 className="text-xs font-bold text-[#111111] truncate">
+                      <h4 className="text-xs lg:text-sm font-bold text-[#111111] truncate">
                         {goal.label}
                       </h4>
-                      <p className="text-[10px] text-muted-foreground truncate">
+                      <p className="text-[12px] text-muted-foreground truncate">
                         {goal.description}
                       </p>
                     </div>
@@ -217,7 +217,7 @@ export default function Step03Scope({
               value={formData.specialRequirements}
               onChange={(e) => updateFormData({ specialRequirements: e.target.value })}
               placeholder="e.g. specific features, integrations, technical constraints..."
-              className="w-full px-4 py-2 sm:py-2.5 rounded-2xl bg-white border border-[#E7E7E2] text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-[#111111] focus:outline-none focus:ring-2 focus:ring-black/5 transition-all shadow-xs"
+              className="w-full px-4 py-2 sm:py-2.5 rounded-md bg-white border border-[#E7E7E2] text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-[#111111] focus:outline-none focus:ring-2 focus:ring-black/5 transition-all shadow-xs"
             />
           </div>
 
@@ -229,7 +229,7 @@ export default function Step03Scope({
                 whileTap={{ scale: 0.98 }}
                 type="button"
                 onClick={onNext}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#111111] px-7 py-3 text-sm font-semibold text-white shadow-md hover:bg-black transition-colors cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#111111] px-7 py-3 lg:py-4 lg:px-18 text-sm font-semibold text-white shadow-md hover:bg-black transition-colors cursor-pointer"
               >
                 <span>Continue</span>
                 <ArrowRight size={15} />

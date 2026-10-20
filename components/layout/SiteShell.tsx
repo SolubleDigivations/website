@@ -24,7 +24,7 @@ export default function SiteShell({
 
   if (isContact) {
     return (
-      <main className="h-screen max-h-screen overflow-hidden bg-[#F8F8F5] cursor-default">
+      <main className="min-h-svh overflow-x-clip bg-[#F8F8F5] cursor-default lg:h-screen lg:max-h-screen lg:overflow-hidden">
         {children}
       </main>
     );

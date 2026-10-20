@@ -13,9 +13,9 @@ interface EntryScreenProps {
 
 export default function EntryScreen({ onStart }: EntryScreenProps) {
   return (
-    <div className="relative h-full flex flex-col justify-between overflow-hidden bg-[#F8F8F5]">
+    <div className="relative h-[calc(100vh-80px)] lg:h-full flex flex-col justify-between lg:overflow-hidden bg-[#F8F8F5]">
       {/* Main Content Area */}
-      <main className="relative flex-1 flex flex-col items-center justify-center px-4 sm:px-6 py-2 sm:py-4 z-10">
+      <main className="relative flex-1 flex flex-col items-center justify-center px-4 lg:px-6 py-2 lg:py-4 z-10">
         {/* Floating Background/Surrounding Graphics */}
         <div className="absolute inset-0 flex items-center justify-center">
           <EntryHeroGraphic />

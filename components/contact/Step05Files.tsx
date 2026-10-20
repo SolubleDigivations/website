@@ -22,14 +22,14 @@ export function Step05Left() {
       </div>
 
       {/* Heading */}
-      <h2 className="mt-2 text-2xl sm:text-4xl lg:text-[42px] font-black tracking-[-0.04em] text-[#111111] leading-tight">
+      <h2 className="mt-4 text-2xl sm:text-4xl lg:text-6xl font-[1000] tracking-tighter text-[#111111] leading-13">
         Share anything
         <br />
-        that helps<span className="text-[#FF8B68]">.</span>
+        that helps<span className="text-soluble-orange font-outfit">.</span>
       </h2>
 
       {/* Subtitle */}
-      <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-md">
+      <p className="mt-4 mb-4 text-xs sm:text-sm lg:text-base font-medium text-muted-foreground/80 leading-relaxed max-w-72">
         Brand assets, wireframes, screenshots, a deck — anything that gives us a clearer picture of your idea.
       </p>
 
@@ -179,7 +179,7 @@ export default function Step05Files({
   };
 
   return (
-    <div className="space-y-3 sm:space-y-3.5">
+    <div className="space-y-3 sm:space-y-3.5 mt-18">
 
           {/* Upload Section Header */}
           <div>
@@ -208,7 +208,7 @@ export default function Step05Files({
               onDragLeave={onDragLeaveHandler}
               onDrop={onDropHandler}
               onClick={() => fileInputRef.current?.click()}
-              className={`border-2 border-dashed rounded-3xl p-4 sm:p-5 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-200 ${
+              className={`border-2 border-dashed rounded-lg p-4 sm:p-5 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-200 ${
                 isDragOver
                   ? "border-[#111111] bg-black/[0.03] scale-[1.01]"
                   : "border-[#E7E7E2] bg-white hover:border-black/30 hover:bg-neutral-50/50"
@@ -280,19 +280,19 @@ export default function Step05Files({
               value={formData.referenceLinks}
               onChange={(e) => updateFormData({ referenceLinks: e.target.value })}
               placeholder="Add links, inspiration, or any other details..."
-              className="w-full px-4 py-2 sm:py-2.5 rounded-2xl bg-white border border-[#E7E7E2] text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-[#111111] focus:outline-none focus:ring-2 focus:ring-black/5 transition-all shadow-xs resize-none"
+              className="w-full px-4 py-2 sm:py-2.5 lg:pb-10 rounded-md bg-white border border-[#E7E7E2] text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-[#111111] focus:outline-none focus:ring-2 focus:ring-black/5 transition-all shadow-xs resize-y"
             />
           </div>
 
           {/* Bottom Actions */}
-          <div className="pt-1 flex items-center justify-between">
+          <div className="pt-1 lg:mt-8 flex items-center justify-between">
             <div className="flex items-center gap-4">
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="button"
                 onClick={onNext}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#111111] px-7 py-3 text-sm font-semibold text-white shadow-md hover:bg-black transition-colors cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#111111] px-7 py-3 lg:px-17 lg:py-4 text-sm font-semibold text-white shadow-md hover:bg-black transition-colors cursor-pointer"
               >
                 <span>Continue</span>
                 <ArrowRight size={15} />

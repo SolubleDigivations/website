@@ -66,7 +66,7 @@ export default function ContactHeader() {
 
   const scrolled = scrollY > 0;
   return (
-    <section className="overflow-clip">
+    <section className="overflow-clip lg:mb-10">
       <motion.header
         initial={{
           opacity: 0,
@@ -105,7 +105,7 @@ export default function ContactHeader() {
               <span className="font-medium transition-transform duration-200">Menu</span>
               <span className="translate-y-[9px] transition-transform duration-200">Close</span>
             </div>
-            {showMenu ? <IoCloseOutline color="#000000" size={26} className="-mr-1 group-hover:scale-102"/> : <MenuIcon color="#000000" size={20} className="group-hover:scale-102"/>}
+            {showMenu ? <IoCloseOutline color="#000000" size={26} className="-mr-1 group-hover:scale-102" /> : <MenuIcon color="#000000" size={20} className="group-hover:scale-102" />}
           </button>
         </nav>
       </motion.header>
@@ -128,12 +128,12 @@ function Menu({
         style={
           showMenu
             ? {
-                position: "fixed",
-                top: 0,
-              }
+              position: "fixed",
+              top: 0,
+            }
             : {
-                position: "fixed",
-              }
+              position: "fixed",
+            }
         }
       ></div>
       <div
@@ -141,14 +141,14 @@ function Menu({
         style={
           showMenu
             ? {
-                translate: 800,
-                position: "fixed",
-                top: 0,
-              }
+              translate: 800,
+              position: "fixed",
+              top: 0,
+            }
             : {
-                position: "fixed",
-                translate: 1600,
-              }
+              position: "fixed",
+              translate: 1600,
+            }
         }
       ></div>
       <div
@@ -156,14 +156,14 @@ function Menu({
         style={
           showMenu
             ? {
-                translate: 800,
-                position: "fixed",
-                top: 0,
-              }
+              translate: 800,
+              position: "fixed",
+              top: 0,
+            }
             : {
-                position: "fixed",
-                translate: 1600,
-              }
+              position: "fixed",
+              translate: 1600,
+            }
         }
       ></div>
       <div
@@ -171,14 +171,14 @@ function Menu({
         style={
           showMenu
             ? {
-                translate: 800,
-                position: "fixed",
-                top: 0,
-              }
+              translate: 800,
+              position: "fixed",
+              top: 0,
+            }
             : {
-                position: "fixed",
-                translate: 1600,
-              }
+              position: "fixed",
+              translate: 1600,
+            }
         }
       ></div>
       <div
@@ -186,14 +186,14 @@ function Menu({
         style={
           showMenu
             ? {
-                translate: 800,
-                position: "fixed",
-                top: 0,
-              }
+              translate: 800,
+              position: "fixed",
+              top: 0,
+            }
             : {
-                position: "fixed",
-                translate: 1600,
-              }
+              position: "fixed",
+              translate: 1600,
+            }
         }
       >
         {navLinks.map((link, index) => (

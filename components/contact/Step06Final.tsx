@@ -16,21 +16,21 @@ import { ContactFormData } from "./types";
 
 export function Step06Left() {
   return (
-    <div className="flex flex-col justify-center">
+    <div className="flex flex-col justify-center mt-14">
       {/* Eyebrow badge */}
-      <div className="inline-flex w-fit items-center rounded-full bg-[#EBE4FF] px-3 py-0.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#6D28D9]">
+      <div className="inline-flex w-fit items-center rounded-full bg-[#EBE4FF] px-3 py-0.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-foreground/80">
         Almost there
       </div>
 
       {/* Heading */}
-      <h2 className="mt-2 text-2xl sm:text-4xl lg:text-[42px] font-black tracking-[-0.04em] text-[#111111] leading-tight">
+      <h2 className="mt-4 text-2xl sm:text-4xl lg:text-[52px] font-[1000] tracking-tighter text-[#111111] leading-13">
         Anything else
         <br />
-        we should know?<span className="text-[#FF8B68]">.</span>
+        we should know?<span className="text-soluble-orange font-outfit">.</span>
       </h2>
 
       {/* Subtitle */}
-      <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-md">
+      <p className="mt-4 mb-4 text-xs sm:text-sm lg:text-base font-medium text-muted-foreground/80 leading-relaxed max-w-72">
         Share any additional details, questions or specific requirements. We&apos;re all ears.
       </p>
 
@@ -90,7 +90,7 @@ export default function Step06Final({
     filesCount > 0 ? `${filesCount} file${filesCount > 1 ? "s" : ""} attached` : "No files attached";
 
   return (
-    <div className="space-y-3 sm:space-y-3.5">
+    <div className="space-y-3 sm:space-y-3.5 mt-10">
 
           {/* 1. YOUR MESSAGE (OPTIONAL) */}
           <div>
@@ -102,7 +102,7 @@ export default function Step06Final({
               value={formData.additionalMessage}
               onChange={(e) => updateFormData({ additionalMessage: e.target.value })}
               placeholder="Tell us anything else — your ideas, questions, specific requirements, or what success looks like for you..."
-              className="w-full px-4 py-2 rounded-2xl bg-white border border-[#E7E7E2] text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-[#111111] focus:outline-none focus:ring-2 focus:ring-black/5 transition-all shadow-xs resize-none"
+              className="w-full px-4 py-2 pb-10 rounded-md bg-white border border-[#E7E7E2] text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-[#111111] focus:outline-none focus:ring-2 focus:ring-black/5 transition-all shadow-xs resize-none"
             />
           </div>
 
@@ -123,23 +123,23 @@ export default function Step06Final({
             </div>
 
             {/* Summary Card Container */}
-            <div className="rounded-3xl bg-white border border-[#E7E7E2] divide-y divide-[#E7E7E2]/70 shadow-xs overflow-hidden">
+            <div className="rounded-md bg-white border border-[#E7E7E2] divide-y divide-[#E7E7E2]/70 shadow-xs overflow-hidden">
               {/* Row 1: Services */}
-              <div className="p-2 sm:p-2.5 flex items-center justify-between gap-3">
+              <div className="p-2 sm:p-2.5 lg:px-4 lg:py-3.5 flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <div className="w-7 h-7 rounded-full bg-[#FFE4F2] flex items-center justify-center shrink-0">
-                    <Globe className="w-3.5 h-3.5 text-[#111111]" />
+                  <div className="w-10 h-10 rounded-full bg-[#FFE4F2] flex items-center justify-center shrink-0">
+                    <Globe className="w-4 h-4 text-[#111111]" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[10px] text-muted-foreground font-medium">Services</p>
-                    <p className="text-xs font-bold text-[#111111] truncate">
+                    <p className="text-xs text-muted-foreground font-medium">Services</p>
+                    <p className="text-sm font-bold text-[#111111] truncate">
                       {servicesText}
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center gap-2 shrink-0">
+                <div className="flex items-center gap-4 shrink-0">
                   {servicesCount > 0 && (
-                    <span className="text-[10px] font-semibold text-muted-foreground bg-neutral-100 px-1.5 py-0.5 rounded-md">
+                    <span className="text-[11px] font-semibold text-muted-foreground bg-neutral-100 px-2 py-1 rounded-md">
                       {servicesCount} selected
                     </span>
                   )}
@@ -154,14 +154,14 @@ export default function Step06Final({
               </div>
 
               {/* Row 2: Budget */}
-              <div className="p-2 sm:p-2.5 flex items-center justify-between gap-3">
+              <div className="p-2 sm:p-2.5 lg:px-4 lg:py-3.5 flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <div className="w-7 h-7 rounded-full bg-[#FEF3C7] flex items-center justify-center shrink-0">
-                    <IndianRupee className="w-3.5 h-3.5 text-[#111111]" />
+                  <div className="w-10 h-10 rounded-full bg-[#FEF3C7] flex items-center justify-center shrink-0">
+                    <IndianRupee className="w-4 h-4 text-[#111111]" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[10px] text-muted-foreground font-medium">Budget</p>
-                    <p className="text-xs font-bold text-[#111111] truncate">
+                    <p className="text-xs text-muted-foreground font-medium">Budget</p>
+                    <p className="text-sm font-bold text-[#111111] truncate">
                       {budgetText}
                     </p>
                   </div>
@@ -176,14 +176,14 @@ export default function Step06Final({
               </div>
 
               {/* Row 3: Timeline */}
-              <div className="p-2 sm:p-2.5 flex items-center justify-between gap-3">
+              <div className="p-2 sm:p-2.5 lg:px-4 lg:py-3.5 flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <div className="w-7 h-7 rounded-full bg-[#EBE4FF] flex items-center justify-center shrink-0">
-                    <Calendar className="w-3.5 h-3.5 text-[#111111]" />
+                  <div className="w-10 h-10 rounded-full bg-[#EBE4FF] flex items-center justify-center shrink-0">
+                    <Calendar className="w-4 h-4 text-[#111111]" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[10px] text-muted-foreground font-medium">Timeline</p>
-                    <p className="text-xs font-bold text-[#111111] truncate">
+                    <p className="text-xs text-muted-foreground font-medium">Timeline</p>
+                    <p className="text-sm font-bold text-[#111111] truncate">
                       {timelineText}
                     </p>
                   </div>
@@ -198,14 +198,14 @@ export default function Step06Final({
               </div>
 
               {/* Row 4: Audience */}
-              <div className="p-2 sm:p-2.5 flex items-center justify-between gap-3">
+              <div className="p-2 sm:p-2.5 lg:px-4 lg:py-3.5 flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <div className="w-7 h-7 rounded-full bg-[#E0FAF0] flex items-center justify-center shrink-0">
-                    <Users className="w-3.5 h-3.5 text-[#111111]" />
+                  <div className="w-10 h-10 rounded-full bg-[#E0FAF0] flex items-center justify-center shrink-0">
+                    <Users className="w-4 h-4 text-[#111111]" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[10px] text-muted-foreground font-medium">Audience</p>
-                    <p className="text-xs font-bold text-[#111111] truncate">
+                    <p className="text-xs text-muted-foreground font-medium">Audience</p>
+                    <p className="text-sm font-bold text-[#111111] truncate">
                       {audienceText}
                     </p>
                   </div>
@@ -220,14 +220,14 @@ export default function Step06Final({
               </div>
 
               {/* Row 5: Files */}
-              <div className="p-2 sm:p-2.5 flex items-center justify-between gap-3">
+              <div className="p-2 sm:p-2.5 lg:px-4 lg:py-3.5 flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <div className="w-7 h-7 rounded-full bg-[#E0ECFF] flex items-center justify-center shrink-0">
-                    <FileText className="w-3.5 h-3.5 text-[#111111]" />
+                  <div className="w-10 h-10 rounded-full bg-[#E0ECFF] flex items-center justify-center shrink-0">
+                    <FileText className="w-4 h-4 text-[#111111]" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[10px] text-muted-foreground font-medium">Files</p>
-                    <p className="text-xs font-bold text-[#111111] truncate">
+                    <p className="text-xs text-muted-foreground font-medium">Files</p>
+                    <p className="text-sm font-bold text-[#111111] truncate">
                       {filesText}
                     </p>
                   </div>
