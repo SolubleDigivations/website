@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence, type Variants } from "motion/react";
 import ProgressBar from "./ProgressBar";
 import ContactHeader from "./ContactHeader";
@@ -13,12 +13,30 @@ import Step05Files, { Step05Left } from "./Step05Files";
 import Step06Final, { Step06Left } from "./Step06Final";
 import SuccessScreen from "./SuccessScreen";
 import { ContactFormData, FormStep, INITIAL_FORM_DATA } from "./types";
+import Navbar from "../layout/Navbar";
 
 export default function ContactFormContainer() {
   const [currentStep, setCurrentStep] = useState<FormStep>("entry");
   const [formData, setFormData] = useState<ContactFormData>(INITIAL_FORM_DATA);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+
+    const handleChange = (event: any) => {
+      setIsMobile(event.matches);
+    };
+
+    handleChange(mediaQuery);
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+    };
+  }, []);
 
   const updateFormData = (patch: Partial<ContactFormData>) => {
     setFormData((prev) => ({ ...prev, ...patch }));
@@ -37,7 +55,7 @@ export default function ContactFormContainer() {
     formData.industry ||
     formData.businessDescription ||
     (formData.files && formData.files.length > 0) ||
-    formData.additionalMessage
+    formData.additionalMessage,
   );
 
   // Step transitions
@@ -80,8 +98,14 @@ export default function ContactFormContainer() {
           }),
         });
         const uploadResult = await uploadResponse.json().catch(() => null);
-        if (!uploadResponse.ok || !uploadResult?.success || !uploadResult.upload) {
-          throw new Error(uploadResult?.error || "Unable to prepare an attachment.");
+        if (
+          !uploadResponse.ok ||
+          !uploadResult?.success ||
+          !uploadResult.upload
+        ) {
+          throw new Error(
+            uploadResult?.error || "Unable to prepare an attachment.",
+          );
         }
 
         const storageResponse = await fetch(uploadResult.upload.signedUrl, {
@@ -132,14 +156,19 @@ export default function ContactFormContainer() {
       const result = await response.json().catch(() => null);
 
       if (!response.ok || !result?.success) {
-        throw new Error(result?.error || "Failed to submit enquiry. Please try again.");
+        throw new Error(
+          result?.error || "Failed to submit enquiry. Please try again.",
+        );
       }
 
       // Transition to success screen
       goToStep("success");
     } catch (err: unknown) {
       console.error("Submission failed:", err);
-      const msg = err instanceof Error ? err.message : "An unexpected error occurred. Please try again.";
+      const msg =
+        err instanceof Error
+          ? err.message
+          : "An unexpected error occurred. Please try again.";
       setSubmitError(msg);
     } finally {
       setIsSubmitting(false);
@@ -187,7 +216,11 @@ export default function ContactFormContainer() {
   // Creative transition for Entry and Success screens
   const entryScreenVariants: Variants = {
     initial: { opacity: 0, scale: 0.95 },
-    animate: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const } },
+    animate: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+    },
     exit: {
       opacity: 0,
       scale: 0.94,
@@ -199,8 +232,16 @@ export default function ContactFormContainer() {
   // Form input field slide variants
   const formVariants: Variants = {
     initial: { opacity: 0, x: 16 },
-    animate: { opacity: 1, x: 0, transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const } },
-    exit: { opacity: 0, x: -14, transition: { duration: 0.22, ease: "easeIn" as const } },
+    animate: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const },
+    },
+    exit: {
+      opacity: 0,
+      x: -14,
+      transition: { duration: 0.22, ease: "easeIn" as const },
+    },
   };
 
   const isFormStep =
@@ -211,23 +252,26 @@ export default function ContactFormContainer() {
     currentStep === "step5" ||
     currentStep === "step6";
 
-  const currentStepNumber = {
-    step1: 1,
-    step2: 2,
-    step3: 3,
-    step4: 4,
-    step5: 5,
-    step6: 6,
-  }[currentStep as "step1" | "step2" | "step3" | "step4" | "step5" | "step6"] || 1;
+  const currentStepNumber =
+    {
+      step1: 1,
+      step2: 2,
+      step3: 3,
+      step4: 4,
+      step5: 5,
+      step6: 6,
+    }[
+      currentStep as "step1" | "step2" | "step3" | "step4" | "step5" | "step6"
+    ] || 1;
 
   return (
     <div className="min-h-full w-full overflow-x-clip flex flex-col justify-between lg:h-full lg:overflow-hidden">
       {/* If on step1 to step6, render consistent Header */}
-      <ContactHeader/>
+      {isMobile ? <Navbar /> : <ContactHeader />}
 
       {/* Main Container for Active Step */}
       <div className="flex-1 flex flex-col justify-start pt-20 pb-8 lg:justify-center lg:pt-0 lg:pb-0">
-        <AnimatePresence mode='popLayout'>
+        <AnimatePresence mode="popLayout">
           {currentStep === "entry" && (
             <motion.div
               key="entry"
@@ -250,10 +294,7 @@ export default function ContactFormContainer() {
               exit="exit"
               className="w-full min-h-full"
             >
-              <SuccessScreen
-                formData={formData}
-                onReset={handleReset}
-              />
+              <SuccessScreen formData={formData} onReset={handleReset} />
             </motion.div>
           )}
         </AnimatePresence>

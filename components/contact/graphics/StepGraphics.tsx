@@ -195,7 +195,7 @@ export function EntryHeroGraphic() {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 450, damping: 18, delay: 0.4 }}
-        className="absolute top-44 right-40 sm:right-30 w-7 h-7 rounded-full bg-[#FFD66B] z-0"
+        className="absolute top-34 right-36 lg:top-44 w-5 h-5 lg:right-30 lg:w-7 lg:h-7 rounded-full bg-[#FFD66B] z-0"
       />
 
       {/* Browser window frosted card */}
@@ -203,9 +203,9 @@ export function EntryHeroGraphic() {
         initial={{ opacity: 0, scale: 0.7, y: -20, rotate: 14 }}
         animate={{ opacity: 1, scale: 1, y: 0, rotate: 4 }}
         transition={{ type: "spring", stiffness: 340, damping: 22, delay: 0.3 }}
-        className="absolute bottom-10 right-4 sm:right-14 lg:right-4 z-10"
+        className="absolute bottom-6 lg:bottom-10 right-6 lg:right-4 z-10"
       >
-        <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-3xl bg-linear-to-br from-white/80 via-foreground/10 to-white/80 backdrop-blur-md border border-white/70 shadow-[0_16px_36px_rgba(0,0,0,0.06)] flex flex-col justify-center items-center p-4">
+        <div className="relative w-28 h-28 lg:w-32 lg:h-32 rounded-3xl bg-linear-to-br from-white/80 via-foreground/10 to-white/80 backdrop-blur-md border border-white/70 shadow-[0_16px_36px_rgba(0,0,0,0.06)] flex flex-col justify-center items-center p-4">
           <div className="w-14 h-11 border-3 border-[#111111] rounded-[5px] p-1 flex flex-col items-center justify-start">
             <div className="flex items-center justify-end gap-1 border-b-3 border-foreground w-14 h-3 -mt-[3px]">
               <div className="w-1 h-1 rounded-full bg-[#111111]" />
@@ -231,7 +231,7 @@ export function EntryHeroGraphic() {
           damping: 20,
           delay: 0.28,
         }}
-        className="absolute bottom-0 right-20 sm:right-32 w-28 h-28 rounded-full bg-[#65DDB5]/70 -z-10"
+        className="absolute bottom-0 right-20 lg:right-32 w-24 h-24 lg:w-28 lg:h-28 rounded-full bg-[#65DDB5]/70 -z-10"
       />
 
       {/* Note: REAL SOLUTIONS TOGETHER */}
