@@ -268,13 +268,13 @@ export function EntryHeroGraphic() {
    ========================================================= */
 export function Step01Graphic() {
   return (
-    <div className="relative w-full max-w-sm sm:max-w-md h-[250px] sm:h-[280px] mx-auto flex items-center justify-center select-none pointer-events-none">
+    <div className="relative w-full max-w-sm sm:max-w-md h-[150px] lg:h-[280px] mx-auto flex items-center justify-center select-none pointer-events-none">
       {/* Background watercolor blobs bloom out */}
       <motion.div
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.1 }}
-        className="absolute bottom-[-70%] left-[-50%] w-52 h-52 rounded-full bg-linear-to-bl from-background to-50% to-soluble-mint"
+        className="absolute border bottom-[-120%] lg:bottom-[-70%] left-[-15%] lg:left-[-50%] w-36 h-36 lg:w-52 lg:h-52 rounded-full bg-linear-to-bl from-background to-50% to-soluble-mint"
       />
 
       <motion.div
@@ -286,16 +286,16 @@ export function Step01Graphic() {
           damping: 20,
           delay: 0.15,
         }}
-        className="absolute top-8 left-32 w-28 h-36 rounded-[50%_50%_45%_55%/60%_40%_60%_40%] bg-linear-to-tl from-background to-60% to-soluble-blue rotate-25"
+        className="absolute lg:top-8 lg:left-32 left-1/2 w-20 h-24 lg:w-28 lg:h-36 rounded-[50%_50%_45%_55%/60%_40%_60%_40%] bg-linear-to-tl from-background to-60% to-soluble-blue rotate-25"
       />
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 450, damping: 18, delay: 0.4 }}
-        className="absolute top-14 -left-28 w-12 h-12 rounded-full bg-soluble-yellow z-0"
+        className="absolute top-14 left-8 lg:-left-28 aspect-square w-8 lg:w-12 lg:h-12 rounded-full bg-soluble-yellow z-0"
       />
       <Spark
-        className="absolute top-36 -left-10 w-7 h-7 text-soluble-purple"
+        className="absolute top-28 lg:top-36 left-10 lg:-left-10 w-7 h-7 text-soluble-purple"
         color="#B18CFF"
         delay={1}
       />
@@ -305,7 +305,7 @@ export function Step01Graphic() {
         viewBox="-40 -10 300 150"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="absolute left-[-50%] inset-0 w-full h-full overflow-visible"
+        className="absolute left-[-25%] lg:left-[-50%] inset-0 w-full h-full overflow-visible"
         aria-hidden="true"
       >
         <motion.path
@@ -371,17 +371,17 @@ export function Step01Graphic() {
         initial={{ scale: 0.65, opacity: 0, y: -24, rotate: -12 }}
         animate={{ scale: 1, opacity: 1, y: 0, rotate: -3 }}
         transition={{ type: "spring", stiffness: 360, damping: 22, delay: 0.2 }}
-        className="absolute left-10 bottom-8 z-10 -rotate-10"
+        className="absolute left-[35%] lg:left-10 bottom-0 lg:bottom-8 z-10 -rotate-10"
       >
         <div className="relative flex flex-col items-center justify-center">
-          <div className="w-36 h-36 sm:w-40 sm:h-40 rounded-3xl bg-white border border-white/80 shadow-[0_16px_36px_rgba(255,145,212,0.24)] p-4 flex justify-center items-center -rotate-4">
+          <div className="w-25 h-25 lg:w-40 lg:h-40 rounded-xl lg:rounded-3xl bg-white border border-white/80 shadow-[0_16px_36px_rgba(255,145,212,0.24)] p-4 flex justify-center items-center -rotate-4">
             {/* User icon with drawing outline */}
-            <div className="w-14 h-14 sm:w-16 sm:h-16 flex flex-col items-center justify-center">
+            <div className="w-12 h-12 lg:w-16 lg:h-16 flex flex-col items-center justify-center">
               {/*User Icon*/}
               <svg
                 viewBox="0 0 48 48"
                 fill="none"
-                className="w-14 h-14"
+                className="w-14 h-14 aspect-square lg:w-18 lg:h-18"
                 aria-hidden="true"
               >
                 <motion.circle
@@ -401,10 +401,10 @@ export function Step01Graphic() {
             </div>
           </div>
           {/* Subtle pink back shadow plate */}
-          <div className="absolute inset-0 -left-7 -bottom-2 w-36 h-36 sm:w-40 sm:h-40 rounded-3xl bg-linear-to-tr from-background to-soluble-pink -z-10" />
+          <div className="absolute inset-0 -left-5 lg:-left-7 -bottom-2 w-26 h-26 lg:w-40 lg:h-40 rounded-xl lg:rounded-3xl bg-linear-to-tr from-background to-soluble-pink -z-10" />
 
           <BurstTicks
-            className="absolute -top-14 left-12 -rotate-20 w-10 h-10 text-[#111111]"
+            className="absolute -top-9 lg:-top-14 left-12 -rotate-20 aspect-square w-8 lg:w-10 text-[#111111]"
             color="#111111"
             delay={0.45}
           />
@@ -412,10 +412,10 @@ export function Step01Graphic() {
       </motion.div>
 
       {/* Yellow sticky note: NICE TO MEET YOU! - :) */}
-      <div className="absolute -bottom-10 left-28 sm:left-40 z-20">
+      <div className="absolute -bottom-28 lg:-bottom-10 left-1/2 lg:left-40 z-20">
         <StickyNote
           rotate="rotate-6"
-          className="w-28 sm:w-32 py-2.5 px-3 text-center"
+          className="w-22 lg:w-32 py-2.5 px-3 text-center"
           delay={0.35}
         >
           <p className="font-bold text-xs sm:text-base tracking-normal text-[#111111] leading-tight text-left ml-2 mt-1">
@@ -780,7 +780,7 @@ export function Step03Graphic() {
               delay: 0.6,
             },
           }}
-          className="absolute -top-2 left-[-50%] w-34 h-34 rounded-xl bg-white/90 backdrop-blur-md border border-white/80 shadow-xl flex items-center justify-center z-10 cursor-default"
+          className="absolute -top-2 left-[-50%] w-24 h-20 lg:w-34 lg:h-34 rounded-xl bg-white/90 backdrop-blur-md border border-white/80 shadow-xl flex items-center justify-center z-10 cursor-default"
         >
           <CiCalendarDate
             className="w-18 h-18 text-[#111111]"

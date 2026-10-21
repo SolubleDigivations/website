@@ -313,7 +313,7 @@ export default function ContactFormContainer() {
                     animate="animate"
                     exit="exit"
                   >
-                    {currentStep === "step1" && <Step01Left />}
+                    {currentStep === "step1" && <Step01Left isMobile={isMobile}/>}
                     {currentStep === "step2" && <Step02Left />}
                     {currentStep === "step3" && <Step03Left />}
                     {currentStep === "step4" && <Step04Left />}
@@ -342,6 +342,7 @@ export default function ContactFormContainer() {
                   >
                     {currentStep === "step1" && (
                       <Step01Introduction
+                        isMobile={isMobile}
                         formData={formData}
                         updateFormData={updateFormData}
                         onNext={() => goToStep("step2")}

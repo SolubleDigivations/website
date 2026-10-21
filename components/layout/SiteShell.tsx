@@ -3,7 +3,7 @@
 import Navbar from "./Navbar";
 import Footer from "@/components/layout/Footer";
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function SiteShell({
   children,
@@ -12,15 +12,31 @@ export default function SiteShell({
 }) {
   const pathname = usePathname();
   const isContact = pathname === "/contact";
+    const [isMobile, setIsMobile] = useState(false);
+  
+    useEffect(() => {
+      const mediaQuery = window.matchMedia("(max-width: 767px)");
+  
+      const handleChange = (event: any) => {
+        setIsMobile(event.matches);
+      };
+  
+      handleChange(mediaQuery);
+      mediaQuery.addEventListener("change", handleChange);
+  
+      return () => {
+        mediaQuery.removeEventListener("change", handleChange);
+      };
+    }, []);
 
   useEffect(() => {
-    if (isContact) {
+    if (!isMobile && isContact) {
       document.documentElement.classList.add("contact-shell");
       return () => {
         document.documentElement.classList.remove("contact-shell");
       };
     }
-  }, [isContact]);
+  }, [isContact, isMobile]);
 
   if (isContact) {
     return (
