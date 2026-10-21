@@ -15,7 +15,7 @@ export function Step01Left({ isMobile = false }) {
       </div>
 
       {/* Heading */}
-      <h2 className="mt-2 text-2xl sm:text-4xl lg:text-6xl font-[1000] tracking-tighter text-[#111111] leading-6 lg:leading-14">
+      <h2 className="mt-2 text-4xl sm:text-4xl lg:text-6xl font-[1000] tracking-tighter text-[#111111] leading-8 lg:leading-14">
         Tell us
         <br />
         about you<span className="text-[#FF8B68]">.</span>
@@ -90,7 +90,7 @@ export default function Step01Introduction({
     <>
       <form
         onSubmit={handleSubmit}
-        className="space-y-6 relative mt-18"
+        className="space-y-6 relative mt-5 lg:mt-18"
         autoComplete="on"
       >
         <motion.div
@@ -287,8 +287,9 @@ export default function Step01Introduction({
             or press Enter ↵
           </span>
         </div>
+        {isMobile && <Step01Graphic />}
       </form>
-      {isMobile && <Step01Graphic />}
+      
     </>
   );
 }

@@ -268,13 +268,13 @@ export function EntryHeroGraphic() {
    ========================================================= */
 export function Step01Graphic() {
   return (
-    <div className="relative w-full max-w-sm sm:max-w-md h-[150px] lg:h-[280px] mx-auto flex items-center justify-center select-none pointer-events-none">
+    <div className="relative w-full max-w-sm sm:max-w-md h-[150px] lg:h-[280px] mx-auto flex items-center justify-center select-none pointer-events-none ">
       {/* Background watercolor blobs bloom out */}
       <motion.div
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.1 }}
-        className="absolute border bottom-[-120%] lg:bottom-[-70%] left-[-15%] lg:left-[-50%] w-36 h-36 lg:w-52 lg:h-52 rounded-full bg-linear-to-bl from-background to-50% to-soluble-mint"
+        className="absolute border bottom-[-100%] lg:bottom-[-70%] left-[-15%] lg:left-[-50%] w-36 h-36 lg:w-52 lg:h-52 rounded-full bg-linear-to-bl from-background to-50% to-soluble-mint"
       />
 
       <motion.div
@@ -437,7 +437,7 @@ export function Step01Graphic() {
         initial={{ opacity: 0, scale: 0.8, x: 10 }}
         animate={{ opacity: 1, scale: 1, x: 0 }}
         transition={{ type: "spring", stiffness: 350, damping: 20, delay: 0.4 }}
-        className="absolute bottom-16 right-4 sm:right-8 z-20 text-left"
+        className="absolute bottom-10 lg:bottom-16 right-0 lg:right-8 z-20 text-left"
       >
         <span className="font-caveat text-sm sm:text-base font-bold text-[#111111] leading-tight block uppercase">
           Just
