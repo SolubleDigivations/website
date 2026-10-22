@@ -268,13 +268,13 @@ export function EntryHeroGraphic() {
    ========================================================= */
 export function Step01Graphic() {
   return (
-    <div className="relative w-full max-w-sm sm:max-w-md h-[150px] lg:h-[280px] mx-auto flex items-center justify-center select-none pointer-events-none ">
+    <div className="relative w-full max-w-sm sm:max-w-md h-[180px] lg:h-[280px] mx-auto flex items-center justify-center select-none pointer-events-none ">
       {/* Background watercolor blobs bloom out */}
       <motion.div
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.1 }}
-        className="absolute border bottom-[-100%] lg:bottom-[-70%] left-[-15%] lg:left-[-50%] w-36 h-36 lg:w-52 lg:h-52 rounded-full bg-linear-to-bl from-background to-50% to-soluble-mint"
+        className="absolute border bottom-[-60%] lg:bottom-[-70%] left-[-15%] lg:left-[-50%] w-36 h-36 lg:w-52 lg:h-52 rounded-full bg-linear-to-bl from-background to-50% to-soluble-mint"
       />
 
       <motion.div
@@ -286,16 +286,16 @@ export function Step01Graphic() {
           damping: 20,
           delay: 0.15,
         }}
-        className="absolute lg:top-8 lg:left-32 left-1/2 w-20 h-24 lg:w-28 lg:h-36 rounded-[50%_50%_45%_55%/60%_40%_60%_40%] bg-linear-to-tl from-background to-60% to-soluble-blue rotate-25"
+        className="absolute top-0 lg:top-8 lg:left-32 left-1/2 w-20 h-24 lg:w-28 lg:h-36 rounded-[50%_50%_45%_55%/60%_40%_60%_40%] bg-linear-to-tl from-background to-60% to-soluble-blue rotate-25"
       />
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 450, damping: 18, delay: 0.4 }}
-        className="absolute top-14 left-8 lg:-left-28 aspect-square w-8 lg:w-12 lg:h-12 rounded-full bg-soluble-yellow z-0"
+        className="absolute top-4 left-8 lg:-left-28 aspect-square w-8 lg:w-12 lg:h-12 rounded-full bg-soluble-yellow z-0"
       />
       <Spark
-        className="absolute top-28 lg:top-36 left-10 lg:-left-10 w-7 h-7 text-soluble-purple"
+        className="absolute top-20 lg:top-36 left-10 lg:-left-10 w-7 h-7 text-soluble-purple"
         color="#B18CFF"
         delay={1}
       />
@@ -305,7 +305,7 @@ export function Step01Graphic() {
         viewBox="-40 -10 300 150"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="absolute left-[-25%] lg:left-[-50%] inset-0 w-full h-full overflow-visible"
+        className="absolute top-[-20%] left-[-20%] lg:left-[-50%] inset-0 w-[90%] lg:w-full h-full overflow-visible"
         aria-hidden="true"
       >
         <motion.path
@@ -371,7 +371,7 @@ export function Step01Graphic() {
         initial={{ scale: 0.65, opacity: 0, y: -24, rotate: -12 }}
         animate={{ scale: 1, opacity: 1, y: 0, rotate: -3 }}
         transition={{ type: "spring", stiffness: 360, damping: 22, delay: 0.2 }}
-        className="absolute left-[35%] lg:left-10 bottom-0 lg:bottom-8 z-10 -rotate-10"
+        className="absolute left-[35%] lg:left-10 top-9 lg:bottom-8 z-10 -rotate-10"
       >
         <div className="relative flex flex-col items-center justify-center">
           <div className="w-25 h-25 lg:w-40 lg:h-40 rounded-xl lg:rounded-3xl bg-white border border-white/80 shadow-[0_16px_36px_rgba(255,145,212,0.24)] p-4 flex justify-center items-center -rotate-4">
@@ -412,7 +412,7 @@ export function Step01Graphic() {
       </motion.div>
 
       {/* Yellow sticky note: NICE TO MEET YOU! - :) */}
-      <div className="absolute -bottom-28 lg:-bottom-10 left-1/2 lg:left-40 z-20">
+      <div className="absolute -bottom-14 lg:-bottom-10 left-1/2 lg:left-40 z-20">
         <StickyNote
           rotate="rotate-6"
           className="w-22 lg:w-32 py-2.5 px-3 text-center"
@@ -437,7 +437,7 @@ export function Step01Graphic() {
         initial={{ opacity: 0, scale: 0.8, x: 10 }}
         animate={{ opacity: 1, scale: 1, x: 0 }}
         transition={{ type: "spring", stiffness: 350, damping: 20, delay: 0.4 }}
-        className="absolute bottom-10 lg:bottom-16 right-0 lg:right-8 z-20 text-left"
+        className="absolute -bottom-10 lg:bottom-16 right-0 lg:right-8 z-20 text-left"
       >
         <span className="font-caveat text-sm sm:text-base font-bold text-[#111111] leading-tight block uppercase">
           Just
@@ -457,13 +457,13 @@ export function Step01Graphic() {
    ========================================================= */
 export function Step02Graphic() {
   return (
-    <div className="relative w-full max-w-sm sm:max-w-md h-[250px] sm:h-[280px] mx-auto flex items-center justify-center select-none pointer-events-none">
+    <div className="relative w-full lg:max-w-md h-[220px] lg:h-[280px] mx-auto flex items-center justify-center select-none pointer-events-none">
       {/* Background blobs bloom out */}
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 280, damping: 20, delay: 0.1 }}
-        className="absolute bottom-[-65%] left-[-50%] w-52 h-52 rounded-full bg-soluble-yellow"
+        className="absolute bottom-[-55%] left-[-20%] lg:bottom-[-65%] lg:left-[-50%] aspect-square w-32 lg:w-52 rounded-full bg-soluble-yellow"
       />
       <motion.div
         initial={{ scale: 0 }}
@@ -474,44 +474,22 @@ export function Step02Graphic() {
           damping: 20,
           delay: 0.15,
         }}
-        className="absolute bottom-[-28%] right-24 w-28 h-28 rounded-[65%_35%_70%_30%/70%_30%_65%_35%] bg-soluble-mint"
+        className="absolute bottom-[-18%] right-10 lg:bottom-[-28%] lg:right-24 aspect-square w-18 lg:w-28 lg:h-28 rounded-[65%_35%_70%_30%/70%_30%_65%_35%] bg-soluble-mint"
       />
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 320, damping: 18, delay: 0.2 }}
-        className="absolute bottom-18 left-[-15%] w-16 h-16 rounded-[25%_80%_25%_50%/65%_70%_50%_40%] bg-soluble-pink"
+        className="absolute bottom-30 left-4 lg:bottom-18 lg:left-[-15%] aspect-square w-10 lg:w-16 rounded-[25%_80%_25%_50%/65%_70%_50%_40%] bg-soluble-pink"
       />
 
-      {/* Playful hand-drawn swirl connecting the cluster */}
-      <svg
-        viewBox="0 0 240 240"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="absolute inset-0 w-full h-full -z-5 overflow-visible"
-        aria-hidden="true"
-      >
-        <motion.path
-          d="M 50 80 C 100 30, 180 50, 170 120 C 160 190, 80 180, 70 140 C 60 100, 130 90, 160 130"
-          stroke="#111111"
-          strokeWidth="2"
-          strokeDasharray="4 6"
-          strokeLinecap="round"
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: 0.7 }}
-          transition={{
-            pathLength: { duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 },
-            opacity: { duration: 0.1, delay: 0.15 },
-          }}
-        />
-      </svg>
 
       {/* Top Left Note: WE TURN IDEAS INTO WEBSITES, APPS AND MORE */}
       <motion.div
         initial={{ opacity: 0, scale: 0.85, x: -12 }}
         animate={{ opacity: 1, scale: 1, x: 0 }}
         transition={{ type: "spring", stiffness: 360, damping: 20, delay: 0.2 }}
-        className="absolute top-[-10%] left-0 sm:left-[-24%] z-20"
+        className="absolute top-[-10%] left-0 sm:left-[-24%] z-20 hidden lg:block"
       >
         <span className="font-caveat text-xs sm:text-base font-bold text-[#111111] tracking-wide block uppercase -rotate-20 mb-4 -ml-2">
           We turn
@@ -529,7 +507,7 @@ export function Step02Graphic() {
       </motion.div>
 
       {/* Clustered Pastel App Cards with staggered creative spring pops */}
-      <div className="relative w-56 h-56 z-10">
+      <div className="relative w-full h-full lg:w-56 lg:h-56 z-10">
         {/* Pink Globe card */}
         <motion.div
           initial={{ scale: 0.5, opacity: 0, y: -16, rotate: -16 }}
@@ -545,9 +523,9 @@ export function Step02Graphic() {
             },
             y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 },
           }}
-          className="absolute top-2 left-[-55%] w-32 h-30 rounded-lg bg-linear-to-br from-background to-soluble-pink shadow-md flex items-center justify-center cursor-default"
+          className="absolute top-8 left-22 lg:top-2 lg:left-[-55%] w-20 h-18 lg:w-32 lg:h-30 rounded-lg bg-linear-to-br from-background to-soluble-pink shadow-md flex items-center justify-center cursor-default"
         >
-          <Globe className="w-12 h-12 text-[#111111]" strokeWidth={1.6} />
+          <Globe className="w-8 h-8 lg:w-12 lg:h-12 text-[#111111]" strokeWidth={1.6} />
         </motion.div>
 
         {/* White Phone card */}
@@ -570,9 +548,9 @@ export function Step02Graphic() {
               delay: 0.55,
             },
           }}
-          className="absolute top-6 right-12 w-30 h-28 rounded-lg bg-white border border-gray-200 shadow-lg flex items-center justify-center cursor-default"
+          className="absolute top-10 right-16 lg:top-6 lg:right-12 w-20 h-19 lg:w-30 lg:h-28 rounded-lg bg-white border border-gray-200 shadow-lg flex items-center justify-center cursor-default"
         >
-          <Smartphone className="w-10 h-10 text-[#111111]" />
+          <Smartphone className="aspect-square w-8 lg:w-10 text-[#111111]" />
         </motion.div>
 
         {/* Blue Code card */}
@@ -590,9 +568,9 @@ export function Step02Graphic() {
             },
             y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.6 },
           }}
-          className="absolute bottom-4 left-[-10%] w-28 h-24 rounded-lg bg-linear-to-r from-[#CCD9FB] to-soluble-blue shadow-md flex items-center justify-center z-10 cursor-default"
+          className="absolute bottom-10 left-40 lg:bottom-4 lg:left-[-10%] w-20 h-18 lg:w-28 lg:h-24 rounded-lg bg-linear-to-r from-[#CCD9FB] to-soluble-blue shadow-md flex items-center justify-center z-10 cursor-default"
         >
-          <Code2 className="w-9 h-9 text-[#111111]" />
+          <Code2 className="w-8 h-8 md:w-9 md:h-9 text-[#111111]" />
         </motion.div>
 
         {/* Mint Dots card */}
@@ -610,7 +588,7 @@ export function Step02Graphic() {
               delay: 0.65,
             },
           }}
-          className="absolute bottom-[-20%] left-16 w-24 h-24 rounded-lg backdrop-blur-md via- shadow-md flex items-center justify-center cursor-default z-50"
+          className="absolute -bottom-2 right-22 lg:bottom-[-20%] lg:left-16 w-18 h-18 lg:w-24 lg:h-24 rounded-lg backdrop-blur-md via- shadow-md flex items-center justify-center cursor-default z-50"
         >
           <MoreHorizontal className="w-8 h-8 text-[#111111]" />
         </motion.div>
@@ -635,19 +613,19 @@ export function Step02Graphic() {
               delay: 0.7,
             },
           }}
-          className="absolute bottom-[-34%] left-[-30%] w-24 h-22 rounded-lg bg-linear-to-bl from-background to-soluble-yellow shadow-md flex items-center justify-center cursor-default"
+          className="absolute bottom-0 left-18 lg:bottom-[-34%] lg:left-[-30%] w-20 h-18 lg:w-24 lg:h-22 rounded-lg bg-linear-to-bl from-background to-soluble-yellow shadow-md flex items-center justify-center cursor-default"
         >
-          <PenTool className="w-8 h-8 text-[#111111]" />
+          <PenTool className="w-7 h-7 md:w-8 md:h-8 text-[#111111]" />
         </motion.div>
 
         {/* Burst marks around cluster */}
         <BurstTicks
-          className="absolute top-[-6%] right-1 w-14 h-14 text-[#111111] rotate-34"
+          className="absolute top-4 right-9 lg:top-[-6%] lg:right-1 aspect-square w-8 lg:w-14 text-[#111111] rotate-34"
           color="#111111"
           delay={0.4}
         />
         <BurstTicks
-          className="absolute -bottom-24 left-14 w-10 h-10 text-[#111111] rotate-200"
+          className="absolute bottom-[-20%] left-30 lg:-bottom-24 lg:left-14 w-10 h-10 text-[#111111] rotate-170 lg:rotate-200"
           color="#111111"
           delay={0.48}
         />
@@ -667,7 +645,7 @@ export function Step02Graphic() {
       >
         <DoodleArrow
           direction="down-left"
-          className="w-14 h-14 mb-1 ml-auto rotate-90 mr-4"
+          className="aspect-square w-8 lg:w-14 lg:h-14 mb-1 ml-auto rotate-90 mr-4"
           delay={0.55}
         />
         <span className="font-caveat text-sm sm:text-lg font-bold text-[#111111] leading-tight block uppercase rotate-12">

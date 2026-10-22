@@ -265,7 +265,7 @@ export default function ContactFormContainer() {
     ] || 1;
 
   return (
-    <div className="min-h-full w-full overflow-x-clip flex flex-col justify-between lg:h-full lg:overflow-hidden">
+    <div className="min-h-full w-full flex flex-col justify-between lg:h-full overflow-hidden">
       {/* If on step1 to step6, render consistent Header */}
       {isMobile ? <Navbar /> : <ContactHeader />}
 
@@ -314,7 +314,7 @@ export default function ContactFormContainer() {
                     exit="exit"
                   >
                     {currentStep === "step1" && <Step01Left isMobile={isMobile}/>}
-                    {currentStep === "step2" && <Step02Left />}
+                    {currentStep === "step2" && <Step02Left isMobile={isMobile}/>}
                     {currentStep === "step3" && <Step03Left />}
                     {currentStep === "step4" && <Step04Left />}
                     {currentStep === "step5" && <Step05Left />}
@@ -350,6 +350,7 @@ export default function ContactFormContainer() {
                     )}
                     {currentStep === "step2" && (
                       <Step02Services
+                        isMobile={isMobile}
                         formData={formData}
                         updateFormData={updateFormData}
                         onNext={() => goToStep("step3")}

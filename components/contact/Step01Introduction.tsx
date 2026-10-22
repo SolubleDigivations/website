@@ -102,7 +102,7 @@ export default function Step01Introduction({
             damping: 20,
             delay: 0.3,
           }}
-          className="absolute right-6 top-[-55%] lg:right-[-8%] lg:top-[-20%] text-right -rotate-12 z-20"
+          className="absolute right-6 top-[-30%] lg:right-[-8%] lg:top-[-20%] text-right -rotate-12 z-20"
         >
           <span className="font-caveat text-sm lg:text-base font-bold text-[#111111] leading-tight block uppercase">
             Good
@@ -123,7 +123,7 @@ export default function Step01Introduction({
             damping: 20,
             delay: 0.1,
           }}
-          className="pointer-events-none absolute right-[-20%] lg:right-[-40%] top-[-10%] lg:top-[-12%] z-0 lg:z-10 aspect-square w-40 lg:w-60"
+          className="pointer-events-none absolute right-[-20%] lg:right-[-40%] top-[-5%] lg:top-[-12%] z-0 lg:z-10 aspect-square w-40 lg:w-60"
           viewBox="163 0 184 193"
           fill="none"
         >
@@ -191,7 +191,7 @@ export default function Step01Introduction({
                 setErrors((prev) => ({ ...prev, email: undefined }));
             }}
             placeholder="you@company.com"
-            className={`w-full px-4 py-2.5 sm:py-3 rounded-md bg-white border ${
+            className={`z-10 w-full px-4 py-2.5 sm:py-3 rounded-md bg-white border ${
               errors.email
                 ? "border-red-400 focus:ring-red-300"
                 : "border-[#E7E7E2] focus:border-[#111111]"
@@ -273,17 +273,17 @@ export default function Step01Introduction({
         </div>
 
         {/* Submit Action */}
-        <div className="pt-1 flex items-center gap-4 mt-10">
+        <div className="pt-1 flex flex-col lg:flex-row items-center gap-4 mt-10">
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             type="submit"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#111111] px-17 py-3.5 text-sm font-semibold text-white shadow-md hover:bg-black transition-colors cursor-pointer"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#111111] px-36.5 py-4 lg:px-17 lg:py-3.5 text-base lg:text-sm font-semibold text-white shadow-md hover:bg-black transition-colors cursor-pointer"
           >
             <span>Continue</span>
             <ArrowRight size={15} />
           </motion.button>
-          <span className="text-xs text-muted-foreground/70">
+          <span className="text-sm text-muted-foreground/70">
             or press Enter ↵
           </span>
         </div>
