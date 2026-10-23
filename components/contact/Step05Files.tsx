@@ -16,14 +16,14 @@ export function Step05Left({ isMobile }: { isMobile: boolean }) {
       </div>
 
       {/* Heading */}
-      <h2 className="mt-4 text-2xl sm:text-4xl lg:text-6xl font-[1000] tracking-tighter text-[#111111] leading-13">
+      <h2 className="mt-2 lg:mt-4 text-4xl lg:text-6xl font-[1000] tracking-tighter text-[#111111] leading-8 lg:leading-13">
         Share anything
         <br />
         that helps<span className="text-soluble-orange font-outfit">.</span>
       </h2>
 
       {/* Subtitle */}
-      <p className="mt-4 mb-4 text-xs sm:text-sm lg:text-base font-medium text-muted-foreground/80 leading-relaxed max-w-72">
+      <p className="mt-4 lg:mb-4 text-xs sm:text-sm lg:text-base font-medium text-muted-foreground/80 leading-relaxed max-w-72">
         Brand assets, wireframes, screenshots, a deck — anything that gives us a
         clearer picture of your idea.
       </p>
@@ -180,7 +180,7 @@ export default function Step05Files({
   };
 
   return (
-    <div className="space-y-3 sm:space-y-3.5 mt-18">
+    <div className="space-y-3 sm:space-y-3.5 mt-8 lg:mt-18">
       {/* Upload Section Header */}
       <div>
         <div className="flex items-center justify-between mb-1.5">
@@ -287,7 +287,7 @@ export default function Step05Files({
       {/* Bottom Actions */}
       <div
         className="mt-8 flex
-                flex-col-reverse lg:flex-row items-center justify-between gap-4"
+        flex-col-reverse lg:flex-row items-center justify-between gap-4"
       >
         <div className="w-full lg:w-auto flex items-center gap-4">
           <motion.button
@@ -300,28 +300,20 @@ export default function Step05Files({
             <span>Continue</span>
             <ArrowRight size={15} />
           </motion.button>
-
-          <button
-            type="button"
-            onClick={onBack}
-            className="text-xs sm:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer hidden md:block"
-          >
-            Back
-          </button>
         </div>
 
-        <div className="w-full flex items-center justify-between lg:justify-end">
+        <div className="w-full flex items-center justify-between">
           <button
             type="button"
             onClick={onBack}
-            className="text-base lg:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer md:hidden"
+            className="text-base font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer"
           >
             Back
           </button>
           <button
             type="button"
             onClick={onSkip}
-            className="text-base lg:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer"
+            className="text-base font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer"
           >
             Skip
           </button>

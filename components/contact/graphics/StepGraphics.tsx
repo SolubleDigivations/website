@@ -764,7 +764,7 @@ export function Step03Graphic() {
               delay: 0.65,
             },
           }}
-          className="absolute top-[44%] left-[44%] lg:top-14 lg:right-20 aspect-square w-26 lg:w-32 rounded-lg bg-linear-to-bl from-background to-soluble-mint shadow-lg flex items-center justify-center cursor-default z-20"
+          className="absolute top-[44%] left-[44%] lg:top-14 lg:left-0 aspect-square w-26 lg:w-32 rounded-lg bg-linear-to-bl from-background to-soluble-mint shadow-lg flex items-center justify-center cursor-default z-20"
         >
           <IndianRupee className="w-8 h-8 lg:w-10 lg:h-10 text-[#111111] stroke-[2.5]" />
         </motion.div>
@@ -879,29 +879,6 @@ export function Step04Graphic() {
         transition={{ type: "spring", stiffness: 280, damping: 20, delay: 0.2 }}
         className="absolute top-24 left-[-20%] w-12 h-12 rounded-[65%_35%_70%_30%/70%_30%_65%_35%] shadow-[0_10px_24px_rgba(255,116,69,0.2)] bg-soluble-yellow"
       />
-
-      {/* Hand-drawn network connecting doodle */}
-      <svg
-        viewBox="0 0 240 240"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="absolute inset-0 w-full h-full -z-5 overflow-visible"
-        aria-hidden="true"
-      >
-        <motion.path
-          d="M 50 70 C 80 50, 140 60, 160 80 C 180 100, 170 160, 140 180 C 110 200, 60 170, 70 130"
-          stroke="#111111"
-          strokeWidth="2"
-          strokeDasharray="4 5"
-          strokeLinecap="round"
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: 0.65 }}
-          transition={{
-            pathLength: { duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 },
-            opacity: { duration: 0.1, delay: 0.15 },
-          }}
-        />
-      </svg>
 
       {/* Top Left Note: WHO ARE YOUR USERS? */}
       <motion.div

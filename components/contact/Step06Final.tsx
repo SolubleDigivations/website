@@ -16,14 +16,14 @@ import { ContactFormData } from "./types";
 
 export function Step06Left({ isMobile }: { isMobile: boolean }) {
   return (
-    <div className="flex flex-col justify-center mt-14">
+    <div className="flex flex-col justify-center lg:mt-14">
       {/* Eyebrow badge */}
       <div className="inline-flex w-fit items-center rounded-full bg-[#EBE4FF] px-3 py-0.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-foreground/80">
         Almost there
       </div>
 
       {/* Heading */}
-      <h2 className="mt-4 text-2xl sm:text-4xl lg:text-[52px] font-[1000] tracking-tighter text-[#111111] leading-13">
+      <h2 className="mt-2 lg:mt-4 text-4xl sm:text-4xl lg:text-[52px] font-[1000] tracking-tighter text-[#111111] leading-8 lg:leading-13">
         Anything else
         <br />
         we should know?
@@ -31,7 +31,7 @@ export function Step06Left({ isMobile }: { isMobile: boolean }) {
       </h2>
 
       {/* Subtitle */}
-      <p className="mt-4 mb-4 text-xs sm:text-sm lg:text-base font-medium text-muted-foreground/80 leading-relaxed max-w-72">
+      <p className="mt-4 lg:mb-4 text-xs sm:text-sm lg:text-base font-medium text-muted-foreground/80 leading-relaxed max-w-72">
         Share any additional details, questions or specific requirements.
         We&apos;re all ears.
       </p>
@@ -98,7 +98,7 @@ export default function Step06Final({
       : "No files attached";
 
   return (
-    <div className="space-y-3 sm:space-y-3.5 mt-10">
+    <div className="space-y-3 sm:space-y-3.5 mt-6 lg:mt-10">
       {/* 1. YOUR MESSAGE (OPTIONAL) */}
       <div>
         <label className="block text-[11px] font-bold uppercase tracking-wider text-foreground/80 mb-1.5">
@@ -270,8 +270,8 @@ export default function Step06Final({
 
       {/* Bottom Actions */}
       <div className="pt-2">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
+        <div className="flex flex-col-reverse gap-4 lg:flex-row items-center justify-between">
+          <div className="w-full lg:w-auto flex items-center gap-4">
             <motion.button
               whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
               whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
@@ -293,25 +293,26 @@ export default function Step06Final({
                 </>
               )}
             </motion.button>
+          </div>
 
+          <div className="flex justify-between items-center w-full lg:w-[62%]">
             <button
               type="button"
               onClick={onBack}
               disabled={isSubmitting}
-              className="text-xs sm:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer disabled:opacity-40"
+              className="text-sm lg:text-base font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer disabled:opacity-40"
             >
               Back
             </button>
+            <button
+              type="button"
+              onClick={onSkip}
+              disabled={isSubmitting}
+              className="text-sm lg:text-base font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer disabled:opacity-40"
+            >
+              Skip
+            </button>
           </div>
-
-          <button
-            type="button"
-            onClick={onSkip}
-            disabled={isSubmitting}
-            className="text-xs sm:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer disabled:opacity-40"
-          >
-            Skip
-          </button>
         </div>
 
         <p className="mt-2 text-xs text-muted-foreground/75">

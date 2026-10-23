@@ -80,7 +80,7 @@ export default function Navbar() {
         }}
         className={`w-full fixed backdrop-blur-sm top-0 z-999 border-b-[1.5px] ${scrolled ? "border-gray-400/20" : "border-transparent"}`}
       >
-        <nav className="container-soluble flex h-20 items-center justify-between md:h-20 lg:h-18">
+        <nav className="container-soluble flex h-18 items-center justify-between md:h-20 lg:h-18">
           {/* Logo */}
           <div>
             <SolubleLogo />

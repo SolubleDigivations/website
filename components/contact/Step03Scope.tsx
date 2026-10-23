@@ -72,23 +72,34 @@ export default function Step03Scope({
   const renderGoalIcon = (iconName: string) => {
     switch (iconName) {
       case "trending-up":
-        return <TrendingUp className="aspect-square w-6 lg:w-4 text-foreground" />;
+        return (
+          <TrendingUp className="aspect-square w-6 lg:w-4 text-foreground" />
+        );
       case "shopping-cart":
-        return <ShoppingCart className="aspect-square w-5 lg:w-4 text-foreground" />;
+        return (
+          <ShoppingCart className="aspect-square w-5 lg:w-4 text-foreground" />
+        );
       case "users":
         return <Users className="aspect-square w-5 lg:w-4 text-foreground" />;
       case "settings":
-        return <Settings className="aspect-square w-5 lg:w-4 text-foreground" />;
+        return (
+          <Settings className="aspect-square w-5 lg:w-4 text-foreground" />
+        );
       case "lightbulb":
-        return <Lightbulb className="aspect-square w-5 lg:w-4 text-foreground" />;
+        return (
+          <Lightbulb className="aspect-square w-5 lg:w-4 text-foreground" />
+        );
       case "more-horizontal":
       default:
-        return <MoreHorizontal className="aspect-square w-5 lg:w-4 text-foreground" />;
+        return (
+          <MoreHorizontal className="aspect-square w-5 lg:w-4 text-foreground" />
+        );
     }
   };
 
   return (
-    <div className="space-y-5 md:space-y-3.5 lg:-mt-6 lg:space-y-4 lg:pt-18 mt-5">
+    <div className="space-y-5 md:space-y-3.5 lg:-mt-6 lg:space-y-4 lg:pt-18 mt-5 relative">
+      <div className="absolute top-20 right-[-20%] lg:top-16 lg:right-[-45%] rotate-35 aspect-square w-28 lg:w-50 rounded-3xl lg:rounded-4xl bg-linear-to-tr from-background to-soluble-mint to-50%"/>
       {/* 1. ESTIMATED BUDGET (OPTIONAL) */}
       <div>
         <label className="block text-[11px] font-bold uppercase tracking-wider text-foreground/80 mb-1.5">
@@ -117,8 +128,8 @@ export default function Step03Scope({
                   {item.label}
                 </span>
                 {isSelected && (
-                  <div className="absolute top-1 right-1 w-3.5 h-3.5 rounded-full bg-[#111111] text-white flex items-center justify-center">
-                    <Check size={8} strokeWidth={3} />
+                  <div className="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-[#111111] text-white flex items-center justify-center">
+                    <Check size={10} strokeWidth={3} />
                   </div>
                 )}
               </button>
@@ -133,7 +144,7 @@ export default function Step03Scope({
           Ideal Timeline (Optional)
         </label>
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
-          {TIMELINE_OPTIONS.map((item,index) => {
+          {TIMELINE_OPTIONS.map((item, index) => {
             const isSelected = formData.timeline === item.label;
 
             return (
@@ -145,7 +156,7 @@ export default function Step03Scope({
                     timeline: isSelected ? "" : item.label,
                   })
                 }
-                className={`${index==4 && 'col-span-2 lg:col-span-1'} relative py-3 px-1 lg:px-2 lg:py-4 rounded-md border text-center transition-all duration-200 cursor-pointer ${
+                className={`${index == 4 && "col-span-2 lg:col-span-1"} relative py-3 px-1 lg:px-2 lg:py-4 rounded-md border text-center transition-all duration-200 cursor-pointer ${
                   isSelected
                     ? "bg-[#F3F7FF] border-[#6C8CFF] text-[#111111] font-bold shadow-xs ring-1 ring-[#6C8CFF]/40"
                     : "bg-white border-[#E7E7E2] text-foreground/80 font-medium hover:border-black/30 hover:bg-neutral-50/70"
@@ -155,8 +166,8 @@ export default function Step03Scope({
                   {item.label}
                 </span>
                 {isSelected && (
-                  <div className="absolute top-1 right-1 w-3.5 h-3.5 rounded-full bg-[#111111] text-white flex items-center justify-center">
-                    <Check size={8} strokeWidth={3} />
+                  <div className="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-[#111111] text-white flex items-center justify-center">
+                    <Check size={10} strokeWidth={3} />
                   </div>
                 )}
               </button>
@@ -203,8 +214,8 @@ export default function Step03Scope({
                   </p>
                 </div>
                 {isSelected && (
-                  <div className="w-3.5 h-3.5 rounded-full bg-[#111111] text-white flex items-center justify-center shrink-0">
-                    <Check size={8} strokeWidth={3} />
+                  <div className="w-5 h-5 rounded-full bg-[#111111] text-white flex items-center justify-center shrink-0">
+                    <Check size={12} strokeWidth={3} />
                   </div>
                 )}
               </button>
@@ -232,7 +243,7 @@ export default function Step03Scope({
       {/* Bottom Actions */}
       <div
         className="mt-8 flex
-      flex-col-reverse lg:flex-row items-center justify-between gap-4"
+        flex-col-reverse lg:flex-row items-center justify-between gap-4"
       >
         <div className="w-full lg:w-auto flex items-center gap-4">
           <motion.button
@@ -245,28 +256,20 @@ export default function Step03Scope({
             <span>Continue</span>
             <ArrowRight size={15} />
           </motion.button>
-
-          <button
-            type="button"
-            onClick={onBack}
-            className="text-xs sm:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer hidden md:block"
-          >
-            Back
-          </button>
         </div>
 
-        <div className="w-full flex items-center justify-between lg:justify-end">
+        <div className="w-full flex items-center justify-between">
           <button
             type="button"
             onClick={onBack}
-            className="text-base lg:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer md:hidden"
+            className="text-base font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer"
           >
             Back
           </button>
           <button
             type="button"
             onClick={onSkip}
-            className="text-base lg:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer"
+            className="text-base font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer"
           >
             Skip
           </button>

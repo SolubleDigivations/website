@@ -60,13 +60,23 @@ export default function Step01Introduction({
   updateFormData,
   onNext,
 }: Step01IntroductionProps) {
-  const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
+  const [errors, setErrors] = useState<{
+    name?: string;
+    email?: string;
+    phone?: string;
+  }>({});
   const [showCountryPicker, setShowCountryPicker] = useState(false);
 
   const validate = () => {
-    const newErrors: { name?: string; email?: string } = {};
+    const newErrors: { name?: string; email?: string; phone?: string } = {};
     if (!formData.name.trim()) {
       newErrors.name = "Please enter your name.";
+    }
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Please enter your number. ";
+    }
+    if (formData.phone.trim().length < 10) {
+      newErrors.phone = "Please enter a valid number. ";
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim()) {
@@ -162,10 +172,10 @@ export default function Step01Introduction({
                 setErrors((prev) => ({ ...prev, name: undefined }));
             }}
             placeholder="John Doe"
-            className={`relative z-20 w-full px-4 py-2.5 sm:py-3 rounded-md bg-white border ${
+            className={`relative z-20 w-full px-4 py-2.5 sm:py-3 rounded-md bg-white border-2 ${
               errors.name
                 ? "border-red-400 focus:ring-red-300"
-                : "border-[#E7E7E2] focus:border-[#111111]"
+                : "border-[#E7E7E2] focus:border-[#111111]/40"
             } text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-black/5 transition-all shadow-xs`}
           />
           {errors.name && (
@@ -191,10 +201,10 @@ export default function Step01Introduction({
                 setErrors((prev) => ({ ...prev, email: undefined }));
             }}
             placeholder="you@company.com"
-            className={`z-10 w-full px-4 py-2.5 sm:py-3 rounded-md bg-white border ${
+            className={`z-10 w-full px-4 py-2.5 sm:py-3 rounded-md bg-white border-2 ${
               errors.email
                 ? "border-red-400 focus:ring-red-300"
-                : "border-[#E7E7E2] focus:border-[#111111]"
+                : "border-[#E7E7E2] focus:border-[#111111]/40"
             } text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-black/5 transition-all shadow-xs`}
           />
           {errors.email && (
@@ -207,7 +217,7 @@ export default function Step01Introduction({
         {/* PHONE (OPTIONAL) */}
         <div>
           <label className="block text-[11px] font-bold uppercase tracking-wider text-foreground/80 mb-1.5">
-            Phone (Optional)
+            Phone <span className="text-[#FF8B68]">*</span>
           </label>
           <div className="flex gap-2 sm:gap-2.5">
             {/* Country Code Dropdown */}
@@ -249,11 +259,24 @@ export default function Step01Introduction({
               name="phone"
               autoComplete="tel"
               value={formData.phone}
-              onChange={(e) => updateFormData({ phone: e.target.value })}
+              onChange={(e) => {
+                updateFormData({ phone: e.target.value });
+                if (errors.phone)
+                setErrors((prev) => ({ ...prev, phone: undefined }));
+              }}
               placeholder="98765 43210"
-              className="flex-1 px-4 py-2.5 sm:py-3 rounded-md bg-white border border-[#E7E7E2] text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-[#111111] focus:outline-none focus:ring-2 focus:ring-black/5 transition-all shadow-xs"
+              className={`flex-1 px-4 py-2.5 sm:py-3 rounded-md bg-white border-2 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-black/5 transition-all shadow-xs ${
+                errors.phone
+                  ? "border-red-400 focus:ring-red-300"
+                  : "border-[#E7E7E2] focus:border-[#111111]/40"
+              } `}
             />
           </div>
+          {errors.phone && (
+            <p className="mt-1 text-xs text-red-500 font-medium">
+              {errors.phone}
+            </p>
+          )}
         </div>
 
         {/* COMPANY (OPTIONAL) */}
@@ -268,7 +291,7 @@ export default function Step01Introduction({
             value={formData.company}
             onChange={(e) => updateFormData({ company: e.target.value })}
             placeholder="Your company"
-            className="w-full px-4 py-2.5 sm:py-3 rounded-md bg-white border border-[#E7E7E2] text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-[#111111] focus:outline-none focus:ring-2 focus:ring-black/5 transition-all shadow-xs"
+            className="w-full px-4 py-2.5 sm:py-3 rounded-md bg-white border-2 border-[#E7E7E2] text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-[#111111]/40 focus:outline-none focus:ring-2 focus:ring-black/5 transition-all shadow-xs"
           />
         </div>
 
@@ -289,7 +312,6 @@ export default function Step01Introduction({
         </div>
         {isMobile && <Step01Graphic />}
       </form>
-      
     </>
   );
 }

@@ -175,48 +175,40 @@ export default function Step02Services({
           value={formData.otherServices}
           onChange={(e) => updateFormData({ otherServices: e.target.value })}
           placeholder="e.g. API development, integrations, third-party tools..."
-          className="w-full px-4 py-2.5 sm:py-4 rounded-md bg-white border border-[#E7E7E2] text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-[#111111] focus:outline-none focus:ring-2 focus:ring-black/5 transition-all shadow-xs"
+          className="w-full px-4 py-2.5 sm:py-4 rounded-md bg-white border-2 border-[#E7E7E2] text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-[#111111]/40 focus:outline-none focus:ring-2 focus:ring-black/5 transition-all shadow-xs"
         />
       </div>
 
       {/* Bottom Actions */}
       <div
         className="mt-8 flex
-      flex-col-reverse lg:flex-row items-center justify-between gap-4"
+        flex-col-reverse lg:flex-row items-center justify-between gap-4"
       >
-        <div className="flex items-center gap-4">
+        <div className="w-full lg:w-auto flex items-center gap-4">
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             type="button"
-            onClick={handleContinue}
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#111111] px-32 py-4 lg:px-17 lg:py-3.5 text-base lg:text-sm font-semibold text-white shadow-md hover:bg-black transition-colors cursor-pointer"
+            onClick={onNext}
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#111111] w-full py-4 lg:w-56 lg:py-3.5 text-base lg:text-sm font-semibold text-white shadow-md hover:bg-black transition-colors cursor-pointer"
           >
             <span>Continue</span>
             <ArrowRight size={15} />
           </motion.button>
-
-          <button
-            type="button"
-            onClick={onBack}
-            className="text-xs sm:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer hidden md:block"
-          >
-            Back
-          </button>
         </div>
 
-        <div className="w-full flex items-center justify-between lg:justify-end">
+        <div className="w-full flex items-center justify-between">
           <button
             type="button"
             onClick={onBack}
-            className="text-base lg:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer md:hidden"
+            className="text-base font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer"
           >
             Back
           </button>
           <button
             type="button"
             onClick={onSkip}
-            className="text-base lg:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer"
+            className="text-base font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer"
           >
             Skip
           </button>
