@@ -3,17 +3,11 @@
 import { useState, useRef, ChangeEvent, DragEvent } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
-import {
-  ArrowRight,
-  UploadCloud,
-  X,
-  FileText,
-  FileCode2,
-} from "lucide-react";
+import { ArrowRight, UploadCloud, X, FileText, FileCode2 } from "lucide-react";
 import { Step05Graphic } from "./graphics/StepGraphics";
 import { ContactFormData, UploadedFile } from "./types";
 
-export function Step05Left() {
+export function Step05Left({ isMobile }: { isMobile: boolean }) {
   return (
     <div className="flex flex-col justify-center">
       {/* Eyebrow badge */}
@@ -30,18 +24,22 @@ export function Step05Left() {
 
       {/* Subtitle */}
       <p className="mt-4 mb-4 text-xs sm:text-sm lg:text-base font-medium text-muted-foreground/80 leading-relaxed max-w-72">
-        Brand assets, wireframes, screenshots, a deck — anything that gives us a clearer picture of your idea.
+        Brand assets, wireframes, screenshots, a deck — anything that gives us a
+        clearer picture of your idea.
       </p>
 
       {/* Step Graphic */}
-      <div className="mt-2 sm:mt-3">
-        <Step05Graphic />
-      </div>
+      {!isMobile && (
+        <div className="mt-2 sm:mt-3">
+          <Step05Graphic />
+        </div>
+      )}
     </div>
   );
 }
 
 interface Step05FilesProps {
+  isMobile: boolean;
   formData: ContactFormData;
   updateFormData: (data: Partial<ContactFormData>) => void;
   onNext: () => void;
@@ -50,6 +48,7 @@ interface Step05FilesProps {
 }
 
 export default function Step05Files({
+  isMobile,
   formData,
   updateFormData,
   onNext,
@@ -109,7 +108,9 @@ export default function Step05Files({
   };
 
   const handleRemoveFile = (idToRemove: string) => {
-    const fileToRemove = (formData.files || []).find((f) => f.id === idToRemove);
+    const fileToRemove = (formData.files || []).find(
+      (f) => f.id === idToRemove,
+    );
     if (fileToRemove?.previewUrl) {
       URL.revokeObjectURL(fileToRemove.previewUrl);
     }
@@ -180,141 +181,153 @@ export default function Step05Files({
 
   return (
     <div className="space-y-3 sm:space-y-3.5 mt-18">
+      {/* Upload Section Header */}
+      <div>
+        <div className="flex items-center justify-between mb-1.5">
+          <label className="block text-[11px] font-bold uppercase tracking-wider text-foreground/80">
+            Upload Files (Optional)
+          </label>
+          <span className="text-[10px] sm:text-[11px] font-semibold text-muted-foreground/70 uppercase tracking-wider">
+            Up to 6 files, 10 MB each
+          </span>
+        </div>
 
-          {/* Upload Section Header */}
-          <div>
-            <div className="flex items-center justify-between mb-1.5">
-              <label className="block text-[11px] font-bold uppercase tracking-wider text-foreground/80">
-                Upload Files (Optional)
-              </label>
-              <span className="text-[10px] sm:text-[11px] font-semibold text-muted-foreground/70 uppercase tracking-wider">
-                Up to 6 files, 10 MB each
-              </span>
-            </div>
+        {/* Hidden native file input */}
+        <input
+          type="file"
+          ref={fileInputRef}
+          onChange={onFileInputChange}
+          multiple
+          className="hidden"
+          accept=".png,.jpg,.jpeg,.svg,.pdf,.doc,.docx,.ppt,.pptx,.fig,.zip"
+        />
 
-            {/* Hidden native file input */}
-            <input
-              type="file"
-              ref={fileInputRef}
-              onChange={onFileInputChange}
-              multiple
-              className="hidden"
-              accept=".png,.jpg,.jpeg,.svg,.pdf,.doc,.docx,.ppt,.pptx,.fig,.zip"
-            />
-
-            {/* Drag & Drop Card */}
-            <div
-              onDragOver={onDragOverHandler}
-              onDragLeave={onDragLeaveHandler}
-              onDrop={onDropHandler}
-              onClick={() => fileInputRef.current?.click()}
-              className={`border-2 border-dashed rounded-lg p-4 sm:p-5 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-200 ${
-                isDragOver
-                  ? "border-[#111111] bg-black/[0.03] scale-[1.01]"
-                  : "border-[#E7E7E2] bg-white hover:border-black/30 hover:bg-neutral-50/50"
-              }`}
-            >
-              {/* Pink upload circle */}
-              <div className="w-10 h-10 rounded-full bg-[#FFE4F2] flex items-center justify-center mb-2 text-[#E048A0]">
-                <UploadCloud className="w-5 h-5 stroke-[2]" />
-              </div>
-
-              <p className="text-xs sm:text-sm text-[#111111] font-semibold">
-                Drag &amp; drop files here, or{" "}
-                <span className="text-[#3B82F6] underline decoration-1 underline-offset-2">
-                  browse
-                </span>
-              </p>
-              <p className="mt-0.5 text-[10px] sm:text-[11px] text-muted-foreground">
-                Images, PDF, Word, PowerPoint, Figma, ZIP or other files.
-              </p>
-            </div>
-
-            {error && (
-              <p className="mt-1.5 text-xs text-red-500 font-medium">{error}</p>
-            )}
-
-            {/* Uploaded Files Chips/Grid */}
-            {formData.files && formData.files.length > 0 && (
-              <div className="mt-2.5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
-                {formData.files.map((file) => (
-                  <div
-                    key={file.id}
-                    className="relative flex items-center gap-2 p-2 rounded-2xl bg-white border border-[#E7E7E2] shadow-xs group"
-                  >
-                    {renderFileIcon(file)}
-
-                    <div className="flex-1 min-w-0 pr-4">
-                      <p className="text-xs font-bold text-[#111111] truncate">
-                        {file.name}
-                      </p>
-                      <p className="text-[10px] text-muted-foreground">
-                        {formatFileSize(file.size)}
-                      </p>
-                    </div>
-
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleRemoveFile(file.id);
-                      }}
-                      className="absolute top-2 right-2 text-muted-foreground/60 hover:text-black hover:bg-black/5 rounded-full p-1 transition-colors"
-                      aria-label={`Remove ${file.name}`}
-                    >
-                      <X size={12} />
-                    </button>
-                  </div>
-                ))}
-              </div>
-            )}
+        {/* Drag & Drop Card */}
+        <div
+          onDragOver={onDragOverHandler}
+          onDragLeave={onDragLeaveHandler}
+          onDrop={onDropHandler}
+          onClick={() => fileInputRef.current?.click()}
+          className={`border-2 border-dashed rounded-lg p-4 sm:p-5 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-200 ${
+            isDragOver
+              ? "border-[#111111] bg-black/[0.03] scale-[1.01]"
+              : "border-[#E7E7E2] bg-white hover:border-black/30 hover:bg-neutral-50/50"
+          }`}
+        >
+          {/* Pink upload circle */}
+          <div className="w-10 h-10 rounded-full bg-[#FFE4F2] flex items-center justify-center mb-2 text-[#E048A0]">
+            <UploadCloud className="w-5 h-5 stroke-[2]" />
           </div>
 
-          {/* Secondary Textarea: ANYTHING ELSE YOU'D LIKE TO SHARE? */}
-          <div>
-            <label className="block text-[11px] font-bold uppercase tracking-wider text-foreground/80 mb-1.5">
-              Anything else you&apos;d like to share? (Optional)
-            </label>
-            <textarea
-              rows={2}
-              value={formData.referenceLinks}
-              onChange={(e) => updateFormData({ referenceLinks: e.target.value })}
-              placeholder="Add links, inspiration, or any other details..."
-              className="w-full px-4 py-2 sm:py-2.5 lg:pb-10 rounded-md bg-white border border-[#E7E7E2] text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-[#111111] focus:outline-none focus:ring-2 focus:ring-black/5 transition-all shadow-xs resize-y"
-            />
-          </div>
+          <p className="text-xs sm:text-sm text-[#111111] font-semibold">
+            Drag &amp; drop files here, or{" "}
+            <span className="text-[#3B82F6] underline decoration-1 underline-offset-2">
+              browse
+            </span>
+          </p>
+          <p className="mt-0.5 text-[10px] sm:text-[11px] text-muted-foreground">
+            Images, PDF, Word, PowerPoint, Figma, ZIP or other files.
+          </p>
+        </div>
 
-          {/* Bottom Actions */}
-          <div className="pt-1 lg:mt-8 flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                type="button"
-                onClick={onNext}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#111111] px-7 py-3 lg:px-17 lg:py-4 text-sm font-semibold text-white shadow-md hover:bg-black transition-colors cursor-pointer"
+        {error && (
+          <p className="mt-1.5 text-xs text-red-500 font-medium">{error}</p>
+        )}
+
+        {/* Uploaded Files Chips/Grid */}
+        {formData.files && formData.files.length > 0 && (
+          <div className="mt-2.5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+            {formData.files.map((file) => (
+              <div
+                key={file.id}
+                className="relative flex items-center gap-2 p-2 rounded-2xl bg-white border border-[#E7E7E2] shadow-xs group"
               >
-                <span>Continue</span>
-                <ArrowRight size={15} />
-              </motion.button>
+                {renderFileIcon(file)}
 
-              <button
-                type="button"
-                onClick={onBack}
-                className="text-xs sm:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer"
-              >
-                Back
-              </button>
-            </div>
+                <div className="flex-1 min-w-0 pr-4">
+                  <p className="text-xs font-bold text-[#111111] truncate">
+                    {file.name}
+                  </p>
+                  <p className="text-[10px] text-muted-foreground">
+                    {formatFileSize(file.size)}
+                  </p>
+                </div>
 
-            <button
-              type="button"
-              onClick={onSkip}
-              className="text-xs sm:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer"
-            >
-              Skip
-            </button>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleRemoveFile(file.id);
+                  }}
+                  className="absolute top-2 right-2 text-muted-foreground/60 hover:text-black hover:bg-black/5 rounded-full p-1 transition-colors"
+                  aria-label={`Remove ${file.name}`}
+                >
+                  <X size={12} />
+                </button>
+              </div>
+            ))}
           </div>
+        )}
+      </div>
+
+      {/* Secondary Textarea: ANYTHING ELSE YOU'D LIKE TO SHARE? */}
+      <div>
+        <label className="block text-[11px] font-bold uppercase tracking-wider text-foreground/80 mb-1.5">
+          Anything else you&apos;d like to share? (Optional)
+        </label>
+        <textarea
+          rows={2}
+          value={formData.referenceLinks}
+          onChange={(e) => updateFormData({ referenceLinks: e.target.value })}
+          placeholder="Add links, inspiration, or any other details..."
+          className="w-full px-4 py-2 sm:py-2.5 lg:pb-10 rounded-md bg-white border border-[#E7E7E2] text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-[#111111] focus:outline-none focus:ring-2 focus:ring-black/5 transition-all shadow-xs resize-y"
+        />
+      </div>
+
+      {/* Bottom Actions */}
+      <div
+        className="mt-8 flex
+                flex-col-reverse lg:flex-row items-center justify-between gap-4"
+      >
+        <div className="w-full lg:w-auto flex items-center gap-4">
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            type="button"
+            onClick={onNext}
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#111111] w-full py-4 lg:w-56 lg:py-3.5 text-base lg:text-sm font-semibold text-white shadow-md hover:bg-black transition-colors cursor-pointer"
+          >
+            <span>Continue</span>
+            <ArrowRight size={15} />
+          </motion.button>
+
+          <button
+            type="button"
+            onClick={onBack}
+            className="text-xs sm:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer hidden md:block"
+          >
+            Back
+          </button>
+        </div>
+
+        <div className="w-full flex items-center justify-between lg:justify-end">
+          <button
+            type="button"
+            onClick={onBack}
+            className="text-base lg:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer md:hidden"
+          >
+            Back
+          </button>
+          <button
+            type="button"
+            onClick={onSkip}
+            className="text-base lg:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer"
+          >
+            Skip
+          </button>
+        </div>
+      </div>
+      {isMobile && <Step05Graphic />}
     </div>
   );
 }

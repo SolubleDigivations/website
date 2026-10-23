@@ -125,7 +125,7 @@ export default function Step02Services({
               key={service.id}
               type="button"
               onClick={() => toggleService(service.label)}
-              className={`relative w-[96%] h-22 rounded-md border text-left transition-all duration-200 flex items-center gap-5 group cursor-pointer ${
+              className={`relative w-full lg:w-[96%] h-22 rounded-md border text-left transition-all duration-200 flex items-center gap-5 group cursor-pointer ${
                 isSelected
                   ? "bg-[#F3F7FF] border-[#6C8CFF] shadow-xs ring-1 ring-[#6C8CFF]/30"
                   : "bg-white border-[#E7E7E2] hover:border-black/30 hover:bg-neutral-50/70"
@@ -133,7 +133,7 @@ export default function Step02Services({
             >
               {/* Icon Badge */}
               <div
-                className={`ml-5 p-3.5 rounded-full flex items-center justify-center shrink-0 transition-transform group-hover:scale-105 ${
+                className={`ml-5 p-3.5 rounded-full flex items-center justify-center shrink-0 transition-all group-hover:scale-105 ${
                   service.bgColor
                 }`}
               >
@@ -182,7 +182,7 @@ export default function Step02Services({
       {/* Bottom Actions */}
       <div
         className="mt-8 flex
-      flex-col-reverse lg:flex-row items-center justify-between gap-4 lg:gap-0"
+      flex-col-reverse lg:flex-row items-center justify-between gap-4"
       >
         <div className="flex items-center gap-4">
           <motion.button
@@ -190,7 +190,7 @@ export default function Step02Services({
             whileTap={{ scale: 0.98 }}
             type="button"
             onClick={handleContinue}
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#111111] px-38 py-4 lg:px-17 lg:py-3.5 text-base lg:text-sm font-semibold text-white shadow-md hover:bg-black transition-colors cursor-pointer"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#111111] px-32 py-4 lg:px-17 lg:py-3.5 text-base lg:text-sm font-semibold text-white shadow-md hover:bg-black transition-colors cursor-pointer"
           >
             <span>Continue</span>
             <ArrowRight size={15} />
@@ -199,24 +199,24 @@ export default function Step02Services({
           <button
             type="button"
             onClick={onBack}
-            className="text-xs sm:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer hidden md:inline"
+            className="text-xs sm:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer hidden md:block"
           >
             Back
           </button>
         </div>
 
-        <div className="w-full flex items-center justify-between">
+        <div className="w-full flex items-center justify-between lg:justify-end">
           <button
             type="button"
             onClick={onBack}
-            className="text-baselg:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer md:hidden"
+            className="text-base lg:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer md:hidden"
           >
             Back
           </button>
           <button
             type="button"
             onClick={onSkip}
-            className="text-baselg:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer"
+            className="text-base lg:text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2 cursor-pointer"
           >
             Skip
           </button>

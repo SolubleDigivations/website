@@ -315,10 +315,11 @@ export default function ContactFormContainer() {
                   >
                     {currentStep === "step1" && <Step01Left isMobile={isMobile}/>}
                     {currentStep === "step2" && <Step02Left isMobile={isMobile}/>}
-                    {currentStep === "step3" && <Step03Left />}
-                    {currentStep === "step4" && <Step04Left />}
-                    {currentStep === "step5" && <Step05Left />}
-                    {currentStep === "step6" && <Step06Left />}
+                    {currentStep === "step3" && <Step03Left
+                    isMobile={isMobile}/>}
+                    {currentStep === "step4" && <Step04Left isMobile={isMobile}/>}
+                    {currentStep === "step5" && <Step05Left isMobile={isMobile}/>}
+                    {currentStep === "step6" && <Step06Left isMobile={isMobile}/>}
                   </motion.div>
                 </AnimatePresence>
               </div>
@@ -360,6 +361,7 @@ export default function ContactFormContainer() {
                     )}
                     {currentStep === "step3" && (
                       <Step03Scope
+                        isMobile={isMobile}
                         formData={formData}
                         updateFormData={updateFormData}
                         onNext={() => goToStep("step4")}
@@ -369,6 +371,7 @@ export default function ContactFormContainer() {
                     )}
                     {currentStep === "step4" && (
                       <Step04Business
+                        isMobile={isMobile}
                         formData={formData}
                         updateFormData={updateFormData}
                         onNext={() => goToStep("step5")}
@@ -378,6 +381,7 @@ export default function ContactFormContainer() {
                     )}
                     {currentStep === "step5" && (
                       <Step05Files
+                        isMobile={isMobile}
                         formData={formData}
                         updateFormData={updateFormData}
                         onNext={() => goToStep("step6")}
@@ -387,6 +391,7 @@ export default function ContactFormContainer() {
                     )}
                     {currentStep === "step6" && (
                       <Step06Final
+                        isMobile={isMobile}
                         formData={formData}
                         updateFormData={updateFormData}
                         onSubmit={handleSubmitBrief}
