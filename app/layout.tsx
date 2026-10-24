@@ -6,6 +6,9 @@ import { cn } from "@/lib/utils";
 import SiteShell from "@/components/layout/SiteShell";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Script from "next/script";
+import JsonLd from "@/components/seo/JsonLd";
+import { generatePageMetadata, getGlobalJsonLd } from "@/lib/seo";
+import { siteSEO } from "@/lib/seo/site";
 
 const googleAnalyticsId =
   process.env.NEXT_PUBLIC_GA_ID ?? "G-LRBF36JBLJ";
@@ -31,8 +34,12 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Soluble Digivations",
-  description: "Digital Engineering for Modern Businesses.",
+  ...generatePageMetadata("home"),
+  metadataBase: new URL(siteSEO.url),
+  title: {
+    default: siteSEO.defaultTitle,
+    template: siteSEO.titleTemplate,
+  },
   verification: {
     google: "rdEcBOjJ_QwNIIXiqgxlx-AesDUEEmAD6A-XF-jwn1U",
   },
@@ -51,6 +58,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       )}
     >
       <body className="min-h-full bg-background font-sans text-foreground">
+        <JsonLd data={getGlobalJsonLd()} />
         <SiteShell>{children}</SiteShell>
 
         <GoogleAnalytics gaId={googleAnalyticsId} />

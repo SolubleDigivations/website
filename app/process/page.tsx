@@ -1,18 +1,16 @@
-import type { Metadata } from "next";
 import ProcessHero from "@/components/process/ProcessHero";
-import ProcessStepperNav from "@/components/process/ProcessStepperNav";
 import ProcessTimeline from "@/components/process/ProcessTimeline";
 import ProcessInfinitySection from "@/components/process/ProcessInfinitySection";
 import ProcessCTA from "@/components/process/ProcessCTA";
+import JsonLd from "@/components/seo/JsonLd";
+import { generatePageMetadata, getPageJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Process | Soluble Digivations",
-  description: "How we turn messy problems into digital products people actually use.",
-};
+export const metadata = generatePageMetadata("process");
 
 export default function ProcessPage() {
   return (
     <main className="min-h-screen bg-[#F8F8F5]">
+      <JsonLd data={getPageJsonLd("process")} />
       {/* 1. Hero Section */}
       <ProcessHero />
 

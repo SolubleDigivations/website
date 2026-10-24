@@ -20,13 +20,16 @@ export default function ContactFormContainer() {
   const [formData, setFormData] = useState<ContactFormData>(INITIAL_FORM_DATA);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [draftSubmissionId, setDraftSubmissionId] = useState<string | null>(null);
+  const [isSavingDraft, setIsSavingDraft] = useState(false);
+  const [draftError, setDraftError] = useState<string | null>(null);
 
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 767px)");
 
-    const handleChange = (event: any) => {
+    const handleChange = (event: MediaQueryList | MediaQueryListEvent) => {
       setIsMobile(event.matches);
     };
 
@@ -75,6 +78,45 @@ export default function ContactFormContainer() {
     };
     if (stepMap[stepNumber]) {
       goToStep(stepMap[stepNumber]);
+    }
+  };
+
+  const handleSaveDraft = async () => {
+    if (isSavingDraft) return;
+
+    setIsSavingDraft(true);
+    setDraftError(null);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          stage: "draft",
+          name: formData.name,
+          email: formData.email,
+          phoneCountryCode: formData.phoneCountryCode,
+          phone: formData.phone,
+          company: formData.company,
+        }),
+      });
+      const result = await response.json().catch(() => null);
+      if (!response.ok || !result?.success || !result.submissionId) {
+        throw new Error(
+          result?.error || "Could not save your contact details. Please try again.",
+        );
+      }
+
+      setDraftSubmissionId(result.submissionId);
+      goToStep("step2");
+    } catch (err: unknown) {
+      console.error("Draft submission failed:", err);
+      setDraftError(
+        err instanceof Error
+          ? err.message
+          : "Could not save your contact details. Please try again.",
+      );
+    } finally {
+      setIsSavingDraft(false);
     }
   };
 
@@ -145,6 +187,7 @@ export default function ContactFormContainer() {
         referenceLinks: formData.referenceLinks,
         additionalMessage: formData.additionalMessage,
         files: uploadedFiles,
+        ...(draftSubmissionId ? { submissionId: draftSubmissionId } : {}),
       };
 
       const response = await fetch("/api/contact", {
@@ -178,6 +221,9 @@ export default function ContactFormContainer() {
   // Reset form
   const handleReset = () => {
     setFormData(INITIAL_FORM_DATA);
+    setDraftSubmissionId(null);
+    setDraftError(null);
+    setSubmitError(null);
     goToStep("entry");
   };
 
@@ -346,7 +392,9 @@ export default function ContactFormContainer() {
                         isMobile={isMobile}
                         formData={formData}
                         updateFormData={updateFormData}
-                        onNext={() => goToStep("step2")}
+                        onNext={handleSaveDraft}
+                        isSaving={isSavingDraft}
+                        submitError={draftError}
                       />
                     )}
                     {currentStep === "step2" && (

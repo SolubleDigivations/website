@@ -1,6 +1,7 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 import {
+  contactDraftSchema,
   contactSubmissionSchema,
   type ContactSubmission,
   verifyUploadToken,
@@ -107,6 +108,67 @@ export async function POST(request: Request) {
 
   try {
     const raw = await request.json();
+    if (raw?.stage === "draft") {
+      const parsedDraft = contactDraftSchema.safeParse(raw);
+      if (!parsedDraft.success) {
+        return NextResponse.json({ success: false, error: "Please check your contact details." }, { status: 400 });
+      }
+
+      if (parsedDraft.data.website) {
+        return NextResponse.json({ success: true, message: "Your contact details have been received." });
+      }
+
+      const supabase = getSupabaseAdmin();
+      const since = new Date(Date.now() - RATE_LIMIT_WINDOW_MINUTES * 60 * 1000).toISOString();
+      const { count, error: rateError } = await supabase
+        .from("contact_submissions")
+        .select("id", { count: "exact", head: true })
+        .eq("email", parsedDraft.data.email)
+        .gte("created_at", since);
+      if (rateError) {
+        console.error("Contact rate-limit check failed.", rateError.message);
+      } else if ((count ?? 0) >= RATE_LIMIT_COUNT) {
+        return NextResponse.json({ success: false, error: "Please wait a few minutes before sending another brief." }, { status: 429 });
+      }
+
+      const { data, error } = await supabase
+        .from("contact_submissions")
+        .insert({
+          name: parsedDraft.data.name,
+          email: parsedDraft.data.email,
+          phone_country_code: parsedDraft.data.phoneCountryCode,
+          phone: parsedDraft.data.phone,
+          company: parsedDraft.data.company,
+          services: [],
+          other_services: "",
+          budget: "",
+          timeline: "",
+          primary_goal: "",
+          special_requirements: "",
+          primary_users: "",
+          industry: "",
+          business_description: "",
+          project_objectives: [],
+          files: [],
+          reference_links: "",
+          additional_message: "",
+          status: "draft",
+        })
+        .select("id")
+        .single();
+
+      if (error || !data) {
+        console.error("Contact draft persistence failed.", error?.message ?? "Missing inserted row.");
+        return NextResponse.json({ success: false, error: "We could not save your contact details. Please try again." }, { status: 503 });
+      }
+
+      return NextResponse.json({
+        success: true,
+        message: "Your contact details have been received.",
+        submissionId: data.id,
+      });
+    }
+
     const parsed = contactSubmissionSchema.safeParse(raw);
     if (!parsed.success) {
       return NextResponse.json({ success: false, error: "Please check the submitted form fields." }, { status: 400 });
@@ -126,15 +188,17 @@ export async function POST(request: Request) {
 
     const supabase = getSupabaseAdmin();
     const since = new Date(Date.now() - RATE_LIMIT_WINDOW_MINUTES * 60 * 1000).toISOString();
-    const { count, error: rateError } = await supabase
-      .from("contact_submissions")
-      .select("id", { count: "exact", head: true })
-      .eq("email", submission.email)
-      .gte("created_at", since);
-    if (rateError) {
-      console.error("Contact rate-limit check failed.", rateError.message);
-    } else if ((count ?? 0) >= RATE_LIMIT_COUNT) {
-      return NextResponse.json({ success: false, error: "Please wait a few minutes before sending another brief." }, { status: 429 });
+    if (!submission.submissionId) {
+      const { count, error: rateError } = await supabase
+        .from("contact_submissions")
+        .select("id", { count: "exact", head: true })
+        .eq("email", submission.email)
+        .gte("created_at", since);
+      if (rateError) {
+        console.error("Contact rate-limit check failed.", rateError.message);
+      } else if ((count ?? 0) >= RATE_LIMIT_COUNT) {
+        return NextResponse.json({ success: false, error: "Please wait a few minutes before sending another brief." }, { status: 429 });
+      }
     }
 
     const files = submission.files.map((file) => ({
@@ -143,29 +207,38 @@ export async function POST(request: Request) {
       type: file.type,
       path: file.path,
     }));
-    const { data, error } = await supabase
-      .from("contact_submissions")
-      .insert({
-        name: submission.name,
-        email: submission.email,
-        phone_country_code: submission.phoneCountryCode,
-        phone: submission.phone,
-        company: submission.company,
-        services: submission.services,
-        other_services: submission.otherServices,
-        budget: submission.budget,
-        timeline: submission.timeline,
-        primary_goal: submission.primaryGoal,
-        special_requirements: submission.specialRequirements,
-        primary_users: submission.primaryUsers,
-        industry: submission.industry,
-        business_description: submission.businessDescription,
-        project_objectives: submission.projectObjectives,
-        files,
-        reference_links: submission.referenceLinks,
-        additional_message: submission.additionalMessage,
-        status: "new",
-      })
+    const values = {
+      name: submission.name,
+      email: submission.email,
+      phone_country_code: submission.phoneCountryCode,
+      phone: submission.phone,
+      company: submission.company,
+      services: submission.services,
+      other_services: submission.otherServices,
+      budget: submission.budget,
+      timeline: submission.timeline,
+      primary_goal: submission.primaryGoal,
+      special_requirements: submission.specialRequirements,
+      primary_users: submission.primaryUsers,
+      industry: submission.industry,
+      business_description: submission.businessDescription,
+      project_objectives: submission.projectObjectives,
+      files,
+      reference_links: submission.referenceLinks,
+      additional_message: submission.additionalMessage,
+      status: "new",
+    };
+    const query = submission.submissionId
+      ? supabase
+        .from("contact_submissions")
+        .update(values)
+        .eq("id", submission.submissionId)
+        .eq("email", submission.email)
+        .eq("status", "draft")
+      : supabase
+        .from("contact_submissions")
+        .insert(values);
+    const { data, error } = await query
       .select("id, created_at")
       .single();
 

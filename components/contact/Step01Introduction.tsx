@@ -41,7 +41,9 @@ interface Step01IntroductionProps {
   isMobile: boolean;
   formData: ContactFormData;
   updateFormData: (data: Partial<ContactFormData>) => void;
-  onNext: () => void;
+  onNext: () => Promise<void>;
+  isSaving: boolean;
+  submitError?: string | null;
 }
 
 const COUNTRY_CODES = [
@@ -59,6 +61,8 @@ export default function Step01Introduction({
   formData,
   updateFormData,
   onNext,
+  isSaving,
+  submitError,
 }: Step01IntroductionProps) {
   const [errors, setErrors] = useState<{
     name?: string;
@@ -89,10 +93,10 @@ export default function Step01Introduction({
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validate()) {
-      onNext();
+      await onNext();
     }
   };
 
@@ -301,15 +305,19 @@ export default function Step01Introduction({
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             type="submit"
+            disabled={isSaving}
             className="inline-flex items-center justify-center gap-2 rounded-full bg-[#111111] px-36.5 py-4 lg:px-17 lg:py-3.5 text-base lg:text-sm font-semibold text-white shadow-md hover:bg-black transition-colors cursor-pointer"
           >
-            <span>Continue</span>
+            <span>{isSaving ? "Saving..." : "Continue"}</span>
             <ArrowRight size={15} />
           </motion.button>
           <span className="text-sm text-muted-foreground/70">
             or press Enter ↵
           </span>
         </div>
+        {submitError && (
+          <p className="text-xs text-red-500 font-medium">{submitError}</p>
+        )}
         {isMobile && <Step01Graphic />}
       </form>
     </>

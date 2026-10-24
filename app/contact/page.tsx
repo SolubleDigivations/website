@@ -1,12 +1,14 @@
-import type { Metadata } from "next";
 import ContactFormContainer from "@/components/contact/ContactFormContainer";
+import JsonLd from "@/components/seo/JsonLd";
+import { generatePageMetadata, getPageJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact Soluble — Tell Us About Your Idea",
-  description:
-    "Start a conversation with Soluble Digivations. Share your project requirements, budget, timeline, and goals for modern digital engineering.",
-};
+export const metadata = generatePageMetadata("contact");
 
 export default function ContactPage() {
-  return <ContactFormContainer />;
+  return (
+    <>
+      <JsonLd data={getPageJsonLd("contact")} />
+      <ContactFormContainer />
+    </>
+  );
 }

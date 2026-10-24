@@ -6,6 +6,13 @@ import { notFound } from "next/navigation";
 
 import FinalCTA from "@/components/common/FinalCTA";
 import { insights } from "@/lib/insights";
+import JsonLd from "@/components/seo/JsonLd";
+import {
+  generateInsightMetadata,
+  getInsightBySlug,
+  getInsightJsonLd,
+  generatePageMetadata,
+} from "@/lib/seo";
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>;
@@ -35,21 +42,18 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
   const { slug } = await params;
-  const article = insights.find((insight) => insight.slug === slug);
+  const article = getInsightBySlug(slug);
 
   if (!article) {
-    return { title: "Article not found | Soluble Digivations" };
+    return generatePageMetadata("not-found");
   }
 
-  return {
-    title: `${article.title} | Soluble Digivations`,
-    description: article.description,
-  };
+  return generateInsightMetadata(article);
 }
 
 export default async function InsightArticlePage({ params }: ArticlePageProps) {
   const { slug } = await params;
-  const article = insights.find((insight) => insight.slug === slug);
+  const article = getInsightBySlug(slug);
 
   if (!article) {
     notFound();
@@ -61,6 +65,7 @@ export default async function InsightArticlePage({ params }: ArticlePageProps) {
 
   return (
     <main className="overflow-hidden bg-background">
+      <JsonLd data={getInsightJsonLd(article)} />
       <article>
         <header className="container-soluble max-w-5xl pb-12 pt-16 md:pb-16 md:pt-24">
           <Link

@@ -37,6 +37,7 @@ const formFileSchema = z.object({
 });
 
 export const contactSubmissionSchema = z.object({
+  submissionId: z.string().uuid().optional(),
   name: z.string().trim().min(1).max(120),
   email: z.string().trim().min(1).max(254).email(),
   phoneCountryCode: cleanString(8),
@@ -60,6 +61,17 @@ export const contactSubmissionSchema = z.object({
 
 export type ContactSubmission = z.infer<typeof contactSubmissionSchema>;
 export type ContactFile = ContactSubmission["files"][number];
+
+export const contactDraftSchema = z.object({
+  name: z.string().trim().min(1).max(120),
+  email: z.string().trim().min(1).max(254).email(),
+  phoneCountryCode: cleanString(8),
+  phone: cleanString(40),
+  company: cleanString(160),
+  website: z.string().max(0).optional(),
+});
+
+export type ContactDraft = z.infer<typeof contactDraftSchema>;
 
 export const uploadRequestSchema = z.object({
   name: z.string().trim().min(1).max(180),
