@@ -89,18 +89,18 @@ export default function Step04Business({
   const renderAchievementIcon = (iconName: string) => {
     switch (iconName) {
       case "trending-up":
-        return <TrendingUp className="w-4 h-4 text-[#111111]" />;
+        return <TrendingUp className="aspect-square w-5 lg:w-4 lg:h-4 text-[#111111]" />;
       case "shopping-cart":
-        return <ShoppingCart className="w-4 h-4 text-[#111111]" />;
+        return <ShoppingCart className="aspect-square w-5 lg:w-4 lg:h-4 text-[#111111]" />;
       case "sparkles":
-        return <Sparkles className="w-4 h-4 text-[#111111]" />;
+        return <Sparkles className="aspect-square w-5 lg:w-4 lg:h-4 text-[#111111]" />;
       case "megaphone":
-        return <Megaphone className="w-4 h-4 text-[#111111]" />;
+        return <Megaphone className="aspect-square w-5 lg:w-4 lg:h-4 text-[#111111]" />;
       case "settings":
-        return <Settings className="w-4 h-4 text-[#111111]" />;
+        return <Settings className="aspect-square w-5 lg:w-4 lg:h-4 text-[#111111]" />;
       case "more-horizontal":
       default:
-        return <MoreHorizontal className="w-4 h-4 text-[#111111]" />;
+        return <MoreHorizontal className="aspect-square w-5 lg:w-4 lg:h-4 text-[#111111]" />;
     }
   };
 
@@ -284,16 +284,16 @@ export default function Step04Business({
                 }`}
               >
                 <div
-                  className={`w-10 h-10 rounded-full ${item.iconBgColor} flex items-center justify-center shrink-0`}
+                  className={`aspect-square w-12 lg:w-10 rounded-full ${item.iconBgColor} flex items-center justify-center shrink-0`}
                 >
                   {renderAchievementIcon(item.icon)}
                 </div>
-                <span className="flex-1 text-xs lg:text-[13px] font-semibold text-[#000000] p-1">
+                <span className="flex-1 text-sm lg:text-[13px] font-semibold text-[#000000] p-1">
                   {item.label}
                 </span>
 
                 <div
-                  className={`w-3.5 h-3.5 lg:w-5 lg:h-5 rounded-full bg-[#111111] text-white flex items-center justify-center shrink-0 ${isSelected ? "" : "invisible"}`}
+                  className={`w-5 h-5 lg:w-5 lg:h-5 rounded-full bg-[#111111] text-white flex items-center justify-center shrink-0 ${isSelected ? "" : "invisible"}`}
                 >
                   <Check size={12} strokeWidth={3} />
                 </div>

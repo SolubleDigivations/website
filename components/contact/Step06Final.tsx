@@ -319,6 +319,7 @@ export default function Step06Final({
           We&apos;ll get back to you after reviewing your submission.
         </p>
       </div>
+      {isMobile && <Step06Graphic />}
     </div>
   );
 }
