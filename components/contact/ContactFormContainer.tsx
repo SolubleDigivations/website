@@ -294,7 +294,7 @@ export default function ContactFormContainer() {
               exit="exit"
               className="w-full min-h-full"
             >
-              <SuccessScreen formData={formData} onReset={handleReset} />
+              <SuccessScreen isMobile={isMobile} formData={formData} onReset={handleReset} />
             </motion.div>
           )}
         </AnimatePresence>

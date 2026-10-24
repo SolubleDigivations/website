@@ -1524,15 +1524,15 @@ export function Step06Graphic() {
    ========================================================= */
 export function SuccessGraphic() {
   return (
-    <div className="relative w-full max-w-sm sm:max-w-md h-[290px] sm:h-[330px] mx-auto flex items-center justify-center select-none pointer-events-none">
+    <div className="relative w-full max-w-sm sm:max-w-md h-[290px] sm:h-[330px] mx-auto flex items-center justify-center select-none pointer-events-none mt-[50px] lg:mt-0">
       {/* Background blobs bloom out */}
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 280, damping: 20, delay: 0.1 }}
-        className="absolute top-[-40%] right-[-213%] w-28 h-36 rounded-full bg-[#FF91D4]/60 rotate-35"
+        className="absolute top-[125%] right-[-10%] lg:top-[-40%] lg:right-[-213%] w-18 h-26 lg:w-28 lg:h-36 rounded-full bg-[#FF91D4]/60 rotate-35"
       >
-        <BurstTicks className="aspect-square w-14 absolute top-10 -rotate-85 left-[-70%]" />
+        <BurstTicks className="aspect-square w-9 lg:w-14 absolute top-10 -rotate-85 left-[-70%]" />
       </motion.div>
       <motion.div
         initial={{ scale: 0 }}
@@ -1543,7 +1543,7 @@ export function SuccessGraphic() {
           damping: 20,
           delay: 0.15,
         }}
-        className="absolute bottom-[-85%] left-[-55%] w-88 h-88"
+        className="absolute bottom-[-85%] left-[-55%] w-88 h-88 hidden lg:block"
       >
         <svg viewBox="30 50 400 400" className="">
           <defs>
@@ -1684,10 +1684,10 @@ export function SuccessGraphic() {
           damping: 20,
           delay: 0.1,
         }}
-        className="relative z-20"
+        className="relative z-20 -mt-5 lg:mt-0 -ml-3 lg:ml-0"
       >
-        <div className="relative w-28 h-28 sm:w-28 sm:h-28 rounded-4xl bg-white shadow-[0_20px_40px_rgba(0,0,0,0.08)] flex items-center justify-center p-4">
-          <div className="relative w-14 h-14 sm:w-16 sm:h-16">
+        <div className="relative w-22 h-22 lg:w-28 lg:h-28 rounded-3xl lg:rounded-4xl bg-white shadow-[0_20px_40px_rgba(0,0,0,0.08)] flex items-center justify-center p-4">
+          <div className="relative w-14 h-14 lg:w-16 lg:h-16">
             <Image
               src="/assets/images/logo/logo-6.png"
               alt="Soluble Logo"
@@ -1710,7 +1710,7 @@ export function SuccessGraphic() {
           opacity: { duration: 0.1, delay: 0.3 },
           y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.7 },
         }}
-        className="absolute top-[-10%] left-20 w-22 h-22 rounded-lg bg-linear-to-bl from-[#FED8EB] to-soluble-pink shadow-md flex items-center justify-center z-10 -rotate-20"
+        className="absolute top-[-10%] left-16 lg:left-20 aspect-square w-18 lg:w-22 rounded-lg bg-linear-to-bl from-[#FED8EB] to-soluble-pink shadow-md flex items-center justify-center z-10 -rotate-20"
       >
         <Lightbulb className="w-6 h-6 sm:w-10 sm:h-10 text-[#111111]" />
       </motion.div>
@@ -1729,7 +1729,7 @@ export function SuccessGraphic() {
             delay: 0.75,
           },
         }}
-        className="absolute top-32 left-0 w-22 h-22 rounded-lg bg-linear-to-br from-background to-soluble-blue shadow-md flex items-center justify-center z-10 rotate-12"
+        className="absolute top-24 lg:top-32 left-0 aspect-square w-17 lg:w-22 rounded-lg bg-linear-to-br from-background to-soluble-blue shadow-md flex items-center justify-center z-10 rotate-12"
       >
         <Users className="w-6 h-6 sm:w-9 sm:h-9 text-[#111111]" />
       </motion.div>
@@ -1743,7 +1743,7 @@ export function SuccessGraphic() {
           opacity: { duration: 0.1, delay: 0.4 },
           y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.8 },
         }}
-        className="absolute bottom-0 left-12 w-20 h-20 rounded-lg bg-linear-to-br from-background to-soluble-peach shadow-md flex items-center justify-center z-10 -rotate-12"
+        className="absolute bottom-0 left-8 lg:left-12 aspect-square w-18 lg:w-20 rounded-lg bg-linear-to-br from-background to-soluble-peach shadow-md flex items-center justify-center z-10 -rotate-12"
       >
         <ImageIcon className="w-9 h-9 stroke-[1.5] text-[#111111]" />
       </motion.div>
@@ -1762,7 +1762,7 @@ export function SuccessGraphic() {
             delay: 0.85,
           },
         }}
-        className="absolute -bottom-10 left-46 w-22 h-22 rounded-lg bg-linear-to-br from-background to-soluble-mint shadow-md flex items-center justify-center z-10 rotate-12"
+        className="absolute -bottom-10 left-36 lg:left-46 aspect-square w-18 lg:w-22 rounded-lg bg-linear-to-br from-background to-soluble-mint shadow-md flex items-center justify-center z-10 rotate-12"
       >
         <Link2 className="w-6 h-6 sm:w-9 sm:h-9 text-[#111111]" />
       </motion.div>
@@ -1781,7 +1781,7 @@ export function SuccessGraphic() {
             delay: 0.72,
           },
         }}
-        className="absolute top-[-15%] left-60 w-20 h-20 rounded-lg bg-linear-to-br from-background to-[#7DB4F0] shadow-md flex items-center justify-center z-10 rotate-12"
+        className="absolute top-[-15%] left-56 lg:left-60 aspect-square w-18 lg:w-20 rounded-lg bg-linear-to-br from-background to-[#7DB4F0] shadow-md flex items-center justify-center z-10 rotate-12"
       >
         <FileText className="w-6 h-6 sm:w-9 sm:h-9 text-[#111111]" />
       </motion.div>
@@ -1800,7 +1800,7 @@ export function SuccessGraphic() {
             delay: 0.78,
           },
         }}
-        className="absolute top-18 right-2 w-22 h-22 rounded-lg bg-linear-to-br from-background to-soluble-yellow shadow-md flex items-center justify-center z-10"
+        className="absolute top-18 right-2 aspect-square w-18 lg:w-22 rounded-lg bg-linear-to-br from-background to-soluble-yellow shadow-md flex items-center justify-center z-10"
       >
         <TbTargetArrow className="w-6 h-6 sm:w-12 sm:h-12 stroke-[1.5] text-[#111111]" />
       </motion.div>
@@ -1819,7 +1819,7 @@ export function SuccessGraphic() {
             delay: 0.82,
           },
         }}
-        className="absolute bottom-8 right-14 w-20 h-20 rounded-lg bg-linear-to-br from-background to-soluble-purple shadow-md flex items-center justify-center z-10 -rotate-12"
+        className="absolute bottom-8 right-14 aspect-square w-18 lg:w-20 rounded-lg bg-linear-to-br from-background to-soluble-purple shadow-md flex items-center justify-center z-10 -rotate-12"
       >
         <Code2 className="w-6 h-6 sm:w-9 sm:h-9 text-[#111111]" />
       </motion.div>
@@ -1834,7 +1834,7 @@ export function SuccessGraphic() {
           damping: 20,
           delay: 0.35,
         }}
-        className="absolute top-[-20%] left-[-10%] z-20 -rotate-22"
+        className="absolute top-[-20%] left-[-10%] z-20 -rotate-22 hidden lg:block"
       >
         <span className="font-caveat text-xs sm:text-sm lg:text-lg font-bold text-[#111111] leading-tight block uppercase text-left">
           Your
@@ -1862,7 +1862,7 @@ export function SuccessGraphic() {
           damping: 20,
           delay: 0.45,
         }}
-        className="absolute -bottom-24 right-10 z-20 text-right rotate-12"
+        className="absolute hidden lg:block -bottom-24 right-10 z-20 text-right rotate-12"
       >
         <DoodleArrow
           direction="down-left"

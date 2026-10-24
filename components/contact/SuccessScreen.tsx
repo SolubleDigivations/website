@@ -17,11 +17,13 @@ import { SuccessGraphic } from "./graphics/StepGraphics";
 import { ContactFormData } from "./types";
 
 interface SuccessScreenProps {
+  isMobile: boolean;
   formData: ContactFormData;
   onReset: () => void;
 }
 
 export default function SuccessScreen({
+  isMobile,
   formData,
   onReset,
 }: SuccessScreenProps) {
@@ -30,16 +32,15 @@ export default function SuccessScreen({
     (formData.services || []).length > 0
       ? formData.services.join(", ")
       : formData.otherServices
-      ? formData.otherServices
-      : "General Digital Services";
+        ? formData.otherServices
+        : "General Digital Services";
 
   const budgetText = formData.budget || "₹50k – ₹1L";
   const timelineText = formData.timeline || "1 – 2 months";
 
-  const audienceParts = [
-    formData.primaryUsers,
-    formData.industry,
-  ].filter(Boolean);
+  const audienceParts = [formData.primaryUsers, formData.industry].filter(
+    Boolean,
+  );
 
   const audienceText =
     audienceParts.length > 0 ? audienceParts.join(", ") : "Digital Audience";
@@ -53,13 +54,13 @@ export default function SuccessScreen({
   const detailsText = formData.additionalMessage
     ? "Shared in your message"
     : formData.specialRequirements
-    ? "Special requirements provided"
-    : "Standard onboarding";
+      ? "Special requirements provided"
+      : "Standard onboarding";
 
   return (
     <div className="relative h-full flex flex-col justify-between overflow-hidden bg-[#F8F8F5]">
       {/* Header with Soluble logo and Close ✕ */}
-      <ContactHeader />
+      {!isMobile && <ContactHeader />}
 
       {/* Main Content */}
       <main className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-14 py-1 sm:py-2 flex-1 flex items-center">
@@ -70,22 +71,25 @@ export default function SuccessScreen({
           </div>
 
           {/* Right Column: Brief Received Details & Next Steps */}
-          <div className="lg:col-span-7 flex flex-col justify-center max-w-2xl w-full mx-auto lg:mx-0 space-y-3 sm:space-y-3.5">
+          <div className="lg:col-span-7 flex flex-col justify-center max-w-2xl w-full mx-auto lg:mx-0 space-y-3 sm:space-y-3.5 mt-4 lg:mt-0">
             {/* Eyebrow badge */}
             <div className="inline-flex w-fit items-center rounded-full bg-soluble-mint/40 px-3 py-0.5 lg:py-1 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-foreground/80">
               Brief received
             </div>
 
             {/* Heading */}
-            <h1 className="mt-4 text-2xl sm:text-4xl lg:text-6xl font-[1000] tracking-tighter text-[#111111] leading-13">
+            <h1 className="mt-2 lg:mt-4 text-4xl lg:text-6xl font-[1000] tracking-tighter text-[#111111] leading-8 lg:leading-13">
               Your idea is
               <br />
               with us<span className="text-soluble-orange font-outfit">.</span>
             </h1>
 
             {/* Subtitle */}
-            <p className="mt-4 mb-4 text-xs sm:text-sm lg:text-base font-medium text-muted-foreground/80 leading-relaxed max-w-72">
-              Thanks for sharing the details{formData.name ? `, ${formData.name.split(" ")[0]}` : ""}. We&apos;ve received your project brief and will get back to you soon.
+            <p className="mt-4 mb-4 text-sm lg:text-base font-medium text-muted-foreground/80 leading-relaxed max-w-72">
+              Thanks for sharing the details
+              {formData.name ? `, ${formData.name.split(" ")[0]}` : ""}.
+              We&apos;ve received your project brief and will get back to you
+              soon.
             </p>
 
             {/* Submission Overview Card (2 Columns Grid) */}
@@ -102,7 +106,9 @@ export default function SuccessScreen({
                     <Globe className="w-4.5 h-4.5 text-[#111111]" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs text-muted-foreground font-medium">Services</p>
+                    <p className="text-xs text-muted-foreground font-medium">
+                      Services
+                    </p>
                     <p className="text-sm font-bold text-[#111111] line-clamp-2">
                       {servicesText}
                     </p>
@@ -115,7 +121,9 @@ export default function SuccessScreen({
                     <Users className="w-4.5 h-4.5 text-[#111111]" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs text-muted-foreground font-medium">Audience</p>
+                    <p className="text-xs text-muted-foreground font-medium">
+                      Audience
+                    </p>
                     <p className="text-sm font-bold text-[#111111] truncate">
                       {audienceText}
                     </p>
@@ -128,7 +136,9 @@ export default function SuccessScreen({
                     <IndianRupee className="w-4.5 h-4.5 text-[#111111]" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs text-muted-foreground font-medium">Budget</p>
+                    <p className="text-xs text-muted-foreground font-medium">
+                      Budget
+                    </p>
                     <p className="text-sm font-bold text-[#111111] truncate">
                       {budgetText}
                     </p>
@@ -141,7 +151,9 @@ export default function SuccessScreen({
                     <FileText className="w-4.5 h-4.5 text-[#111111]" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs text-muted-foreground font-medium">Files</p>
+                    <p className="text-xs text-muted-foreground font-medium">
+                      Files
+                    </p>
                     <p className="text-sm font-bold text-[#111111] truncate">
                       {filesText}
                     </p>
@@ -154,7 +166,9 @@ export default function SuccessScreen({
                     <Calendar className="w-4.5 h-4.5 text-[#111111]" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs text-muted-foreground font-medium">Timeline</p>
+                    <p className="text-xs text-muted-foreground font-medium">
+                      Timeline
+                    </p>
                     <p className="text-sm font-bold text-[#111111] truncate">
                       {timelineText}
                     </p>
@@ -167,7 +181,9 @@ export default function SuccessScreen({
                     <MessageSquare className="w-4.5 h-4.5 text-[#111111]" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs text-muted-foreground font-medium">Additional details</p>
+                    <p className="text-xs text-muted-foreground font-medium">
+                      Additional details
+                    </p>
                     <p className="text-sm font-bold text-[#111111] truncate">
                       {detailsText}
                     </p>
@@ -191,7 +207,8 @@ export default function SuccessScreen({
                   What&apos;s next?
                 </h4>
                 <p className="mt-0.5 text-[11px] text-muted-foreground leading-relaxed">
-                  Our team will review your brief and get back to you, usually within a few business days.
+                  Our team will review your brief and get back to you, usually
+                  within a few business days.
                 </p>
               </div>
             </motion.div>
