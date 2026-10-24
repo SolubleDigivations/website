@@ -131,7 +131,7 @@ export function EntryHeroGraphic() {
         </span>
         <DoodleArrow
           direction="down-left"
-          className="w-14 h-14 mt-1 -rotate-90 translate-x-10"
+          className="aspect-square w-10 lg:w-14 mt-1 -rotate-90 translate-x-10"
           delay={0.45}
         />
       </motion.div>
@@ -214,7 +214,7 @@ export function EntryHeroGraphic() {
           </div>
           {/* Burst ticks */}
           <BurstTicks
-            className="absolute -bottom-8 -right-8 w-12 h-12 text-[#65DDB5] rotate-135"
+            className="absolute -bottom-5 -right-5 lg:-bottom-8 lg:-right-8 aspect-square w-8 lg:w-12 text-[#65DDB5] rotate-135"
             color="#65DDB5"
             delay={0.5}
           />
@@ -255,7 +255,7 @@ export function EntryHeroGraphic() {
         </span>
         <DoodleArrow
           direction="down-right"
-          className="w-14 h-14 mt-1 ml-auto rotate-65"
+          className="aspect-square w-10 lg:w-14 mt-1 ml-auto rotate-65"
           delay={0.55}
         />
       </motion.div>
