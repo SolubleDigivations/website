@@ -40,8 +40,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 The contact form persists submissions in Supabase and uploads attachments to the private
 `contact-attachments` Storage bucket. Configure these variables locally and in Vercel:
 
-The form saves the name, email, phone number, and company as a `draft` row when the
-visitor completes the first step. The final step updates that row to `new` and sends
+The form saves the name, email, phone number, and company as a partial `new` row when
+the visitor completes the first step. The final step updates that same row and sends
 the notification, so partial enquiries remain available even if the visitor leaves
 before completing the brief.
 

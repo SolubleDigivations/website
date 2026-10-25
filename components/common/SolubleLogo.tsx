@@ -1,23 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { MouseEventHandler } from "react";
 
 interface SolubleLogoProps {
   href?: string;
   className?: string;
-  onClick?: MouseEventHandler<HTMLAnchorElement>;
 }
 
 export default function SolubleLogo({
   href = "/",
   className = "",
-  onClick,
 }: SolubleLogoProps) {
   return (
     <Link
       href={href}
-      onClick={onClick}
-      scroll={false}
       className={`group flex items-center ${className}`}
       aria-label="Soluble Digivations home"
     >

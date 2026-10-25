@@ -152,7 +152,7 @@ export async function POST(request: Request) {
           files: [],
           reference_links: "",
           additional_message: "",
-          status: "draft",
+          status: "new",
         })
         .select("id")
         .single();
@@ -234,7 +234,7 @@ export async function POST(request: Request) {
         .update(values)
         .eq("id", submission.submissionId)
         .eq("email", submission.email)
-        .eq("status", "draft")
+        .eq("status", "new")
       : supabase
         .from("contact_submissions")
         .insert(values);

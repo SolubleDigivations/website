@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { easeIn, motion } from "motion/react";
 import MagneticButton from "../common/MagneticButton";
+import Image from "next/image";
 
 interface ServiceCardProps {
   index: number;
@@ -29,32 +30,35 @@ function ServicesSections({
   image,
 }: ServiceCardProps) {
   return (
-    <div id={id} className="h-[90vh] scroll-m-20">
-      <div className="flex flex-row justify-between">
+    <div
+      id={id}
+      className="min-h-[90vh] scroll-m-20 py-12 lg:h-[90vh] lg:min-h-0 lg:py-0 relative"
+    >
+      <div className="flex flex-col gap-10 lg:flex-row lg:justify-between lg:gap-0">
         <div className="relative z-40 flex-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
               duration: 0.4,
-              delay: 1,
+              delay: 0.4,
               ease: easeIn,
             }}
-            className="px-4 w-100 relative z-50 bg-linear-to-l from-transparent to-15% to-background"
+            className="relative z-50 w-full bg-linear-to-l from-transparent to-15% to-background px-4 sm:max-w-xl"
           >
             <div className="my-4 font-bold text-muted-foreground">
               <span className="text-soluble-blue mx-2">0{index}</span>/
-              <span className="text-muted-foreground mx-2">08</span>
+              <span className="text-muted-foreground mx-2">06</span>
             </div>
             <div className="my-4">
-              <Reveal delay={1}>
-                <h1 className="text-6xl font-black tracking-tighter">
+              <Reveal delay={0.2}>
+                <h1 className="text-5xl font-black tracking-tighter sm:text-6xl w-full lg:w-100">
                   {title}
                 </h1>
               </Reveal>
             </div>
-            <div className="mb-4">
-              <Reveal delay={1.2}>
+            <div className="mb-4 w-full lg:w-150">
+              <Reveal delay={0.4}>
                 <p className="text-xl">{subtitle}</p>
               </Reveal>
             </div>
@@ -69,7 +73,7 @@ function ServicesSections({
               }}
               transition={{
                 duration: 0.6,
-                delay: 1.4,
+                delay: 0.5,
               }}
               className="mt-6 flex flex-wrap items-center gap-3"
             >
@@ -101,17 +105,34 @@ function ServicesSections({
               </MagneticButton>
             </motion.div>
           </motion.div>
-          <div className="z-20 absolute top-0 right-5 w-[90%] text-right uppercase">
-            <h1 className="text-9xl font-extrabold text-muted">{title}</h1>
+          <div className="absolute right-5 top-0 z-20 hidden w-[90%] text-right uppercase lg:block">
+            <h1 className="text-9xl font-extrabold text-muted">
+              {title.substring(0, title.indexOf(" "))}
+            </h1>
           </div>
+          <motion.div
+            initial={{ opacity: 0, scale: 1 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, delay: 0.5, ease: easeIn }}
+            className="relative h-full"
+          >
+            <Image
+              src={image}
+              height={800}
+              width={800}
+              alt={title}
+              quality={1}
+              className="absolute bottom-18 right-5 aspect-auto w-140"
+            />
+          </motion.div>
         </div>
-        <div className="z-40">
+        <div className="z-40 lg:shrink-0">
           <div className="my-4 font-bold">
-            <Reveal delay={1}>What's Included</Reveal>
+            <Reveal delay={0.2}>What's Included</Reveal>
           </div>
           <ul className="space-y-2">
             {list.map((listItem, liIndex) => (
-              <Reveal key={liIndex} delay={1.1 + liIndex * 0.05}>
+              <Reveal key={liIndex} delay={0.2 + liIndex * 0.05}>
                 <li className="flex gap-2 items-center text-muted-foreground font-semibold">
                   <span className="border border-border size-8 text-sm rounded-full bg-white flex justify-center items-center">
                     0{liIndex + 1}

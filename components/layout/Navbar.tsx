@@ -41,15 +41,6 @@ export default function Navbar() {
   const [scrollY, setScrollY] = useState(0);
   const [showMenu, setShowMenu] = useState(false);
 
-  const handleNavLinkClick = () => {
-    const root = document.documentElement;
-    const previousScrollBehavior = root.style.scrollBehavior;
-
-    root.style.scrollBehavior = "auto";
-    window.scrollTo(0, 0);
-    root.style.scrollBehavior = previousScrollBehavior;
-  };
-
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
@@ -92,7 +83,7 @@ export default function Navbar() {
         <nav className="container-soluble flex h-18 items-center justify-between md:h-20 lg:h-18">
           {/* Logo */}
           <div>
-            <SolubleLogo onClick={handleNavLinkClick} />
+            <SolubleLogo />
           </div>
 
           {/* Desktop navigation */}
@@ -101,8 +92,6 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={handleNavLinkClick}
-                scroll={false}
                 className={`group relative text-[16px] font-semibold ${pathname == link.href ? "text-black" : "text-muted-foreground"} transition-colors duration-300 hover:text-foreground`}
               >
                 {link.label}
@@ -115,8 +104,6 @@ export default function Navbar() {
           <MagneticButton>
             <Link
               href="/contact"
-              onClick={handleNavLinkClick}
-              scroll={false}
               className="hidden items-center gap-2 rounded-full bg-foreground px-4 py-2.5 text-[16px] font-semibold text-background transition-transform duration-300 hover:scale-[1.04] md:inline-flex"
             >
               Let&apos;s talk
@@ -160,11 +147,7 @@ export default function Navbar() {
           </button>
         </nav>
       </motion.header>
-      <MobileMenu
-        showMenu={showMenu}
-        setShowMenu={setShowMenu}
-        handleNavLinkClick={handleNavLinkClick}
-      />
+      <MobileMenu showMenu={showMenu} setShowMenu={setShowMenu} />
     </section>
   );
 }
@@ -172,11 +155,9 @@ export default function Navbar() {
 function MobileMenu({
   showMenu,
   setShowMenu,
-  handleNavLinkClick,
 }: {
   showMenu: boolean;
   setShowMenu: Dispatch<SetStateAction<boolean>>;
-  handleNavLinkClick: () => void;
 }) {
   return (
     <>
@@ -245,10 +226,8 @@ function MobileMenu({
             key={link.href}
             onClick={() => {
               setShowMenu(false);
-              handleNavLinkClick();
             }}
             href={link.href}
-            scroll={false}
             className="group relative text-5xl font-[1000] text-foreground transition-colors duration-300 overflow-hidden pb-2 active:text-soluble-blue tracking-tighter"
           >
             <motion.div
@@ -270,9 +249,7 @@ function MobileMenu({
             href="/contact"
             onClick={() => {
               setShowMenu(false);
-              handleNavLinkClick();
             }}
-            scroll={false}
             className="inline-flex w-32 mx-auto items-center gap-2 rounded-full bg-foreground px-4 py-2.5 text-[16px] font-semibold text-background transition-transform duration-300 hover:scale-[1.04] justify-center mb-4"
           >
             Let&apos;s talk

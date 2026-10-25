@@ -7,7 +7,12 @@ import { Sunburst4 } from "../graphics/Sunburst4";
 export default function ServicesHeroGraphic() {
   const [entered, setEntered] = useState(false);
   return (
-    <motion.div className="relative mx-auto flex w-full max-w-[580px] items-center justify-center p-4 sm:p-6 lg:max-w-[640px] select-none">
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ type: "spring", stiffness: 280, damping: 20 }}
+      className="relative mx-auto flex w-full max-w-[580px] items-center justify-center p-4 sm:p-6 lg:max-w-[640px] select-none"
+    >
       {/* Outer container preserving aspect ratio and dynamic perspective */}
       <div className="relative aspect-[1.12/1] w-full">
         {/* ======================================================== */}
@@ -34,7 +39,7 @@ export default function ServicesHeroGraphic() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }
-              : { duration: 0.4, delay: 0.1, ease: [0.22, 1, 0.36, 1] }
+              : { type: "spring", stiffness: 360, damping: 18, delay: 0.05 }
           }
           className="absolute left-[-15%] top-[-10%] h-[15%] w-[20%] rounded-[52%_48%_60%_40%] bg-linear-to-br from-background to-55% to-soluble-mint opacity-90 blur-[0.3px]"
           style={{ transformOrigin: "center" }}
@@ -61,7 +66,7 @@ export default function ServicesHeroGraphic() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }
-              : { duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }
+              : { type: "spring", stiffness: 340, damping: 20, delay: 0.08 }
           }
           className="absolute left-[22%] top-[-4%] z-10 flex h-[22%] w-[21%] items-center justify-center rounded-[24px] bg-linear-to-br from-background to-40% to-[#9BB7FF] shadow-[0_12px_30px_rgba(108,140,255,0.25)]"
         >
@@ -117,7 +122,7 @@ export default function ServicesHeroGraphic() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }
-              : { duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }
+              : { type: "spring", stiffness: 340, damping: 20, delay: 0.16 }
           }
           className="absolute right-[17%] rotate-45 top-[-4%] h-[52%] w-[22%] rounded-[55px] bg-linear-240 from-background to-soluble-blue to-50% shadow-[0_15px_35px_rgba(43,84,232,0.22)]"
         ></motion.div>
@@ -150,7 +155,7 @@ export default function ServicesHeroGraphic() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }
-              : { duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }
+              : { type: "spring", stiffness: 340, damping: 20, delay: 0.24 }
           }
           className="absolute -right-[2%] top-[33%] h-[38%] w-[22%] rounded-[55%_45%_58%_42%] bg-linear-120 from-background to-soluble-yellow to-50% opacity-95 blur-[0.2px]"
         />
@@ -176,12 +181,11 @@ export default function ServicesHeroGraphic() {
             initial={{ pathLength: 0, opacity: 0 }}
             animate={{ pathLength: 1, opacity: 1 }}
             transition={{
-              duration: 0.6,
-              delay: 2.5,
+              duration: 0.45,
+              delay: 0.38,
               ease: [0.22, 1, 0.36, 1],
-              opacity: { duration: 0.4, delay: 2.5 },
+              opacity: { duration: 0.25, delay: 0.38 },
             }}
-            onAnimationComplete={() => setEntered(true)}
             d="M 5 45 C 30 15, 60 70, 75 42 C 85 24, 75 10, 60 20 C 50 30, 65 55, 85 45 C 95 40, 100 35, 105 38"
           />
         </motion.svg>
@@ -207,7 +211,7 @@ export default function ServicesHeroGraphic() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }
-              : { duration: 0.8, delay: 1.2, ease: [0.22, 1, 0.36, 1] }
+              : { type: "spring", stiffness: 320, damping: 20, delay: 0.3 }
           }
           className="absolute bottom-[0%] right-[0%] h-[27%] w-[25%] rounded-[52%_48%_45%_55%] bg-linear-to-tr from-[#C084FC] to-[#D8B4FE] shadow-[0_12px_28px_rgba(192,132,252,0.25)]"
         />
@@ -233,7 +237,7 @@ export default function ServicesHeroGraphic() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }
-              : { duration: 0.8, delay: 1.2, ease: [0.22, 1, 0.36, 1] }
+              : { type: "spring", stiffness: 320, damping: 20, delay: 0.3 }
           }
           className="absolute bottom-[8%] left-[-10%] h-[32%] w-[40%] rounded-[60%_40%_52%_48%] bg-linear-240 to-80% from-background to-soluble-pink opacity-90 blur-[0.3px]"
         />
@@ -247,7 +251,7 @@ export default function ServicesHeroGraphic() {
           initial={entered ? {} : { opacity: 0, scale: 0.88, y: 30 }}
           viewport={{ once: true }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ type: "spring", stiffness: 300, damping: 22, delay: 0.48 }}
           className="absolute left-[19%] top-[25%] h-[64%] w-[58%] rounded-[26px] bg-[#E2E8F0]/70 border border-white/60 shadow-[0_25px_50px_rgba(0,0,0,0.06)]"
           style={{
             transform: "rotate(-4deg) translate(8px, 8px)",
@@ -272,7 +276,7 @@ export default function ServicesHeroGraphic() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }
-              : { duration: 0.8, delay: 2, ease: [0.22, 1, 0.36, 1] }
+              : { type: "spring", stiffness: 300, damping: 22, delay: 0.56 }
           }
           className="absolute left-[14%] top-[20%] z-20 flex h-[64%] w-[59%] flex-col rounded-[26px] border border-white bg-white/95 p-3.5 shadow-[0_28px_65px_-10px_rgba(15,23,42,0.18),0_10px_25px_-5px_rgba(15,23,42,0.08)] backdrop-blur-md sm:p-4 transition-all"
           style={{
@@ -442,7 +446,7 @@ export default function ServicesHeroGraphic() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }
-              : { duration: 0.8, delay: 1.4, ease: [0.22, 1, 0.36, 1] }
+              : { type: "spring", stiffness: 350, damping: 20, delay: 0.82 }
           }
           className="absolute left-[-15%] top-[10%] -rotate-6 z-30 flex flex-col justify-center rounded-[20px] border border-white/90 bg-white/95 px-4 py-3 sm:px-5 sm:py-3.5 lg:px-10 lg:py-5 shadow-[0_16px_36px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.06)] backdrop-blur-md"
         >
@@ -475,7 +479,7 @@ export default function ServicesHeroGraphic() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }
-              : { duration: 0.8, delay: 1.2, ease: [0.22, 1, 0.36, 1] }
+              : { type: "spring", stiffness: 350, damping: 20, delay: 0.72 }
           }
           className="absolute right-[15%] top-[45%] rotate-12 z-30 flex h-[22%] w-[20%] items-center justify-center rounded-[22px] border border-white/90 bg-white shadow-[0_18px_40px_rgba(0,0,0,0.13),0_4px_12px_rgba(0,0,0,0.05)] backdrop-blur-md sm:rounded-[26px]"
         >
@@ -505,8 +509,9 @@ export default function ServicesHeroGraphic() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }
-              : { duration: 0.8, delay: 1.5, ease: [0.22, 1, 0.36, 1] }
+              : { type: "spring", stiffness: 350, damping: 20, delay: 0.92 }
           }
+          onAnimationComplete={() => setEntered(true)}
           className="absolute bottom-[5%] left-[10%] -rotate-4 z-30 flex h-[23%] w-[20%] items-center justify-center rounded-[22px] border border-white/90 bg-white shadow-[0_18px_42px_rgba(0,0,0,0.13),0_4px_12px_rgba(0,0,0,0.05)] backdrop-blur-md sm:rounded-[26px]"
         >
           {/* 3 Blue Ascending Bars */}

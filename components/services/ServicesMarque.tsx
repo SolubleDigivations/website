@@ -35,7 +35,7 @@ function ServicesMarque() {
           gap-8
           whitespace-nowrap
           font-outfit
-          text-8xl
+          text-5xl sm:text-6xl lg:text-8xl
           font-bold
           text-muted-foreground/20
         "

@@ -8,75 +8,82 @@ import {
   BarChart3,
   Megaphone,
   Search,
+  DatabaseSearchIcon,
+  SearchIcon,
 } from "lucide-react";
 import { title } from "process";
+import { BsGraphUpArrow } from "react-icons/bs";
 
 export const services = [
   {
     title: "Websites",
+    href:"/services#web-design-application",
     description:
-      "Marketing sites, corporate websites, landing pages.",
+      "Marketing & corporate websites, landing pages, SaaS products.",
     icon: Globe,
     color: "#6C8CFF",
   },
   {
-    title: "Web Applications",
-    description:
-      "Dashboards, platforms, SaaS products.",
-    icon: LayoutGrid,
-    color: "#FF91D4",
-  },
-  {
     title: "Mobile Applications",
+    href:"/services#app-development",
     description:
       "iOS, Android & cross-platform apps.",
     icon: Smartphone,
-    color: "#52D9AD",
+    color: "#FF91D4",
   },
   {
-    title: "UI/UX Design",
+    title: "Seo & Geo",
+    href:"/services#seo-geo",
     description:
-      "Modern, user-focused design experiences.",
-    icon: Palette,
-    color: "#FFD65A",
+      "Technical SEO, Local SEO, Generative Engine Optimization",
+    icon: SearchIcon,
+    color: "#52D9AD",
   },
+  // {
+  //   title: "Data & Insights",
+  //   description:
+  //     "Business Analytics, Performance Dashboards, Customer Insights & Data-Driven Strategy",
+  //   icon: DatabaseSearchIcon,
+  //   color: "#FFD65A",
+  // },
 ] as const;
 
 export const servicesPage = [
   {
     index: 1,
-    id: "web",
-    title: "Web Development",
+    id: "web-design-application",
+    title: "Web Design & Application",
     subtitle:
-      "Modern, high performance websites that look great and deliver results",
+      "Modern, high performance websites that look great and deliver results. Custom web applications tailored to your business needs.",
     list: [
       "Marketing Websites",
       "Corporate Websites",
       "Landing Pages",
       "E-commerce",
-    ],
-    icon: Globe,
-    color: "#7C98FF",
-    image: "/assets/images/services/web-development.png",
-  },
-  {
-    index: 2,
-    id: "web-apps",
-    title: "Web Application",
-    subtitle:
-      "Custom web applications tailored to your business needs.",
-    list: [
       "SaaS Platforms",
       "Dashboards",
       "Booking Systems",
       "Internal Tools",
     ],
-    icon: LayoutGrid,
-    color: "#FF91D4",
-    image: "/assets/images/services/web-application.png",
+    icon: Globe,
+    color: "#7C98FF",
+    image: "/assets/images/services/web-development.png",
   },
+  // {
+  //   index: 2,
+  //   id: "web-apps",
+  //   title: "Web Application",
+  //   subtitle:
+  //     "",
+  //   list: [
+      
+  //   ],
+  //   icon: LayoutGrid,
+  //   color: "#FF91D4",
+  //   image: "/assets/images/services/web-application.png",
+  // },
   {
-    index: 3,
+    index: 2,
     id: "app-development",
     title: "App Development",
     subtitle:
@@ -92,7 +99,7 @@ export const servicesPage = [
     image: "/assets/images/services/app-development.png",
   },
   {
-    index: 4,
+    index: 3,
     id: "seo-geo",
     title: "SEO & GEO",
     subtitle:
@@ -108,7 +115,7 @@ export const servicesPage = [
     image: "/assets/images/services/seo-geo.png",
   },
   {
-    index: 5,
+    index: 4,
     id: "ad-management",
     title: "Ad Management",
     subtitle:
@@ -124,7 +131,7 @@ export const servicesPage = [
     image: "/assets/images/services/ad-management.png",
   },
   {
-    index: 6,
+    index: 5,
     id: "data-analysis",
     title: "Data & Insights",
     subtitle:
@@ -140,7 +147,7 @@ export const servicesPage = [
     image: "/assets/images/services/data-analysis.png",
   },
   {
-    index: 7,
+    index: 6,
     id: "social-media",
     title: "Social Media Management",
     subtitle:
@@ -155,47 +162,20 @@ export const servicesPage = [
     color: "#FF91B8",
     image: "/assets/images/services/social-media.png",
   },
-  {
-    index: 8,
-    id: "maintenance-support",
-    title: "Maintenance & Support",
-    subtitle:
-      "Keep your digital products secure, reliable, up to date, and running smoothly.",
-    list: [
-      "Website Maintenance",
-      "Bug Fixes",
-      "Security & Updates",
-      "Technical Support",
-    ],
-    icon: Wrench,
-    color: "#6ED6FF",
-    image: "/assets/images/services/maintenance-support.png",
-  },
+  // {
+  //   index: 8,
+  //   id: "maintenance-support",
+  //   title: "Maintenance & Support",
+  //   subtitle:
+  //     "Keep your digital products secure, reliable, up to date, and running smoothly.",
+  //   list: [
+  //     "Website Maintenance",
+  //     "Bug Fixes",
+  //     "Security & Updates",
+  //     "Technical Support",
+  //   ],
+  //   icon: Wrench,
+  //   color: "#6ED6FF",
+  //   image: "/assets/images/services/maintenance-support.png",
+  // },
 ] as const;
-
-export const servicesTracker = [
-  {
-    id: "web",
-    number: "01",
-  },
-  {
-    id: "web-apps",
-    number: "02",
-  },
-  // {
-  //   id: "mobile",
-  //   number: "03",
-  // },
-  // {
-  //   id: "design",
-  //   number: "04",
-  // },
-  // {
-  //   id: "backend",
-  //   number: "05",
-  // },
-  // {
-  //   id: "maintenance",
-  //   number: "06",
-  // },
-];

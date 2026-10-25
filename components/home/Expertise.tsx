@@ -119,7 +119,7 @@ const expertiseData = [
 ];
 function Expertise({ left = true }: { left?: boolean }) {
   return (
-    <div className="w-full overflow-hidden px-16">
+    <div className="w-full overflow-hidden px-4 md:px-16">
       <div className="w-full overflow-hidden relative">
         <div className="absolute z-10 inset-x-0 top-8 -left-1.5 h-full w-18 bg-linear-to-r from-background to-transparent"></div>
 

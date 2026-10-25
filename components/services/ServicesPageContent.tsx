@@ -23,15 +23,18 @@ export default function ServicesPageContent() {
           </Reveal>
 
           <Reveal delay={0.08}>
-            <h2 className="relative mt-4 text-5xl font-extrabold leading-[0.95] tracking-[-0.06em] md:text-6xl">
+            <h2 className="relative mt-4 text-5xl font-extrabold leading-[0.95] tracking-[-0.06em] md:text-6xl scroll-mt-40" id="services-list">
               Our Services
-              <CurvedArrow className="absolute left-88 top-0 font-extrabold" size={100} />
+              <CurvedArrow
+                className="absolute left-68 top-0 -rotate-6 font-extrabold sm:left-64 lg:left-88"
+                size={100}
+              />
             </h2>
           </Reveal>
         </div>
       </div>
 
-      <div className="min-h-[90vh] px-20">
+      <div className="min-h-[90vh] px-4 sm:px-8 lg:px-20">
         <ServicesList />
       </div>
 
