@@ -11,9 +11,15 @@ export default function CurvedArrow({
   size = 180,
   className = "",
 }: CurvedArrowProps) {
-  const arrowTransition = {
-    duration: 0.4,
-    ease: "easeOut" as const,
+  const pathVariants = {
+    hidden: {
+      pathLength: 0,
+      opacity: 0,
+    },
+    visible: {
+      pathLength: 1,
+      opacity: 1,
+    },
   };
 
   return (
@@ -25,14 +31,25 @@ export default function CurvedArrow({
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-hidden="true"
-      initial={{ opacity: 0, rotate: -3 }}
-      whileInView={{
-        opacity: 1,
-        rotate: 0,
+      initial="hidden"
+      whileInView="visible"
+      viewport={{
+        once: true,
+        amount: 0.6,
       }}
-      transition={{
-        duration: 0.7,
-        ease: "easeOut",
+      variants={{
+        hidden: {
+          opacity: 0,
+          rotate: -3,
+        },
+        visible: {
+          opacity: 1,
+          rotate: 0,
+          transition: {
+            duration: 0.7,
+            ease: "easeOut",
+          },
+        },
       }}
     >
       {/* Main curved line */}
@@ -46,19 +63,11 @@ export default function CurvedArrow({
         strokeWidth="5.5"
         strokeLinecap="round"
         strokeLinejoin="round"
-        initial={{
-          pathLength: 0,
-          opacity: 0,
+        variants={pathVariants}
+        transition={{
+          duration: 0.65,
+          ease: "easeOut",
         }}
-        whileInView={{
-          pathLength: 1,
-          opacity: 1,
-        }}
-        viewport={{
-          once: true,
-          amount: 0.6,
-        }}
-        transition={arrowTransition}
       />
 
       {/* Left arrowhead */}
@@ -71,21 +80,11 @@ export default function CurvedArrow({
         strokeWidth="5.5"
         strokeLinecap="round"
         strokeLinejoin="round"
-        initial={{
-          pathLength: 0,
-          opacity: 0,
-        }}
-        whileInView={{
-          pathLength: 1,
-          opacity: 1,
-        }}
-        viewport={{
-          once: true,
-          amount: 0.6,
-        }}
+        variants={pathVariants}
         transition={{
-          ...arrowTransition,
-          delay: 0.05,
+          duration: 0.35,
+          ease: "easeOut",
+          delay: 0.1,
         }}
       />
 
@@ -98,21 +97,11 @@ export default function CurvedArrow({
         strokeWidth="5.5"
         strokeLinecap="round"
         strokeLinejoin="round"
-        initial={{
-          pathLength: 0,
-          opacity: 0,
-        }}
-        whileInView={{
-          pathLength: 1,
-          opacity: 1,
-        }}
-        viewport={{
-          once: true,
-          amount: 0.6,
-        }}
+        variants={pathVariants}
         transition={{
-          ...arrowTransition,
-          delay: 0.05,
+          duration: 0.35,
+          ease: "easeOut",
+          delay: 0.1,
         }}
       />
 
@@ -126,21 +115,11 @@ export default function CurvedArrow({
         strokeWidth="5.5"
         strokeLinecap="round"
         strokeLinejoin="round"
-        initial={{
-          pathLength: 0,
-          opacity: 0,
-        }}
-        whileInView={{
-          pathLength: 1,
-          opacity: 1,
-        }}
-        viewport={{
-          once: true,
-          amount: 0.6,
-        }}
+        variants={pathVariants}
         transition={{
-          ...arrowTransition,
-          delay: 0.75,
+          duration: 0.35,
+          ease: "easeOut",
+          delay: 0.7,
         }}
       />
 
@@ -153,21 +132,11 @@ export default function CurvedArrow({
         strokeWidth="5.5"
         strokeLinecap="round"
         strokeLinejoin="round"
-        initial={{
-          pathLength: 0,
-          opacity: 0,
-        }}
-        whileInView={{
-          pathLength: 1,
-          opacity: 1,
-        }}
-        viewport={{
-          once: true,
-          amount: 0.6,
-        }}
+        variants={pathVariants}
         transition={{
-          ...arrowTransition,
-          delay: 0.75,
+          duration: 0.35,
+          ease: "easeOut",
+          delay: 0.7,
         }}
       />
     </motion.svg>

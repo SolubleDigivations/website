@@ -119,21 +119,21 @@ const expertiseData = [
 ];
 function Expertise({ left = true }: { left?: boolean }) {
   return (
-    <div className="w-full overflow-hidden px-4 md:px-16">
+    <div className="w-full overflow-hidden px-4 md:px-8 lg:px-16">
       <div className="w-full overflow-hidden relative">
         <div className="absolute z-10 inset-x-0 top-8 -left-1.5 h-full w-18 bg-linear-to-r from-background to-transparent"></div>
 
         <div className="absolute z-10 top-8 -right-1.5 h-full w-18 bg-linear-to-l  from-background to-transparent"></div>
 
         <div
-          className={`flex w-max ${left ? "animate-soluble-marquee" : "animate-soluble-marquee-right"} gap-6 py-8 z-0`}
+          className={`flex w-max ${left ? "animate-soluble-marquee" : "animate-soluble-marquee-right"} gap-3 py-4 md:gap-5 md:py-6 lg:gap-6 lg:py-8 z-0`}
         >
           {[...expertiseData, ...expertiseData].map((item, index) => {
             const Icon = item.icon;
             return (
               <div
                 key={index}
-                className="rounded-3xl w-15 h-12 md:w-60 md:h-40 bg-white flex flex-col items-center justify-center group hover:shadow-xl z-0 transition-all duration-200"
+                className="rounded-3xl w-36 h-28 md:w-48 md:h-36 lg:w-60 lg:h-40 bg-white flex flex-col items-center justify-center group hover:shadow-xl z-0 transition-all duration-200"
                 style={
                   {
                     "--icon-color": item.color,
@@ -142,9 +142,9 @@ function Expertise({ left = true }: { left?: boolean }) {
               >
                 <Icon
                   size={40}
-                  className="text-(--icon-color) transition-colors duration-300"
+                  className="h-7 w-7 text-(--icon-color) transition-colors duration-300 lg:h-10 lg:w-10"
                 />
-                <h3 className="font-outfit text-foreground mt-1.5 text-base">
+                <h3 className="font-outfit text-foreground mt-1.5 text-xs md:text-sm lg:text-base">
                   {item.title}
                 </h3>
               </div>

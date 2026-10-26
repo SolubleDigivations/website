@@ -9,6 +9,7 @@ import MagneticButton from "../common/MagneticButton";
 import Image from "next/image";
 
 interface ServiceCardProps {
+  imageClassName?: string;
   index: number;
   title: string;
   subtitle: string;
@@ -20,6 +21,7 @@ interface ServiceCardProps {
 }
 
 function ServicesSections({
+  imageClassName,
   index,
   id,
   title,
@@ -113,7 +115,8 @@ function ServicesSections({
           <motion.div
             initial={{ opacity: 0, scale: 1 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, delay: 0.5, ease: easeIn }}
+            viewport={{once:false}}
+            transition={{ duration: 0.4, delay: 0.6, ease: easeIn }}
             className="relative h-full"
           >
             <Image
@@ -122,7 +125,7 @@ function ServicesSections({
               width={800}
               alt={title}
               quality={1}
-              className="absolute bottom-18 right-5 aspect-auto w-140"
+              className={imageClassName}
             />
           </motion.div>
         </div>

@@ -59,6 +59,7 @@ export default function ServicesPageContent() {
             color={service.color}
             list={service.list}
             image={service.image}
+            imageClassName={service.imageClassName}
           />
         ))}
       </div>

@@ -10,7 +10,7 @@ import ServicesHeroGraphic from "./ServicesHeroGraphic";
 
 function ServicesPageHero() {
   return (
-    <div className="container-soluble flex flex-col lg:flex-row items-center justify-between min-h-[90vh] py-12 lg:py-0 gap-12 lg:gap-8">
+    <div className="container-soluble flex flex-col lg:flex-row items-center justify-between min-h-[90vh] pb-12 md:py-12 lg:py-0 gap-12 lg:gap-8">
       <div className="w-full lg:w-1/2">
         <Reveal>
           <span className="inline-flex rounded-full border border-border bg-soluble-blue/25 px-3 py-1 my-4.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">

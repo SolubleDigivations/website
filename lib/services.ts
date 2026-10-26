@@ -68,6 +68,7 @@ export const servicesPage = [
     icon: Globe,
     color: "#7C98FF",
     image: "/assets/images/services/web-development.png",
+    imageClassName:'lg:absolute bottom-18 right-5 aspect-auto w-140'
   },
   // {
   //   index: 2,
@@ -97,6 +98,7 @@ export const servicesPage = [
     icon: Smartphone,
     color: "#8FE3CF",
     image: "/assets/images/services/app-development.png",
+    imageClassName:'lg:absolute bottom-18 right-5 aspect-auto w-140'
   },
   {
     index: 3,
@@ -113,6 +115,7 @@ export const servicesPage = [
     icon: Search,
     color: "#FFD166",
     image: "/assets/images/services/seo-geo.png",
+    imageClassName:'lg:absolute bottom-0 right-5 aspect-auto w-130'
   },
   {
     index: 4,
@@ -129,6 +132,7 @@ export const servicesPage = [
     icon: Megaphone,
     color: "#FF9F7F",
     image: "/assets/images/services/ad-management.png",
+    imageClassName:'lg:absolute bottom-18 right-5 aspect-auto w-140'
   },
   {
     index: 5,
@@ -145,6 +149,7 @@ export const servicesPage = [
     icon: BarChart3,
     color: "#A78BFA",
     image: "/assets/images/services/data-analysis.png",
+    imageClassName:'lg:absolute bottom-18 right-5 aspect-auto w-140'
   },
   {
     index: 6,
@@ -160,7 +165,8 @@ export const servicesPage = [
     ],
     icon: Share2,
     color: "#FF91B8",
-    image: "/assets/images/services/social-media.png",
+    image: "/assets/images/services/social-media-management.png",
+    imageClassName:'lg:absolute bottom-18 right-5 aspect-auto w-140'
   },
   // {
   //   index: 8,

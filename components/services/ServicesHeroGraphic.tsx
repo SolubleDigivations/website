@@ -11,7 +11,7 @@ export default function ServicesHeroGraphic() {
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ type: "spring", stiffness: 280, damping: 20 }}
-      className="relative mx-auto flex w-full max-w-[580px] items-center justify-center p-4 sm:p-6 lg:max-w-[640px] select-none"
+      className="relative mx-auto flex w-full max-w-[360px] items-center justify-center p-3 sm:max-w-[520px] sm:p-6 lg:max-w-[640px] select-none pl-8 translate-x-4 lg:translate-x-0 lg:pl-0"
     >
       {/* Outer container preserving aspect ratio and dynamic perspective */}
       <div className="relative aspect-[1.12/1] w-full">
@@ -127,7 +127,7 @@ export default function ServicesHeroGraphic() {
           className="absolute right-[17%] rotate-45 top-[-4%] h-[52%] w-[22%] rounded-[55px] bg-linear-240 from-background to-soluble-blue to-50% shadow-[0_15px_35px_rgba(43,84,232,0.22)]"
         ></motion.div>
 
-        <div className="absolute top-[28%] left-[-25%] -rotate-160">
+        <div className="absolute left-[-34%] top-[28%] lg:left-[-25%] -rotate-160 scale-50 lg:scale-100">
           <Sunburst4 className="animate-pulse" delay={3}/>
         </div>
 
@@ -252,7 +252,7 @@ export default function ServicesHeroGraphic() {
           viewport={{ once: true }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 22, delay: 0.48 }}
-          className="absolute left-[19%] top-[25%] h-[64%] w-[58%] rounded-[26px] bg-[#E2E8F0]/70 border border-white/60 shadow-[0_25px_50px_rgba(0,0,0,0.06)]"
+          className="absolute left-[19%] top-[25%] h-[64%] w-[58%]  rounded-xl lg:rounded-[26px] bg-[#E2E8F0]/70 border border-white/60 shadow-[0_25px_50px_rgba(0,0,0,0.06)]"
           style={{
             transform: "rotate(-4deg) translate(8px, 8px)",
           }}
@@ -278,34 +278,34 @@ export default function ServicesHeroGraphic() {
                 }
               : { type: "spring", stiffness: 300, damping: 22, delay: 0.56 }
           }
-          className="absolute left-[14%] top-[20%] z-20 flex h-[64%] w-[59%] flex-col rounded-[26px] border border-white bg-white/95 p-3.5 shadow-[0_28px_65px_-10px_rgba(15,23,42,0.18),0_10px_25px_-5px_rgba(15,23,42,0.08)] backdrop-blur-md sm:p-4 transition-all"
+          className="absolute left-[14%] top-[20%] z-20 flex h-[64%] w-[59%] flex-col rounded-xl lg:rounded-[20px] border border-white bg-white/95 p-2.5 shadow-[0_28px_65px_-10px_rgba(15,23,42,0.18),0_10px_25px_-5px_rgba(15,23,42,0.08)] backdrop-blur-md sm:rounded-[26px] sm:p-4 transition-all"
           style={{
             transform: "rotate(-6deg)",
           }}
         >
           {/* Top Window Bar */}
-          <div className="mb-2.5 flex items-center justify-between px-1">
+          <div className="mb-1.5 flex items-center justify-between px-1 sm:mb-2.5">
             {/* 3 macOS Traffic Light Dots */}
             <div className="flex items-center gap-1.5">
-              <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F56] shadow-sm" />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#FFBD2E] shadow-sm" />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#27C93F] shadow-sm" />
+              <span className="h-2 w-2 rounded-full bg-[#FF5F56] shadow-sm sm:h-2.5 sm:w-2.5" />
+              <span className="h-2 w-2 rounded-full bg-[#FFBD2E] shadow-sm sm:h-2.5 sm:w-2.5" />
+              <span className="h-2 w-2 rounded-full bg-[#27C93F] shadow-sm sm:h-2.5 sm:w-2.5" />
             </div>
 
             {/* Middle Window Icon Pill */}
-            <div className="flex h-5 w-6 items-center justify-center rounded-md bg-[#F1F5F9] border border-[#E2E8F0] shadow-inner">
-              <div className="h-2.5 w-2.5 rounded-[2px] bg-[#334155]" />
+            <div className="flex h-4 w-5 items-center justify-center rounded-md bg-[#F1F5F9] border border-[#E2E8F0] shadow-inner sm:h-5 sm:w-6">
+              <div className="h-2 w-2 rounded-[2px] bg-[#334155] sm:h-2.5 sm:w-2.5" />
             </div>
 
             {/* Right Search Bar Pill */}
-            <div className="flex h-5 w-24 sm:w-28 items-center gap-1.5 rounded-full bg-[#EEF2FF] px-2 border border-[#E0E7FF]">
-              <div className="h-2 w-2 rounded-full border border-[#818CF8]" />
-              <div className="h-1.5 w-8 rounded-full bg-[#C7D2FE]" />
+            <div className="flex h-4 w-20 items-center gap-1 rounded-full bg-[#EEF2FF] px-1.5 border border-[#E0E7FF] sm:h-5 sm:w-28 sm:gap-1.5 sm:px-2">
+              <div className="h-1.5 w-1.5 rounded-full border border-[#818CF8] sm:h-2 sm:w-2" />
+              <div className="h-1 w-6 rounded-full bg-[#C7D2FE] sm:h-1.5 sm:w-8" />
             </div>
           </div>
 
           {/* Dark Slate Code Editor Pane */}
-          <div className="relative flex flex-1 overflow-hidden rounded-[16px] bg-[#1E293B] shadow-inner">
+          <div className="relative flex flex-1 overflow-hidden rounded-lg lg:rounded-[16px] bg-[#1E293B] shadow-inner">
             {/* Editor Top Right subtle label */}
             <div className="absolute right-2.5 top-2 z-10 flex items-center gap-1 text-[8px] font-semibold text-slate-400 opacity-60">
               <span className="h-1.5 w-1.5 rounded-full bg-[#38BDF8]" />
@@ -313,11 +313,11 @@ export default function ServicesHeroGraphic() {
             </div>
 
             {/* Left Sidebar Rail */}
-            <div className="flex w-9 flex-col items-center justify-between border-r border-[#334155]/60 bg-[#172033] py-2.5 text-[#94A3B8]">
-              <div className="flex flex-col items-center gap-2.5">
+            <div className="flex w-6 flex-col items-center justify-between border-r border-[#334155]/60 bg-[#172033] py-2 text-[#94A3B8] sm:w-9 sm:py-2.5">
+              <div className="flex flex-col items-center gap-2 sm:gap-2.5">
                 {/* Home / Explorer */}
                 <svg
-                  className="h-3 w-3 stroke-current"
+                  className="h-2.5 w-2.5 stroke-current sm:h-3 sm:w-3"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth="2.2"
@@ -326,7 +326,7 @@ export default function ServicesHeroGraphic() {
                 </svg>
                 {/* Files */}
                 <svg
-                  className="h-3 w-3 stroke-current opacity-70"
+                  className="h-2.5 w-2.5 stroke-current opacity-70 sm:h-3 sm:w-3"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth="2.2"
@@ -336,7 +336,7 @@ export default function ServicesHeroGraphic() {
                 </svg>
                 {/* Search */}
                 <svg
-                  className="h-3 w-3 stroke-current opacity-70"
+                  className="h-2.5 w-2.5 stroke-current opacity-70 sm:h-3 sm:w-3"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth="2.2"
@@ -346,7 +346,7 @@ export default function ServicesHeroGraphic() {
                 </svg>
                 {/* Git / Branch */}
                 <svg
-                  className="h-3 w-3 stroke-current opacity-70"
+                  className="h-2.5 w-2.5 stroke-current opacity-70 sm:h-3 sm:w-3"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth="2.2"
@@ -358,7 +358,7 @@ export default function ServicesHeroGraphic() {
                 </svg>
                 {/* Database */}
                 <svg
-                  className="h-3 w-3 stroke-current opacity-70"
+                  className="h-2.5 w-2.5 stroke-current opacity-70 sm:h-3 sm:w-3"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth="2.2"
@@ -376,7 +376,7 @@ export default function ServicesHeroGraphic() {
             </div>
 
             {/* Code Canvas / Syntax Highlighting Bars */}
-            <div className="flex flex-1 flex-col justify-center gap-2 px-3 py-3">
+            <div className="flex min-w-0 flex-1 flex-col justify-center gap-1 px-1.5 py-2 sm:gap-2 sm:px-3 sm:py-3">
               {/* Line 1 */}
               <div className="flex items-center gap-1.5">
                 <div className="h-2 w-10 rounded-full bg-[#38BDF8]" />
@@ -448,7 +448,7 @@ export default function ServicesHeroGraphic() {
                 }
               : { type: "spring", stiffness: 350, damping: 20, delay: 0.82 }
           }
-          className="absolute left-[-15%] top-[10%] -rotate-6 z-30 flex flex-col justify-center rounded-[20px] border border-white/90 bg-white/95 px-4 py-3 sm:px-5 sm:py-3.5 lg:px-10 lg:py-5 shadow-[0_16px_36px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.06)] backdrop-blur-md"
+          className="absolute left-[-15%] top-[10%] -rotate-6 z-30 flex flex-col justify-center rounded-lg lg:rounded-[20px] border border-white/90 bg-white/95 px-4 py-3 sm:px-5 sm:py-3.5 lg:px-10 lg:py-5 shadow-[0_16px_36px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.06)] backdrop-blur-md"
         >
           <span className="text-xs sm:text-sm lg:text-base font-extrabold tracking-tight text-[#111111] leading-[1.15]">
             Modern
@@ -481,9 +481,9 @@ export default function ServicesHeroGraphic() {
                 }
               : { type: "spring", stiffness: 350, damping: 20, delay: 0.72 }
           }
-          className="absolute right-[15%] top-[45%] rotate-12 z-30 flex h-[22%] w-[20%] items-center justify-center rounded-[22px] border border-white/90 bg-white shadow-[0_18px_40px_rgba(0,0,0,0.13),0_4px_12px_rgba(0,0,0,0.05)] backdrop-blur-md sm:rounded-[26px]"
+          className="absolute right-[15%] top-[45%] rotate-12 z-30 flex h-[22%] w-[20%] items-center justify-center rounded-lg lg:rounded-[22px] border border-white/90 bg-white shadow-[0_18px_40px_rgba(0,0,0,0.13),0_4px_12px_rgba(0,0,0,0.05)] backdrop-blur-md sm:rounded-[26px]"
         >
-          <span className="text-black text-5xl tracking-[-0.15em] font-black">
+          <span className="text-black text-2xl tracking-[-0.15em] font-black sm:text-4xl lg:text-5xl">
             {"</>"}
           </span>
         </motion.div>
@@ -512,16 +512,16 @@ export default function ServicesHeroGraphic() {
               : { type: "spring", stiffness: 350, damping: 20, delay: 0.92 }
           }
           onAnimationComplete={() => setEntered(true)}
-          className="absolute bottom-[5%] left-[10%] -rotate-4 z-30 flex h-[23%] w-[20%] items-center justify-center rounded-[22px] border border-white/90 bg-white shadow-[0_18px_42px_rgba(0,0,0,0.13),0_4px_12px_rgba(0,0,0,0.05)] backdrop-blur-md sm:rounded-[26px]"
+          className="absolute bottom-[5%] left-[10%] -rotate-4 z-30 flex h-[23%] w-[20%] items-center justify-center rounded-lg lg:rounded-[22px] border border-white/90 bg-white shadow-[0_18px_42px_rgba(0,0,0,0.13),0_4px_12px_rgba(0,0,0,0.05)] backdrop-blur-md sm:rounded-[26px]"
         >
           {/* 3 Blue Ascending Bars */}
-          <div className="flex items-end gap-1.5 sm:gap-2">
+          <div className="flex items-end gap-1 sm:gap-2">
             {/* Bar 1 (Short) */}
-            <div className="h-4 w-2 sm:h-5 sm:w-2.5 rounded-[3px] bg-[#2563EB]" />
+            <div className="h-3 w-1.5 rounded-[3px] bg-[#2563EB] sm:h-5 sm:w-2.5" />
             {/* Bar 2 (Medium) */}
-            <div className="h-7 w-2 sm:h-9 sm:w-2.5 rounded-[3px] bg-[#2563EB]" />
+            <div className="h-5 w-1.5 rounded-[3px] bg-[#2563EB] sm:h-9 sm:w-2.5" />
             {/* Bar 3 (Tall) */}
-            <div className="h-10 w-2 sm:h-13 sm:w-2.5 rounded-[3px] bg-[#2563EB]" />
+            <div className="h-7 w-1.5 rounded-[3px] bg-[#2563EB] sm:h-13 sm:w-2.5" />
           </div>
         </motion.div>
       </div>
