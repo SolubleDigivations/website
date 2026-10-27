@@ -131,7 +131,7 @@ function ServicesSections({
         </div>
         <div className="z-40 lg:shrink-0">
           <div className="my-4 font-bold">
-            <Reveal delay={0.2}>What's Included</Reveal>
+            <Reveal delay={0.2}>What&apos;s Included</Reveal>
           </div>
           <ul className="space-y-2">
             {list.map((listItem, liIndex) => (

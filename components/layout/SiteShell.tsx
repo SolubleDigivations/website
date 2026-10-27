@@ -17,7 +17,7 @@ export default function SiteShell({
     useEffect(() => {
       const mediaQuery = window.matchMedia("(max-width: 767px)");
   
-      const handleChange = (event: any) => {
+      const handleChange = (event: MediaQueryList | MediaQueryListEvent) => {
         setIsMobile(event.matches);
       };
   

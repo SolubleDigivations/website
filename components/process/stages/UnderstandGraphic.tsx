@@ -23,7 +23,7 @@ export default function UnderstandGraphic() {
           className="absolute -top-2 left-2 z-10 w-36 rounded-lg bg-[#FAF8F2] p-3 shadow-[0_8px_20px_rgba(0,0,0,0.06)] border border-[#EBE7DC] cursor-pointer"
         >
           <p className="text-[12px] font-medium leading-snug text-[#2B2B2B] font-sans">
-            What's the real problem?
+            What&apos;s the real problem?
           </p>
         </motion.div>
 

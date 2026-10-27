@@ -86,3 +86,24 @@ values (
 on conflict (id) do update
 set public = false, file_size_limit = 10485760;
 ```
+
+### Newsletter subscription configuration
+
+The Insights newsletter form saves subscribers through `/api/newsletter`, using the
+server-only `SUPABASE_SECRET_KEY`. Run this once in the Supabase SQL editor:
+
+```sql
+create table if not exists public.newsletter_subscribers (
+  id uuid primary key default gen_random_uuid(),
+  email text not null unique,
+  subscribed_at timestamptz not null default timezone('utc', now()),
+  source text not null default 'insights',
+  status text not null default 'active'
+);
+
+alter table public.newsletter_subscribers enable row level security;
+```
+
+Do not add public insert, update, delete, or select policies for this table. The
+server uses `SUPABASE_SECRET_KEY`, and duplicate email submissions return a
+friendly already-subscribed response.

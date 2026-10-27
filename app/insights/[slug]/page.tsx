@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, Clock3 } from "lucide-react";
 import { notFound } from "next/navigation";
 
 import FinalCTA from "@/components/common/FinalCTA";
-import { insights } from "@/lib/insights";
+import { insights, type InsightBlock } from "@/lib/insights";
 import JsonLd from "@/components/seo/JsonLd";
 import {
   generateInsightMetadata,
@@ -18,23 +18,61 @@ interface ArticlePageProps {
   params: Promise<{ slug: string }>;
 }
 
-const articleSections = [
-  {
-    eyebrow: "The starting point",
-    title: "Good digital work starts with a better question.",
-    body: "Before choosing a direction, we make space to understand the people, context and business problem behind the brief. That clarity gives every design and technical decision a useful job to do.",
-  },
-  {
-    eyebrow: "Our approach",
-    title: "Small, focused decisions create momentum.",
-    body: "We work in short loops: explore the problem, make something tangible, test the thinking and improve it. This keeps the work grounded in evidence while leaving enough room for unexpected, better ideas.",
-  },
-  {
-    eyebrow: "What we learned",
-    title: "The details are where the experience earns trust.",
-    body: "The strongest outcomes rarely come from one dramatic moment. They come from a clear hierarchy, thoughtful interactions, fast feedback and a system that remains useful long after launch.",
-  },
-];
+function ArticleBlock({ block }: { block: InsightBlock }) {
+  if (block.type === "paragraph") {
+    return <p className="text-lg leading-8 text-foreground/80">{block.text}</p>;
+  }
+
+  if (block.type === "quote") {
+    return (
+      <blockquote className="border-l-4 border-soluble-pink pl-6 text-2xl font-bold leading-tight tracking-[-0.04em] md:text-3xl">
+        “{block.text}”
+        {block.attribution && (
+          <cite className="mt-4 block text-sm font-semibold not-italic tracking-normal text-muted-foreground">
+            — {block.attribution}
+          </cite>
+        )}
+      </blockquote>
+    );
+  }
+
+  return (
+    <section id={block.id} className="scroll-mt-28">
+      <p className="text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground">
+        {block.eyebrow}
+      </p>
+      <h2 className="mt-4 text-3xl font-extrabold leading-[1.02] tracking-[-0.06em] md:text-4xl">
+        {block.title}
+      </h2>
+      {"paragraphs" in block &&
+        block.paragraphs.map((paragraph) => (
+          <p key={paragraph} className="mt-5 text-base leading-8">
+            {paragraph}
+          </p>
+        ))}
+      {"points" in block && block.points && (
+        <ul className="mt-6 space-y-3">
+          {block.points.map((point) => (
+            <li key={point} className="flex gap-3 text-base leading-7">
+              <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-soluble-mint" />
+              <span>{point}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+      {"items" in block && (
+        <ul className="mt-6 space-y-3">
+          {block.items.map((item, index) => (
+            <li key={`${item}-${index}`} className="flex gap-3 text-base leading-7">
+              <span className="font-bold text-soluble-orange">0{index + 1}</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  );
+}
 
 export function generateStaticParams() {
   return insights.map((insight) => ({ slug: insight.slug }));
@@ -62,6 +100,9 @@ export default async function InsightArticlePage({ params }: ArticlePageProps) {
   const relatedArticles = insights
     .filter((insight) => insight.slug !== article.slug && insight.category === article.category)
     .slice(0, 2);
+  const articleSections = article.content.filter(
+    (block): block is Extract<InsightBlock, { id: string }> => "id" in block,
+  );
 
   return (
     <main className="overflow-hidden bg-background">
@@ -105,30 +146,11 @@ export default async function InsightArticlePage({ params }: ArticlePageProps) {
 
         <div className="container-soluble grid max-w-5xl gap-12 py-16 md:grid-cols-[minmax(0,1fr)_220px] md:py-24">
           <div className="max-w-2xl">
-            <p className="text-lg leading-8 text-foreground/80">
-              Building meaningful digital experiences is a practice of turning complexity into
-              clarity. Here is what this project taught us about making better decisions and
-              creating work that lasts.
-            </p>
             <div className="mt-14 space-y-14">
-              {articleSections.map((section) => (
-                <section
-                  key={section.eyebrow}
-                  id={`section-${articleSections.indexOf(section) + 1}`}
-                >
-                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground">
-                    {section.eyebrow}
-                  </p>
-                  <h2 className="mt-4 text-3xl font-extrabold leading-[1.02] tracking-[-0.06em] md:text-4xl">
-                    {section.title}
-                  </h2>
-                  <p className="mt-5 text-base leading-8">{section.body}</p>
-                </section>
+              {article.content.map((block, index) => (
+                <ArticleBlock key={"id" in block ? block.id : `${block.type}-${index}`} block={block} />
               ))}
             </div>
-            <blockquote className="my-16 border-l-4 border-soluble-pink pl-6 text-2xl font-bold leading-tight tracking-[-0.04em] md:text-3xl">
-              “The best work makes the right thing feel simple.”
-            </blockquote>
           </div>
 
           <aside className="h-fit rounded-2xl border border-border bg-white p-5 md:sticky md:top-28">
@@ -136,10 +158,10 @@ export default async function InsightArticlePage({ params }: ArticlePageProps) {
               In this article
             </p>
             <nav className="mt-5 space-y-3 text-sm font-semibold">
-              {articleSections.map((section, index) => (
+              {articleSections.map((section) => (
                 <a
-                  key={section.eyebrow}
-                  href={`#section-${index + 1}`}
+                  key={section.id}
+                  href={`#${section.id}`}
                   className="block text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {section.eyebrow}

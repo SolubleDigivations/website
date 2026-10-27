@@ -36,7 +36,7 @@ export default function ProjectsPreview() {
               <p className="text-sm leading-6 text-muted-foreground">
                 Real projects. Real impact.
                 <br />
-                Here are some of the products we've built.
+                Here are some of the products we&apos;ve built.
               </p>
 
               <Link

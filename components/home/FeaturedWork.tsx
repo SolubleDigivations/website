@@ -66,7 +66,7 @@ function FeaturedWork() {
 
               <div className="mt-8 flex-row items-center justify-start">
               {project.tags.map((tag) => {
-                return <span className="bg-gray-100 px-3 py-2 rounded-md mr-4">{tag}</span>;
+                return <span key={tag} className="bg-gray-100 px-3 py-2 rounded-md mr-4">{tag}</span>;
               })}
               </div>
               <div className="bg-[#f4f4f2] p-4 absolute -bottom-4 -right-4 rounded-tl-4xl">

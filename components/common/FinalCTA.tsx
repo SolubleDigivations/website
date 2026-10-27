@@ -23,7 +23,7 @@ export default function FinalCTA() {
               <div>
                 <Reveal>
                   <span className="inline-flex rounded-full border border-border bg-white/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground backdrop-blur-sm">
-                    Let's work together
+                    Let&apos;s work together
                   </span>
                 </Reveal>
 
@@ -43,7 +43,7 @@ export default function FinalCTA() {
               <div className="lg:pb-1">
                 <Reveal delay={0.16}>
                   <p className="max-w-sm text-sm leading-6 text-gray-800">
-                    Let's discuss your idea and turn it into a real product.
+                    Let&apos;s discuss your idea and turn it into a real product.
                   </p>
                 </Reveal>
 

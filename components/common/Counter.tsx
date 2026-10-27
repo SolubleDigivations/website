@@ -39,7 +39,7 @@ export function Counter({ value, initialValue=0 }: CounterProps) {
   useEffect(() => {
     if (!isInView || Number.isNaN(target)) return;
 
-    const controls = animate(count, target as any, {
+    const controls = animate(count, target, {
       duration: 2,
       ease: "easeOut",
     });
