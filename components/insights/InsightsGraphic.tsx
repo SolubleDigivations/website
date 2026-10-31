@@ -36,7 +36,7 @@ const cardVariants = {
 export default function InsightsGraphic() {
   return (
     <motion.div
-      className="relative mx-auto h-100 w-full max-w-162.5 mb-20"
+      className="relative mx-auto h-100 w-full max-w-162.5 mt-10 md:mt-0 mb-20"
       aria-hidden="true"
       initial="hidden"
       animate="visible"
@@ -97,7 +97,7 @@ export default function InsightsGraphic() {
 
       <motion.div
         variants={cardVariants}
-        className="absolute right-[-2%] top-[55%] z-30 w-[28%] rotate-[-7deg] rounded-2xl border border-white/80 bg-white/90 p-4 shadow-[0_14px_32px_rgba(55,65,81,0.13)] backdrop-blur-md md:p-5 hover:scale-105 transition-transform cursor-pointer animate-soluble-float"
+        className="absolute right-[-2%] top-[55%] z-30 w-[32%] md:w-[28%] rotate-[-7deg] rounded-lg md:rounded-2xl border border-white/80 bg-white/90 p-4 shadow-[0_14px_32px_rgba(55,65,81,0.13)] backdrop-blur-md md:p-5 hover:scale-105 transition-transform cursor-pointer animate-soluble-float"
       >
         <div className="flex h-16 items-end justify-center gap-2 md:h-24">
           {[35, 52, 70, 88, 62].map((height, index) => (
@@ -137,7 +137,7 @@ export default function InsightsGraphic() {
             key={label}
             className="flex items-center gap-2 py-1.5 text-[10px] font-semibold md:text-xs"
           >
-            <span className={`h-3 w-3 rounded-full ${color}`} />
+            <span className={`aspect-square h-3 w-3 rounded-full ${color}`} />
             {label}
           </div>
         ))}
@@ -146,7 +146,7 @@ export default function InsightsGraphic() {
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 3.9, ease }}
-        className="absolute left-[8%] top-[0%] z-40 w-20 rotate-[-7deg] font-caveat text-base font-bold uppercase leading-[1.1] md:left-[0%] md:text-xl "
+        className="absolute left-0 lg:left-[8%] top-[0%] z-40 w-20 rotate-[-7deg] font-caveat text-base font-bold uppercase leading-[1.1] md:left-[0%] md:text-xl "
       >
         Real
         <br />

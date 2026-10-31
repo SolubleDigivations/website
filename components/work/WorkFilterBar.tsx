@@ -39,7 +39,7 @@ export default function WorkFilterBar({
     <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between pb-8 pt-2 select-none">
       
       {/* Filter Category Pills */}
-      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
+      <div className="flex flex-wrap items-center gap-2 md:overflow-x-auto no-scrollbar py-1 px-1">
         {CATEGORIES.map((category) => {
           const isActive = activeCategory === category;
           return (

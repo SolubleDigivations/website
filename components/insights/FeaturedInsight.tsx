@@ -25,13 +25,13 @@ interface FeaturedArticle {
 const featuredArticles: FeaturedArticle[] = [
   {
     category: "Case Study",
-    readTime: "5 min read",
-    title: "Building Stoneza: From Idea to a Scalable E-Commerce Experience",
+    readTime: "4 min read",
+    title: "A Simple Guide to Choosing the Right Tech Stack",
     description:
-      "A behind-the-scenes look at how we designed and developed Stoneza — a modern e-commerce platform for premium stone and tiles.",
+      "Things to consider when selecting technologies for your next web or mobile application.",
     image: "/assets/featured-works/e-commerce.webp",
     alt: "Modern ecommerce website displayed on a laptop",
-    href: "/insights/building-stoneza",
+    href: "/insights/choosing-the-right-tech-stack",
   },
   {
     category: "Development",

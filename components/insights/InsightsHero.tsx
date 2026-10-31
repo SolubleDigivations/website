@@ -18,7 +18,7 @@ export default function InsightsHero() {
     <section className="relative isolate overflow-hidden">
       {/* <DecorationBlobs/> */}
 
-      <div className="container-soluble relative grid min-h-[calc(100vh-72px)] gap-4 pb-8 pt-20 md:grid-cols-[1.08fr_0.92fr] md:items-center md:gap-0 md:pb-12 md:pt-12">
+      <div className="container-soluble relative grid min-h-[calc(100vh-72px)] gap-4 pb-8 pt-5 md:grid-cols-[1.08fr_0.92fr] md:items-center md:gap-0 md:pb-12 md:pt-12">
         <div className="relative z-50 min-w-0">
           <Reveal>
             <div className="inline-flex items-center gap-2 rounded-full bg-[#f0e3ff] px-4 py-2 text-[10px] font-bold uppercase tracking-[0.08em]">
@@ -29,13 +29,13 @@ export default function InsightsHero() {
           <Reveal delay={0.08}>
             <h1 className="relative mt-7 max-w-[620px] text-[clamp(3.35rem,5.5vw,5.75rem)] font-extrabold leading-[0.97] tracking-[-0.08em]">
               <span className="whitespace-nowrap relative z-50">
-                Ideas, insights
+                Ideas, <span className="hidden md:inline">insights</span>
               </span>
               <br />
-              and
-              <span className="relative inline-block ml-5">
+              <span className="md:hidden mr-2">insights</span>and
+              <span className="relative inline-block md:ml-5">
                 <span className="relative z-50">perspectives</span>
-                <PinkHighlight />
+                <PinkHighlight className="pointer-events-none absolute -bottom-3 left-[-8%] lg:left-[28%]-rotate-2 md:-bottom-5.5 lg:-bottom-5 lg:-left-7 -z-5 w-[125%] lg:w-[115%]"/>
               </span>
               <br />
               <span className="whitespace-nowrap relative z-50">
@@ -55,7 +55,7 @@ export default function InsightsHero() {
               <MagneticButton>
                 <Link
                   href="#articles"
-                  className="inline-flex items-center gap-5 rounded-full bg-foreground px-6 py-4 text-sm font-bold text-white transition-transform hover:-translate-y-1"
+                  className="inline-flex items-center gap-5 rounded-full bg-foreground px-4 md:px-6 py-4 text-sm font-bold text-white transition-transform hover:-translate-y-1"
                 >
                   Explore insights <ArrowUpRight size={17} />
                 </Link>

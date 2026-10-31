@@ -1,10 +1,10 @@
 "use client";
 import { motion } from "motion/react";
 
-export default function PinkUnderline() {
+export default function PinkUnderline({className}:{className?:string}) {
   return (
     <svg
-      className="pointer-events-none absolute -bottom-3 left-[28%]-rotate-2 md:-bottom-5.5 lg:-bottom-7 lg:-left-7 z-0 w-[115%]"
+      className={`${className}`}
       viewBox="-180 -90 700 160"
       fill="none"
       preserveAspectRatio="none"

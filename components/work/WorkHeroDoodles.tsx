@@ -41,7 +41,7 @@ export function IdeasDesignDevelopLaunch() {
       initial={{ opacity: 0, scale: 0.85, rotate: -26 }}
       animate={{ opacity: 1, scale: 1, rotate: -24 }}
       transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-      className="absolute -left-6 -top-6 z-20 select-none sm:-left-8 sm:-top-8 lg:-left-12 lg:top-10"
+      className="absolute left-6 top-[65%] z-20 select-none sm:-left-8 sm:-top-8 lg:-left-12 lg:top-10"
     >
       <div className="flex flex-col items-start font-black tracking-[0.14em] text-[#110000] font-caveat">
         <span className="text-[13px] leading-[1.3] sm:text-[15px] lg:text-[16.5px]">IDEAS</span>
@@ -56,7 +56,7 @@ export function IdeasDesignDevelopLaunch() {
         height="100"
         viewBox="-70 -50 160 118"
         fill="none"
-        className=" text-[#111111] rotate-20 mb-20"
+        className=" text-[#111111] rotate-20 mb-20 hidden md:block"
       >
         <motion.path
           d="M -49.96 -26.682 C -44.917 -3.911 8.952 19.422 34.166 23.217"
@@ -88,8 +88,8 @@ export function IdeasDesignDevelopLaunch() {
 export function SunburstTop() {
   return (
     <motion.svg
-      width="120"
-      height="60"
+      width="110"
+      height="50"
       viewBox="0 0 46 38"
       fill="none"
       initial={{ opacity: 0,y:30, x:-5 , scale: 0.6 }}
@@ -108,8 +108,8 @@ export function SunburstTop() {
 export function SunburstBottom() {
   return (
     <motion.svg
-      width="90"
-      height="80"
+      width="80"
+      height="70"
       viewBox="-30 10 55 36"
       fill="none"
       initial={{ opacity: 0, y:-20, x:-10 }}
@@ -151,35 +151,6 @@ export function BlackCursorArrow({ className = "" }: { className?: string }) {
    5. HAND-DRAWN DOODLE ARROWS
    ========================================================================= */
 
-// Left arrow pointing right/upwards towards laptop
-export function LeftDoodleArrow() {
-  return (
-    <motion.svg
-      width="48"
-      height="32"
-      viewBox="0 0 48 32"
-      fill="none"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5, delay: 0.5 }}
-      className="text-[#111111]"
-    >
-      <path
-        d="M 44 14 C 32 18, 18 16, 6 18"
-        stroke="currentColor"
-        strokeWidth="2.8"
-        strokeLinecap="round"
-      />
-      <path
-        d="M 16 8 L 6 18 L 14 26"
-        stroke="currentColor"
-        strokeWidth="2.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </motion.svg>
-  );
-}
 
 // Right top arrow curving inwards towards phone
 export function RightTopDoodleArrow() {
@@ -211,34 +182,5 @@ export function RightTopDoodleArrow() {
   );
 }
 
-// Right bottom arrow curving around phone
-export function RightBottomDoodleArrow() {
-  return (
-    <motion.svg
-      width="44"
-      height="48"
-      viewBox="0 0 44 48"
-      fill="none"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5, delay: 0.65 }}
-      className="text-[#111111]"
-    >
-      <path
-        d="M 14 8 C 28 16, 36 32, 18 42"
-        stroke="currentColor"
-        strokeWidth="2.8"
-        strokeLinecap="round"
-      />
-      <path
-        d="M 28 40 L 18 42 L 20 32"
-        stroke="currentColor"
-        strokeWidth="2.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </motion.svg>
-  );
-}
 
 
